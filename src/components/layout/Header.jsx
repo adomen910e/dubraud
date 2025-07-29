@@ -28,6 +28,14 @@ const Header = () => {
 
   const isActive = (path) => location.pathname === path;
 
+  const handleNavClick = () => {
+    // Scroll vers le haut de la page
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <motion.header 
       className={`fixed w-full top-0 z-50 transition-all duration-700 ${
@@ -56,7 +64,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo avec animation améliorée */}
-          <Link to="/" className="flex-shrink-0 flex items-center group">
+          <Link to="/" onClick={handleNavClick} className="flex-shrink-0 flex items-center group">
             <motion.div
               className="relative"
               whileHover={{ scale: 1.05 }}
@@ -115,6 +123,7 @@ const Header = () => {
               >
                 <Link 
                   to={item.path} 
+                  onClick={handleNavClick}
                   className={`relative px-5 py-3 font-semibold text-sm tracking-wide transition-all duration-300 rounded-xl group ${
                     isActive(item.path)
                       ? 'text-brand-brown bg-white/20 backdrop-blur-sm border border-brand-brown/20 shadow-sm'
@@ -203,7 +212,10 @@ const Header = () => {
                         ? 'text-white bg-gradient-to-r from-brand-brown to-brand-gold shadow-lg'
                         : 'text-brand-brown hover:text-white hover:bg-gradient-to-r hover:from-brand-brown/90 hover:to-brand-gold/90 bg-white/80 border border-brand-brown/10'
                     }`}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      handleNavClick();
+                    }}
                   >
                     <span className="relative z-10 flex items-center justify-center font-bold">
                       {item.label}

@@ -8,14 +8,15 @@ const Contact = () => {
     email: '',
     phone: '',
     message: '',
-    service: ''
+    service: '',
+    requestType: ''
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     alert('Merci pour votre message ! Nous vous recontacterons bientôt.');
-    setFormData({ name: '', email: '', phone: '', message: '', service: '' });
+    setFormData({ name: '', email: '', phone: '', message: '', service: '', requestType: '' });
   };
 
   const handleChange = (e) => {
@@ -124,23 +125,42 @@ const Contact = () => {
                 />
               </div>
               
-              <div>
-                <label className="block text-sm font-medium mb-2 text-gray-700">
-                  Service souhaité
-                </label>
-                <select
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
-                >
-                  <option value="" className="text-gray-500">Sélectionnez un service</option>
-                  <option value="pension-retraite" className="text-gray-900">Pension Retraite</option>
-                  <option value="pension-sport" className="text-gray-900">Pension Pré Sport</option>
-                  <option value="pension-travail" className="text-gray-900">Pension Travail</option>
-                  <option value="gite" className="text-gray-900">Gîte</option>
-                  <option value="chambres" className="text-gray-900">Chambres d'Hôtes</option>
-                </select>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2 text-gray-700">
+                    Service souhaité
+                  </label>
+                  <select
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+                  >
+                    <option value="" className="text-gray-500">Sélectionnez un service</option>
+                    <option value="pension-retraite" className="text-gray-900">Pension Retraite</option>
+                    <option value="pension-sport" className="text-gray-900">Pension Pré Sport</option>
+                    <option value="pension-travail" className="text-gray-900">Pension Travail</option>
+                    {/* <option value="gite" className="text-gray-900">Gîte</option> */}
+                    {/* <option value="chambres" className="text-gray-900">Chambres d'Hôtes</option> */}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2 text-gray-700">
+                    Type de demande *
+                  </label>
+                  <select
+                    name="requestType"
+                    value={formData.requestType}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+                  >
+                    <option value="" className="text-gray-500">Que souhaitez-vous ?</option>
+                    <option value="visite" className="text-gray-900">Planifier une visite</option>
+                    <option value="devis" className="text-gray-900">Demander un devis</option>
+                    <option value="informations" className="text-gray-900">Obtenir des informations</option>
+                  </select>
+                </div>
               </div>
               
               <div>

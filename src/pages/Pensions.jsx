@@ -55,7 +55,7 @@ const PensionCard = ({ icon: Icon, title, description, price, features, image, c
       
       {/* Overlay pour les services à venir */}
       {comingSoon && (
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-50/80 to-orange-50/80 rounded-2xl pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50/80 to-slate-50/80 rounded-2xl pointer-events-none"></div>
       )}
       
       <div className="relative mb-6 z-10">
@@ -67,7 +67,7 @@ const PensionCard = ({ icon: Icon, title, description, price, features, image, c
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: delay + 0.1, type: "spring" }}
           >
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg">
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-brand-brown to-brand-light-brown text-white px-4 py-2 rounded-full shadow-lg">
               <Calendar size={16} />
               <span className="font-bold text-sm">À VENIR - {comingSoonDate}</span>
             </div>
@@ -88,7 +88,7 @@ const PensionCard = ({ icon: Icon, title, description, price, features, image, c
         </motion.div>
         
         <motion.div 
-          className={`absolute bottom-4 left-4 text-brand-brown bg-white rounded-full p-3 shadow-lg ${comingSoon ? 'bg-amber-50' : ''}`}
+          className={`absolute bottom-4 left-4 text-brand-brown bg-white rounded-full p-3 shadow-lg ${comingSoon ? 'bg-gray-50' : ''}`}
           whileHover={{ rotate: 360, scale: 1.1 }}
           transition={{ duration: 0.5 }}
         >
@@ -137,7 +137,7 @@ const PensionCard = ({ icon: Icon, title, description, price, features, image, c
             return (
               <motion.li 
                 key={index} 
-                className={`flex items-center ${isComingSoonFeature ? 'text-amber-600 font-medium' : 'text-gray-600'}`}
+                className={`flex items-center ${isComingSoonFeature ? 'text-brand-brown font-medium' : 'text-gray-600'}`}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: delay + 0.5 + index * 0.1 }}
@@ -146,7 +146,7 @@ const PensionCard = ({ icon: Icon, title, description, price, features, image, c
                   whileHover={{ scale: 1.2 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Check className={`mr-3 ${isComingSoonFeature ? 'text-amber-500' : 'text-brand-gold'}`} size={16} />
+                  <Check className={`mr-3 ${isComingSoonFeature ? 'text-brand-light-brown' : 'text-brand-gold'}`} size={16} />
                 </motion.div>
                 {feature}
               </motion.li>
@@ -167,17 +167,17 @@ const PensionCard = ({ icon: Icon, title, description, price, features, image, c
         ) : (
           <div className="w-full space-y-3">
             <motion.div 
-              className="bg-gradient-to-r from-amber-100 to-orange-100 border-2 border-amber-300 rounded-lg p-4 text-center"
+              className="bg-gradient-to-r from-gray-100 to-slate-100 border-2 border-gray-300 rounded-lg p-4 text-center"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: delay + 0.6 }}
             >
-              <div className="flex items-center justify-center space-x-2 text-amber-700">
+              <div className="flex items-center justify-center space-x-2 text-brand-brown">
                 <Calendar size={20} />
                 <span className="font-bold">Disponible en {comingSoonDate}</span>
               </div>
             </motion.div>
-            <Button href="/contact" variant="outline" className="w-full">
+            <Button href="/contact" variant="secondary" className="w-full">
               Être informé
             </Button>
           </div>
@@ -497,12 +497,12 @@ const Pensions = () => {
       </section>
 
       {/* Annonce Services à Venir - Améliorée */}
-      <section id="announcement" className="py-16 bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 border-y border-amber-200 relative overflow-hidden">
+      <section id="announcement" className="py-16 bg-gradient-to-r from-gray-50 via-slate-50 to-gray-50 border-y border-gray-200 relative overflow-hidden">
         {/* Éléments décoratifs */}
         <div className="absolute top-0 left-0 w-full h-full opacity-5">
-          <div className="absolute top-10 left-10 w-20 h-20 bg-amber-500 rounded-full"></div>
-          <div className="absolute bottom-10 right-10 w-16 h-16 bg-orange-500 rounded-full"></div>
-          <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-amber-400 rounded-full"></div>
+          <div className="absolute top-10 left-10 w-20 h-20 bg-brand-brown rounded-full"></div>
+          <div className="absolute bottom-10 right-10 w-16 h-16 bg-brand-light-brown rounded-full"></div>
+          <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-brand-gold rounded-full"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -746,25 +746,25 @@ const Pensions = () => {
       </section>
 
       {/* Call to Action Final */}
-      <section className="py-20 bg-gradient-to-r from-brand-brown to-brand-dark-brown relative overflow-hidden">
-        {/* Éléments décoratifs */}
-        {[...Array(8)].map((_, i) => (
+      <section className="py-20 bg-gradient-to-br from-slate-100 via-gray-50 to-white relative overflow-hidden">
+        {/* Éléments décoratifs subtils */}
+        {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-brand-gold/30 rounded-full"
+            className="absolute w-3 h-3 bg-brand-gold/20 rounded-full"
             style={{
-              left: `${10 + i * 12}%`,
-              top: `${20 + (i % 3) * 30}%`,
+              left: `${15 + i * 15}%`,
+              top: `${25 + (i % 2) * 40}%`,
             }}
             animate={{
-              y: [0, -20, 0],
-              opacity: [0.3, 0.8, 0.3],
-              scale: [0.5, 1, 0.5]
+              y: [0, -15, 0],
+              opacity: [0.2, 0.6, 0.2],
+              scale: [0.8, 1.2, 0.8]
             }}
             transition={{
-              duration: 3 + i * 0.3,
+              duration: 4 + i * 0.5,
               repeat: Infinity,
-              delay: i * 0.4
+              delay: i * 0.6
             }}
           />
         ))}
@@ -778,15 +778,15 @@ const Pensions = () => {
               transition={{ delay: 0.2, type: "spring" }}
             >
               <Heart className="text-brand-gold mr-3" size={32} />
-              <span className="text-brand-gold font-semibold text-lg tracking-wide">REJOIGNEZ-NOUS</span>
+              <span className="text-brand-brown font-semibold text-lg tracking-wide">REJOIGNEZ-NOUS</span>
               <Heart className="text-brand-gold ml-3" size={32} />
             </motion.div>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-serif">
+            <h2 className="text-4xl md:text-5xl font-bold text-brand-brown mb-6 font-serif">
               Offrez le Meilleur à Votre Cheval
             </h2>
             
-            <p className="text-xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
               Contactez-nous dès aujourd'hui pour découvrir nos installations et choisir la formule 
               parfaite pour votre compagnon.
             </p>
@@ -810,7 +810,7 @@ const Pensions = () => {
               
               <Button 
                 href="tel:+33123456789"
-                variant="outline" 
+                variant="secondary" 
                 size="xl"
                 className="group"
               >
