@@ -24,24 +24,24 @@ const Services = () => {
       description: "Pour les chevaux en activité avec accès complet aux installations d'entraînement.",
       features: ["Carrières disponibles", "Rond de longe", "Accompagnement professionnel"]
     },
-    {
-      icon: Building,
-      title: "Gîte Rural",
-      description: "Hébergement de charme dans une propriété authentique, idéal pour les familles.",
-      features: ["Capacité 6-8 personnes", "Cuisine équipée", "Terrasse privée"]
-    },
-    {
-      icon: Heart,
-      title: "Chambres d'Hôtes",
-      description: "Chambres confortables avec petit-déjeuner dans un cadre bucolique.",
-      features: ["3 chambres disponibles", "Petit-déjeuner inclus", "Vue sur les prairies"]
-    },
-    {
-      icon: MapPin,
-      title: "Cadre Exceptionnel",
-      description: "26 hectares de prairies vallonnées dans un environnement préservé.",
-      features: ["Prairies vallonnées", "Espaces boisés", "Abreuvoirs automatiques"]
-    }
+    // {
+    //   icon: Building,
+    //   title: "Gîte Rural",
+    //   description: "Hébergement de charme dans une propriété authentique, idéal pour les familles.",
+    //   features: ["Capacité 6-8 personnes", "Cuisine équipée", "Terrasse privée"]
+    // },
+    // {
+    //   icon: Heart,
+    //   title: "Chambres d'Hôtes",
+    //   description: "Chambres confortables avec petit-déjeuner dans un cadre bucolique.",
+    //   features: ["3 chambres disponibles", "Petit-déjeuner inclus", "Vue sur les prairies"]
+    // },
+    // {
+    //   icon: MapPin,
+    //   title: "Cadre Exceptionnel",
+    //   description: "40 hectares de prairies vallonnées dans un environnement préservé.",
+    //   features: ["Prairies vallonnées", "Espaces boisés", "Abreuvoirs automatiques"]
+    // }
   ];
 
   return (
@@ -145,8 +145,8 @@ const Services = () => {
           delay={0.8}
         >
           {[
-            { number: "26", label: "Hectares", icon: MapPin },
-            { number: "30", label: "Boxes", icon: Home },
+            { number: "40", label: "Hectares au total", icon: MapPin },
+            { number: "4", label: "Hectares par pré", icon: Home },
             { number: "2025", label: "Nouvelle activité", icon: Star },
             { number: "100%", label: "Satisfaction", icon: Heart }
           ].map((stat, index) => (

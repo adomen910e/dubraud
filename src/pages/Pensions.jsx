@@ -322,7 +322,7 @@ const Pensions = () => {
     },
     {
       image: dubraud2,
-      title: "26 Hectares de Nature",
+      title: "40 Hectares de Nature",
       subtitle: "Des prairies vallonnées dans un environnement préservé"
     },
     {
@@ -472,7 +472,7 @@ const Pensions = () => {
     {
       icon: Star,
       title: "Cadre Exceptionnel",
-      description: "26 hectares de prairies vallonnées"
+      description: "40 hectares de prairies vallonnées"
     }
   ];
 
@@ -490,7 +490,7 @@ const Pensions = () => {
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Choisissez la formule adaptée aux besoins de votre cheval dans notre domaine de 26 hectares
+              Choisissez la formule adaptée aux besoins de votre cheval dans notre domaine de 40 hectares
             </p>
           </AnimatedSection>
         </div>
@@ -630,7 +630,7 @@ const Pensions = () => {
             <div className="w-32 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Trois formules pensées pour répondre aux besoins spécifiques de votre cheval, 
-              dans un environnement exceptionnel de 26 hectares.
+              dans un environnement exceptionnel de 40 hectares.
             </p>
           </AnimatedSection>
           

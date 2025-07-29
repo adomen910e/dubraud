@@ -1,87 +1,283 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
-import { MapPin, Home, Zap, Droplets, Building, Trees, Shield, Wrench } from 'lucide-react';
+import AnimatedSection from '../components/ui/AnimatedSection';
+import Button from '../components/ui/Button';
+import { 
+  MapPin, 
+  Home, 
+  Building, 
+  Trees, 
+  Shield, 
+  Wrench, 
+  Calendar,
+  Star,
+  Heart,
+  ArrowRight,
+  Phone,
+  Mail,
+  Sparkles,
+  Award,
+  Clock,
+  CheckCircle
+} from 'lucide-react';
 import dubraud1 from '../assets/images/dubraud_1.png';
 import dubraud2 from '../assets/images/dubraud_2.png';
 import dubraud3 from '../assets/images/dubraud_3.png';
 
-const InstallationCard = ({ image, title, description, features, icon: Icon }) => (
-  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-    <div className="relative">
-      <img src={image} alt={title} className="w-full h-64 object-cover" />
-      <div className="absolute top-4 right-4 text-amber-800 bg-white rounded-full p-3 shadow-lg">
-        <Icon size={32} />
+const InstallationCard = ({ image, title, description, features, icon: Icon, available = true, comingSoon = false, comingSoonDate, delay = 0 }) => (
+  <AnimatedSection animation="fadeInUp" delay={delay} className="h-full">
+    <motion.div 
+      className={`bg-white rounded-2xl shadow-lg overflow-hidden h-full relative group cursor-pointer ${!available ? 'opacity-95' : ''}`}
+      whileHover={{ 
+        y: -8, 
+        shadow: "0 20px 40px -10px rgba(0, 0, 0, 0.15)",
+        transition: { duration: 0.3 }
+      }}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay, duration: 0.6 }}
+    >
+      {/* Effet de brillance au hover */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-gold/10 to-transparent -skew-x-12"
+        initial={{ x: '-100%' }}
+        whileHover={{ x: '200%' }}
+        transition={{ duration: 0.8 }}
+      />
+
+      {/* Overlay pour les services à venir */}
+      {comingSoon && (
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-50/80 to-orange-50/80 rounded-2xl pointer-events-none z-10"></div>
+      )}
+
+      <div className="relative">
+        {/* Date "À VENIR" au-dessus de l'image */}
+        {comingSoon && (
+          <motion.div 
+            className="absolute top-4 left-4 z-20"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: delay + 0.1, type: "spring" }}
+          >
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-3 py-2 rounded-full shadow-lg">
+              <Calendar size={16} />
+              <span className="font-bold text-sm">À VENIR - {comingSoonDate}</span>
+            </div>
+          </motion.div>
+        )}
+
+        <motion.div
+          className="relative overflow-hidden"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+        >
+          <img 
+            src={image} 
+            alt={title}
+            className={`w-full h-64 object-cover transition-all duration-500 group-hover:scale-110 ${comingSoon ? 'filter brightness-95' : ''}`}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </motion.div>
+        
+        <motion.div 
+          className={`absolute bottom-4 right-4 text-brand-brown bg-white rounded-full p-3 shadow-lg ${comingSoon ? 'bg-amber-50' : ''}`}
+          whileHover={{ rotate: 360, scale: 1.1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Icon size={28} />
+        </motion.div>
       </div>
-    </div>
-    <div className="p-6">
-      <h3 className="text-xl font-bold text-amber-800 mb-3">{title}</h3>
-      <p className="text-gray-600 mb-4">{description}</p>
-      <ul className="space-y-2">
-        {features.map((feature, index) => (
-          <li key={index} className="flex items-center text-sm text-gray-600">
-            <span className="w-2 h-2 bg-amber-800 rounded-full mr-3"></span>
-            {feature}
-          </li>
-        ))}
-      </ul>
-    </div>
-  </div>
+      
+      <div className="p-6 relative z-10">
+        <motion.h3 
+          className="text-2xl font-bold text-brand-brown mb-4 font-serif group-hover:text-brand-gold transition-colors duration-300"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: delay + 0.2 }}
+        >
+          {title}
+        </motion.h3>
+        
+        <motion.p 
+          className="text-gray-600 mb-6 leading-relaxed"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: delay + 0.3 }}
+        >
+          {description}
+        </motion.p>
+        
+        <ul className="space-y-3 mb-6">
+          {features.map((feature, index) => {
+            const isComingSoonFeature = feature.includes('À VENIR');
+            return (
+              <motion.li 
+                key={index} 
+                className={`flex items-center ${isComingSoonFeature ? 'text-amber-600 font-medium' : 'text-gray-600'}`}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: delay + 0.4 + index * 0.1 }}
+              >
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <CheckCircle className={`mr-3 ${isComingSoonFeature ? 'text-amber-500' : 'text-brand-gold'}`} size={16} />
+                </motion.div>
+                {feature}
+              </motion.li>
+            );
+          })}
+        </ul>
+
+        {!available && comingSoon && (
+          <motion.div 
+            className="bg-gradient-to-r from-amber-100 to-orange-100 border-2 border-amber-300 rounded-lg p-4 text-center"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: delay + 0.6 }}
+          >
+            <div className="flex items-center justify-center space-x-2 text-amber-700">
+              <Calendar size={20} />
+              <span className="font-bold">Disponible en {comingSoonDate}</span>
+            </div>
+          </motion.div>
+        )}
+      </div>
+    </motion.div>
+  </AnimatedSection>
+);
+
+const StatCard = ({ icon: Icon, number, label, delay = 0 }) => (
+  <AnimatedSection animation="scaleIn" delay={delay}>
+    <motion.div 
+      className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20"
+      whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.15)" }}
+      transition={{ duration: 0.3 }}
+    >
+      <motion.div
+        whileHover={{ rotate: 360 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Icon className="text-white mx-auto mb-3" size={32} />
+      </motion.div>
+      <motion.div 
+        className="text-3xl font-bold text-white mb-2"
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ delay: delay + 0.3, type: "spring" }}
+      >
+        {number}
+      </motion.div>
+      <div className="text-white/90 text-sm font-medium">{label}</div>
+    </motion.div>
+  </AnimatedSection>
 );
 
 const Installations = () => {
   const installations = [
     {
-      image: dubraud1,
-      title: "Carrières et Manège",
-      description: "Installations sportives de qualité pour l'entraînement et le dressage",
-      icon: Building,
+      image: dubraud3,
+      title: "Prairies et Paddocks",
+      description: "40 hectares de prairies vallonnées pour le bien-être de vos chevaux, actuellement disponibles",
+      icon: Trees,
       delay: 0,
+      available: true,
+      comingSoon: false,
       features: [
-        "2 carrières extérieures",
-        "1 manège couvert",
-        "Sol en sable de Loire",
-        "Éclairage LED"
+        "40 hectares de prairies naturelles",
+        "Prairies rotatives pour préservation",
+        "Paddocks individuels sécurisés",
+        "Clôtures haute sécurité",
+        "Abris naturels et artificiels",
+        "Points d'eau dans chaque parcelle"
       ]
     },
     {
       image: dubraud2, 
       title: "Écuries et Boxes",
-      description: "30 boxes modernes et spacieux pour le confort de vos chevaux",
+      description: "Boxes modernes et spacieux pour le confort optimal de vos chevaux",
       icon: Home,
-      delay: 0.3,
+      delay: 0.2,
+      available: false,
+      comingSoon: true,
+      comingSoonDate: "09/2026",
       features: [
-        "Boxes de 12m²",
-        "Ventilation optimale",
+        "30 boxes spacieux de 12m²",
+        "Ventilation optimale naturelle",
         "Distributeurs d'eau automatiques",
-        "Sols antidérapants"
+        "Sols antidérapants et drainants",
+        "Éclairage LED basse consommation",
+        "Système de surveillance 24h/24"
       ]
     },
     {
-      image: dubraud3,
-      title: "Prairies et Paddocks",
-      description: "26 hectares de prairies vallonnées pour le bien-être de vos chevaux",
-      icon: Trees,
-      delay: 0.6,
+      image: dubraud1,
+      title: "Carrières et Manège",
+      description: "Installations sportives de qualité professionnelle pour l'entraînement et le dressage",
+      icon: Building,
+      delay: 0.4,
+      available: false,
+      comingSoon: true,
+      comingSoonDate: "09/2026",
       features: [
-        "Prairies rotatives",
-        "Paddocks individuels",
-        "Clôtures sécurisées",
-        "Abris naturels"
+        "2 carrières extérieures 60x20m",
+        "1 manège couvert 40x20m",
+        "Sol en sable de Loire premium",
+        "Éclairage LED professionnel",
+        "Arrosage automatique intégré",
+        "Tribunes pour spectateurs"
       ]
     },
     {
       image: dubraud1,
       title: "Installations Annexes",
-      description: "Tous les équipements nécessaires pour un service complet",
+      description: "Tous les équipements nécessaires pour un service complet et professionnel",
       icon: Wrench,
-      delay: 0.9,
+      delay: 0.6,
+      available: false,
+      comingSoon: true,
+      comingSoonDate: "09/2026",
       features: [
-        "Sellerie commune",
-        "Douches pour chevaux",
-        "Parking visiteurs",
-        "Local matériel"
+        "Sellerie commune climatisée",
+        "Douches pour chevaux chauffées",
+        "Parking visiteurs 20 places",
+        "Local matériel sécurisé",
+        "Aire de pansage couverte",
+        "Infirmerie équipée"
       ]
+    }
+  ];
+
+  const stats = [
+    { icon: Trees, number: "40", label: "Hectares disponibles" },
+    { icon: Home, number: "30", label: "Boxes prévus" },
+    { icon: Clock, number: "24/7", label: "Surveillance" },
+    { icon: Award, number: "2026", label: "Ouverture complète" }
+  ];
+
+  const currentFeatures = [
+    {
+      icon: Trees,
+      title: "Prairies Naturelles",
+      description: "40 hectares de prairies vallonnées immédiatement disponibles"
+    },
+    {
+      icon: Shield,
+      title: "Sécurité Maximale",
+      description: "Clôtures haute sécurité et surveillance continue"
+    },
+    {
+      icon: Heart,
+      title: "Bien-être Animal",
+      description: "Environnement naturel préservé pour vos chevaux"
+    },
+    {
+      icon: Star,
+      title: "Qualité Premium",
+      description: "Standards élevés pour tous nos équipements"
     }
   ];
 
@@ -89,29 +285,286 @@ const Installations = () => {
     <div className="min-h-screen">
       <Header />
       
-      <section className="pt-32 lg:pt-40 xl:pt-44 pb-16 bg-gradient-to-br from-amber-50 to-amber-100 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <img src={dubraud2} alt="Background" className="w-full h-full object-cover" />
-        </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-amber-800 mb-6">
-            Nos Installations
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Découvrez nos équipements modernes conçus pour le bien-être et l'entraînement de vos chevaux
-          </p>
-        </div>
-      </section>
+      <div className="pt-28">
+        {/* Hero Section */}
+        <section className="pt-24 pb-12 bg-gradient-to-b from-brand-cream to-white relative overflow-hidden">
+          {/* Éléments décoratifs */}
+          <div className="absolute top-0 left-0 w-full h-full opacity-5">
+            <div className="absolute top-10 right-10 w-20 h-20 bg-brand-gold rounded-full"></div>
+            <div className="absolute bottom-10 left-10 w-16 h-16 bg-brand-brown rounded-full"></div>
+          </div>
 
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {installations.map((installation, index) => (
-              <InstallationCard key={index} {...installation} />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <AnimatedSection animation="fadeInUp" className="text-center">
+              <motion.div
+                className="flex items-center justify-center mb-6"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.2, type: "spring" }}
+              >
+                <Building className="text-brand-brown mr-3" size={32} />
+                <span className="text-brand-brown font-semibold text-lg tracking-wide">NOS INSTALLATIONS</span>
+              </motion.div>
+              
+              <h1 className="text-4xl md:text-5xl font-bold text-brand-brown mb-4 font-serif">
+                Équipements Modernes & Naturels
+              </h1>
+              <div className="w-32 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Découvrez nos installations actuelles et futures, conçues pour offrir le meilleur environnement 
+                à vos chevaux dans un cadre exceptionnel de 40 hectares.
+              </p>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* Annonce Développement */}
+        <section className="py-16 bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 border-y border-amber-200 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-full opacity-5">
+            <div className="absolute top-10 left-10 w-20 h-20 bg-amber-500 rounded-full"></div>
+            <div className="absolute bottom-10 right-10 w-16 h-16 bg-orange-500 rounded-full"></div>
+          </div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <AnimatedSection animation="fadeInUp">
+              <motion.div 
+                className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-amber-500 relative overflow-hidden"
+                whileHover={{ scale: 1.02, shadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="flex items-start space-x-6 relative z-10">
+                  <motion.div
+                    className="flex-shrink-0"
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full p-4 shadow-lg">
+                      <Calendar size={32} />
+                    </div>
+                  </motion.div>
+                  
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-brand-brown mb-3 font-serif">
+                      Projet d'Extension 2026
+                    </h3>
+                    
+                    <p className="text-gray-600 mb-6 leading-relaxed">
+                      Nous investissons massivement dans l'extension de nos installations pour vous proposer 
+                      des équipements premium dès septembre 2026. Un projet ambitieux de modernisation complète.
+                    </p>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                      {[
+                        "30 boxes modernes avec paddocks",
+                        "Manège couvert professionnel",
+                        "2 carrières extérieures équipées",
+                        "Installations annexes complètes"
+                      ].map((item, index) => (
+                        <motion.div 
+                          key={index}
+                          className="flex items-center space-x-3 p-3 bg-amber-50 rounded-lg"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.4 + index * 0.1 }}
+                          whileHover={{ scale: 1.02, backgroundColor: "#fef3c7" }}
+                        >
+                          <div className="w-3 h-3 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"></div>
+                          <span className="text-gray-700 font-medium">{item}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-4">
+                      <Button href="/contact" variant="gradient" size="md" className="group">
+                        <Mail size={18} className="mr-2" />
+                        <span>Être informé du projet</span>
+                        <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                      </Button>
+                      
+                      <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 border border-amber-300">
+                        <Calendar size={16} className="mr-2" />
+                        Ouverture : Septembre 2026
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* Statistiques */}
+        <section className="py-16 bg-gradient-to-r from-brand-brown to-brand-dark-brown relative overflow-hidden">
+          <div className="absolute inset-0 overflow-hidden">
+            {[...Array(6)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-2 h-2 bg-brand-gold/30 rounded-full"
+                style={{
+                  left: `${10 + i * 15}%`,
+                  top: `${20 + (i % 3) * 30}%`,
+                }}
+                animate={{
+                  y: [0, -20, 0],
+                  opacity: [0.3, 0.8, 0.3],
+                  scale: [0.5, 1, 0.5]
+                }}
+                transition={{
+                  duration: 3 + i * 0.3,
+                  repeat: Infinity,
+                  delay: i * 0.4
+                }}
+              />
             ))}
           </div>
-        </div>
-      </section>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <AnimatedSection animation="fadeInUp" className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-serif">
+                Le Domaine en Chiffres
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-brand-gold to-brand-beige mx-auto"></div>
+            </AnimatedSection>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {stats.map((stat, index) => (
+                <StatCard key={index} {...stat} delay={index * 0.1} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Installations Grid */}
+        <section className="py-20 bg-gradient-to-b from-white to-brand-cream/30">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AnimatedSection animation="fadeInUp" className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-brand-brown mb-4 font-serif">
+                Nos Installations Actuelles & Futures
+              </h2>
+              <div className="w-32 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Des équipements pensés pour le bien-être et la performance de vos chevaux
+              </p>
+            </AnimatedSection>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {installations.map((installation, index) => (
+                <InstallationCard key={index} {...installation} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Services Actuels */}
+        <section className="py-20 bg-brand-cream/30">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AnimatedSection animation="fadeInUp" className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-brand-brown mb-4 font-serif">
+                Disponible Dès Maintenant
+              </h2>
+              <div className="w-32 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Profitez dès aujourd'hui de nos prairies exceptionnelles
+              </p>
+            </AnimatedSection>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {currentFeatures.map((feature, index) => (
+                <AnimatedSection key={index} animation="fadeInUp" delay={index * 0.1}>
+                  <motion.div 
+                    className="text-center p-6 bg-white rounded-xl shadow-lg"
+                    whileHover={{ 
+                      y: -5, 
+                      shadow: "0 15px 30px -10px rgba(0, 0, 0, 0.15)",
+                      transition: { duration: 0.3 }
+                    }}
+                  >
+                    <motion.div
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <feature.icon className="text-brand-brown mx-auto mb-4" size={48} />
+                    </motion.div>
+                    <h3 className="font-bold text-brand-brown mb-2 font-serif">{feature.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                  </motion.div>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Call to Action */}
+        <section className="py-20 bg-gradient-to-r from-brand-brown to-brand-dark-brown relative overflow-hidden">
+          {[...Array(8)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-brand-gold/30 rounded-full"
+              style={{
+                left: `${10 + i * 12}%`,
+                top: `${20 + (i % 3) * 30}%`,
+              }}
+              animate={{
+                y: [0, -20, 0],
+                opacity: [0.3, 0.8, 0.3],
+                scale: [0.5, 1, 0.5]
+              }}
+              transition={{
+                duration: 3 + i * 0.3,
+                repeat: Infinity,
+                delay: i * 0.4
+              }}
+            />
+          ))}
+
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <AnimatedSection animation="fadeInUp">
+              <motion.div
+                className="flex items-center justify-center mb-6"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.2, type: "spring" }}
+              >
+                <Sparkles className="text-brand-gold mr-3" size={32} />
+                <span className="text-brand-gold font-semibold text-lg tracking-wide">VISITEZ-NOUS</span>
+                <Sparkles className="text-brand-gold ml-3" size={32} />
+              </motion.div>
+
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-serif">
+                Découvrez Nos Installations
+              </h2>
+              
+              <p className="text-xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
+                Venez visiter notre domaine et découvrir l'environnement exceptionnel que nous offrons 
+                à vos chevaux, aujourd'hui et demain.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <Button 
+                  href="/contact" 
+                  size="xl"
+                  variant="gradient"
+                  className="group"
+                >
+                  <Phone size={20} className="mr-2" />
+                  <span>Planifier une visite</span>
+                  <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                </Button>
+                
+                <Button 
+                  href="/pensions"
+                  variant="outline" 
+                  size="xl"
+                  className="group"
+                >
+                  <span>Voir nos formules</span>
+                  <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                </Button>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+      </div>
 
       <Footer />
     </div>

@@ -6,10 +6,10 @@ import dubraud1 from '../../assets/images/dubraud_1.png';
 
 const About = () => {
   const features = [
-    { icon: MapPin, title: "26 Hectares", description: "De prairies vallonnées" },
-    { icon: Users, title: "30 Boxes", description: "Modernes et spacieux" },
-    { icon: Clock, title: "Nouveau", description: "Domaine équestre" },
-    { icon: Shield, title: "Surveillance", description: "24h/7j assurée" }
+    // { icon: MapPin, title: "40 Hectares", description: "De prairies vallonnées" },
+    // // { icon: Users, title: "4 Boxes", description: "Modernes et spacieux" },
+    // { icon: Clock, title: "Nouveau", description: "Domaine équestre" },
+    // { icon: Shield, title: "Surveillance", description: "24h/7j assurée" }
   ];
 
   return (
@@ -105,7 +105,7 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.7, duration: 0.8 }}
             >
-              Avec nos 26 hectares de prairies vallonnées, nos installations modernes et notre équipe expérimentée, nous garantissons le bien-être de vos chevaux tout en vous proposant un hébergement de qualité dans un cadre bucolique.
+              Avec nos 40 hectares de prairies vallonnées, nos installations modernes et notre équipe expérimentée, nous garantissons le bien-être de vos chevaux tout en vous proposant un hébergement de qualité dans un cadre bucolique.
             </motion.p>
             
             {/* Statistiques avec animations */}
