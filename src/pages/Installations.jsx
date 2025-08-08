@@ -25,6 +25,7 @@ import {
 import dubraud1 from '../assets/images/dubraud_1.png';
 import dubraud2 from '../assets/images/dubraud_2.png';
 import dubraud3 from '../assets/images/dubraud_3.png';
+import PhotoGallery from '../components/ui/PhotoGallery';
 
 const InstallationCard = ({ image, title, description, features, icon: Icon, available = true, comingSoon = false, comingSoonDate, delay = 0 }) => (
   <AnimatedSection animation="fadeInUp" delay={delay} className="h-full">
@@ -214,7 +215,7 @@ const Installations = () => {
     },
     {
       image: dubraud1,
-      title: "Installations",
+      title: "Installations sportives",
       description: "Installations sportives de qualité professionnelle pour l'entraînement et le dressage",
       icon: Building,
       delay: 0.4,
@@ -231,7 +232,7 @@ const Installations = () => {
     },
     {
       image: dubraud1,
-      title: "Installations Annexes",
+      title: "Equipements pour votre confort",
       description: "Tous les équipements nécessaires pour un service complet et professionnel",
       icon: Wrench,
       delay: 0.6,
@@ -447,6 +448,82 @@ const Installations = () => {
                 </AnimatedSection>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Galerie Photo */}
+        <section className="py-20 bg-gradient-to-b from-white to-brand-cream/50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AnimatedSection animation="fadeInUp" className="text-center mb-16">
+              <motion.div
+                className="flex items-center justify-center mb-6"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.2, type: "spring" }}
+              >
+                <Sparkles className="text-brand-gold mr-3" size={32} />
+                <span className="text-brand-brown font-semibold text-lg tracking-wide">GALERIE PHOTO</span>
+                <Sparkles className="text-brand-gold ml-3" size={32} />
+              </motion.div>
+              
+              <h2 className="text-4xl font-bold text-brand-brown mb-4 font-serif">
+                Découvrez Notre Domaine en Images
+              </h2>
+              <div className="w-32 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Explorez notre domaine de 45 hectares à travers cette galerie interactive. 
+                Cliquez sur les miniatures pour naviguer ou utilisez les flèches pour un défilement automatique.
+              </p>
+            </AnimatedSection>
+            
+            <AnimatedSection animation="fadeInUp" delay={0.3}>
+              <PhotoGallery 
+                className="max-w-5xl mx-auto"
+              />
+            </AnimatedSection>
+            
+            {/* Instructions d'utilisation */}
+            <AnimatedSection animation="fadeInUp" delay={0.5} className="mt-12">
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 max-w-4xl mx-auto border border-brand-gold/20">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                  <motion.div 
+                    className="flex flex-col items-center"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="bg-brand-gold/20 rounded-full p-3 mb-3">
+                      <ArrowRight className="text-brand-brown" size={24} />
+                    </div>
+                    <h4 className="font-semibold text-brand-brown mb-2">Navigation</h4>
+                    <p className="text-gray-600 text-sm">Utilisez les flèches ou cliquez sur les miniatures</p>
+                  </motion.div>
+                  
+                  <motion.div 
+                    className="flex flex-col items-center"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="bg-brand-gold/20 rounded-full p-3 mb-3">
+                      <Sparkles className="text-brand-brown" size={24} />
+                    </div>
+                    <h4 className="font-semibold text-brand-brown mb-2">Zoom</h4>
+                    <p className="text-gray-600 text-sm">Cliquez sur l'image pour l'agrandir en plein écran</p>
+                  </motion.div>
+                  
+                  <motion.div 
+                    className="flex flex-col items-center"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="bg-brand-gold/20 rounded-full p-3 mb-3">
+                      <Clock className="text-brand-brown" size={24} />
+                    </div>
+                    <h4 className="font-semibold text-brand-brown mb-2">Auto-défilement</h4>
+                    <p className="text-gray-600 text-sm">Les images changent automatiquement toutes les 4 secondes</p>
+                  </motion.div>
+                </div>
+              </div>
+            </AnimatedSection>
           </div>
         </section>
 

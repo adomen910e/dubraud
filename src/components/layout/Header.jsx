@@ -55,7 +55,7 @@ const Header = () => {
               <motion.img 
                 src={logo} 
                 alt="Logo Domaine de Dubraud" 
-                className="w-auto h-16 lg:h-20 transition-all duration-700"
+                className="w-auto h-12 lg:h-16 transition-all duration-700"
               />
               {/* Effet de brillance au hover */}
               <motion.div
@@ -73,22 +73,24 @@ const Header = () => {
               transition={{ delay: 0.3 }}
             >
               <motion.p 
-                className="text-brand-brown font-serif text-lg font-semibold leading-tight drop-shadow-sm"
+                className="text-brand-brown font-cardo text-lg font-semibold leading-tight drop-shadow-sm"
                 style={{ textShadow: '0 1px 2px rgba(255, 255, 255, 0.8)' }}
                 whileHover={{ color: "#D97706" }}
                 transition={{ duration: 0.3 }}
               >
-                Domaine de Dubraud
+                DOMAINE de DUBRAUD
               </motion.p>
-              <motion.p 
-                className="text-brand-brown/90 text-sm font-medium drop-shadow-sm"
-                style={{ textShadow: '0 1px 2px rgba(255, 255, 255, 0.8)' }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-              >
-              Activités équestres, ferme et gîtes
-              </motion.p>
+              
+<motion.p 
+  className="italic text-brand-brown/90 text-sm font-bakery drop-shadow-sm"
+  style={{ textShadow: '0 1px 2px rgba(255, 255, 255, 0.8)' }}
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 0.5 }}
+>
+  Activités équestres, ferme et gîtes
+</motion.p>
+
             </motion.div>
           </Link>
 

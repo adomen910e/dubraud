@@ -59,6 +59,8 @@ module.exports = {
       fontFamily: {
         'script': ['Brush Script MT', 'cursive'],
         'serif': ['Playfair Display', 'serif'],
+        'cardo': ['Cardo', 'serif'],
+        'bakery': ['Bakerie', 'sans-serif'],
         'sans': ['Inter', 'system-ui', 'sans-serif'],
       },
       animation: {
