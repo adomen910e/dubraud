@@ -231,7 +231,7 @@ const ServiceCard = ({ title, price, description, features, comingSoon, comingSo
           animate={{ scale: 1, rotate: 0 }}
           transition={{ delay: delay + 0.2, type: "spring" }}
         >
-          <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-3 py-1 rounded-bl-lg rounded-tr-xl shadow-lg">
+          <div className="bg-gradient-to-r from-brand-accent to-brand-accent-light text-white px-3 py-1 rounded-bl-lg rounded-tr-xl shadow-lg">
             <div className="flex items-center space-x-1">
               <Calendar size={12} />
               <span className="font-bold text-xs">À VENIR</span>
@@ -243,7 +243,7 @@ const ServiceCard = ({ title, price, description, features, comingSoon, comingSo
       
       {/* Overlay léger pour services à venir */}
       {comingSoon && (
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-50/60 to-orange-50/60 rounded-xl pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-neutral/60 to-brand-neutral-light/60 rounded-xl pointer-events-none"></div>
       )}
       
       <div className="relative z-10">
@@ -295,12 +295,12 @@ const ServiceCard = ({ title, price, description, features, comingSoon, comingSo
         
         {comingSoon && (
           <motion.div 
-            className="bg-gradient-to-r from-amber-100 to-orange-100 border border-amber-300 rounded-lg p-3 text-center mt-4"
+            className="bg-gradient-to-r from-brand-neutral to-brand-neutral-light border border-brand-accent/30 rounded-lg p-3 text-center mt-4"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: delay + 0.5 }}
           >
-            <div className="flex items-center justify-center space-x-2 text-amber-700">
+            <div className="flex items-center justify-center space-x-2 text-brand-primary">
               <Calendar size={16} />
               <span className="font-bold text-sm">Disponible en {comingSoonDate}</span>
             </div>
@@ -510,13 +510,13 @@ const Pensions = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimatedSection animation="fadeInUp">
             <motion.div 
-              className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-amber-500 relative overflow-hidden"
+              className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-brand-accent relative overflow-hidden"
               whileHover={{ scale: 1.02, shadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" }}
               transition={{ duration: 0.3 }}
             >
               {/* Effet de brillance */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-100/50 to-transparent -skew-x-12"
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-neutral/50 to-transparent -skew-x-12"
                 initial={{ x: '-100%' }}
                 whileHover={{ x: '200%' }}
                 transition={{ duration: 1 }}
@@ -528,7 +528,7 @@ const Pensions = () => {
                   whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full p-4 shadow-lg">
+                  <div className="bg-gradient-to-r from-brand-accent to-brand-accent-light text-white rounded-full p-4 shadow-lg">
                     <Calendar size={32} />
                   </div>
                 </motion.div>
@@ -562,7 +562,7 @@ const Pensions = () => {
                     ].map((item, index) => (
                       <motion.div 
                         key={index}
-                        className="flex items-center space-x-3 p-3 bg-amber-50 rounded-lg"
+                        className="flex items-center space-x-3 p-3 bg-brand-neutral rounded-lg"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4 + index * 0.1 }}
@@ -572,7 +572,7 @@ const Pensions = () => {
                           whileHover={{ rotate: 360 }}
                           transition={{ duration: 0.3 }}
                         >
-                          <div className="w-3 h-3 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"></div>
+                          <div className="w-3 h-3 bg-gradient-to-r from-brand-accent to-brand-accent-light rounded-full"></div>
                         </motion.div>
                         <span className="text-gray-700 font-medium">{item}</span>
                       </motion.div>
@@ -592,7 +592,7 @@ const Pensions = () => {
                     </Button>
                     
                     <motion.span 
-                      className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 border border-amber-300"
+                      className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-brand-neutral to-brand-neutral-light text-brand-primary border border-brand-accent/30"
                       whileHover={{ scale: 1.05 }}
                       animate={{ 
                         boxShadow: [

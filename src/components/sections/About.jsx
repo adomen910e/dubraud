@@ -17,7 +17,7 @@ const About = () => {
       {/* Éléments décoratifs de fond */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-20 right-10 w-64 h-64 bg-brand-beige/20 rounded-full"
+          className="absolute top-20 right-10 w-64 h-64 bg-brand-neutral/20 rounded-full"
           animate={{ 
             scale: [1, 1.1, 1],
             rotate: [0, 360]
@@ -29,7 +29,7 @@ const About = () => {
           }}
         />
         <motion.div
-          className="absolute bottom-20 left-10 w-48 h-48 bg-brand-gold/10 rounded-full"
+          className="absolute bottom-20 left-10 w-48 h-48 bg-brand-accent/10 rounded-full"
           animate={{ 
             scale: [1.1, 1, 1.1],
             rotate: [360, 0]
@@ -65,13 +65,13 @@ const About = () => {
                 delay: 0.2
               }}
             >
-              <div className="p-3 bg-gradient-to-r from-brand-brown to-brand-gold rounded-2xl text-white shadow-glow">
+              <div className="p-3 bg-gradient-to-r from-brand-primary to-brand-accent rounded-2xl text-white shadow-glow">
                 <Heart size={32} />
               </div>
             </motion.div>
 
             <motion.h2 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-brown mb-8 font-serif leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-primary mb-8 font-serif leading-tight"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -81,7 +81,7 @@ const About = () => {
             </motion.h2>
 
             <motion.div 
-              className="w-24 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mb-8"
+              className="w-24 h-1 bg-gradient-to-r from-brand-primary via-brand-accent to-brand-primary mb-8"
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
@@ -113,7 +113,7 @@ const About = () => {
               {features.map((feature, index) => (
                 <motion.div
                   key={index}
-                  className="text-center p-4 bg-gradient-to-br from-brand-beige/30 to-transparent rounded-2xl border border-brand-beige/50"
+                  className="text-center p-4 bg-gradient-to-br from-brand-neutral/30 to-transparent rounded-2xl border border-brand-neutral/50"
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
@@ -129,13 +129,13 @@ const About = () => {
                   }}
                 >
                   <motion.div
-                    className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-brand-brown to-brand-gold text-white rounded-xl mb-3"
+                    className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-brand-primary to-brand-accent text-white rounded-xl mb-3"
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.5 }}
                   >
                     <feature.icon size={24} />
                   </motion.div>
-                  <div className="text-2xl font-bold text-brand-brown mb-1">{feature.title}</div>
+                  <div className="text-2xl font-bold text-brand-primary mb-1">{feature.title}</div>
                   <div className="text-gray-600 text-sm">{feature.description}</div>
                 </motion.div>
               ))}
@@ -182,7 +182,7 @@ const About = () => {
 
               {/* Badge flottant */}
               <motion.div 
-                className="absolute -bottom-8 -right-8 bg-gradient-to-r from-brand-brown to-brand-gold text-white p-8 rounded-4xl shadow-glow"
+                className="absolute -bottom-8 -right-8 bg-gradient-to-r from-brand-primary to-brand-accent text-white p-8 rounded-4xl shadow-glow"
                 initial={{ scale: 0, rotate: -180 }}
                 whileInView={{ scale: 1, rotate: 0 }}
                 viewport={{ once: true }}
@@ -205,7 +205,7 @@ const About = () => {
 
               {/* Éléments décoratifs flottants */}
               <motion.div
-                className="absolute top-4 left-4 w-3 h-3 bg-brand-gold/60 rounded-full"
+                className="absolute top-4 left-4 w-3 h-3 bg-brand-accent/60 rounded-full"
                 animate={{ 
                   y: [0, -15, 0],
                   opacity: [0.6, 1, 0.6]

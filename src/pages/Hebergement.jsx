@@ -52,7 +52,7 @@ const HebergementCard = ({ image, title, description, price, features, amenities
 
       {/* Overlay pour les services à venir */}
       {comingSoon && (
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-50/80 to-orange-50/80 rounded-2xl pointer-events-none z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-neutral/80 to-brand-neutral-light/80 rounded-2xl pointer-events-none z-10"></div>
       )}
 
       <div className="relative">
@@ -64,7 +64,7 @@ const HebergementCard = ({ image, title, description, price, features, amenities
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: delay + 0.1, type: "spring" }}
           >
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-3 py-2 rounded-full shadow-lg">
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-brand-accent to-brand-accent-light text-white px-3 py-2 rounded-full shadow-lg">
               <Calendar size={16} />
               <span className="font-bold text-sm">À VENIR - {comingSoonDate}</span>
             </div>
@@ -85,7 +85,7 @@ const HebergementCard = ({ image, title, description, price, features, amenities
         </motion.div>
         
         <motion.div 
-          className={`absolute top-4 right-4 bg-gradient-to-r from-brand-brown to-brand-gold text-white px-4 py-2 rounded-full font-bold shadow-lg ${comingSoon ? 'from-amber-500 to-orange-500' : ''}`}
+          className={`absolute top-4 right-4 bg-gradient-to-r from-brand-primary to-brand-accent text-white px-4 py-2 rounded-full font-bold shadow-lg ${comingSoon ? 'from-brand-accent to-brand-accent-light' : ''}`}
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.3 }}
         >
@@ -173,12 +173,12 @@ const HebergementCard = ({ image, title, description, price, features, amenities
         ) : (
           <div className="w-full space-y-3">
             <motion.div 
-              className="bg-gradient-to-r from-amber-100 to-orange-100 border-2 border-amber-300 rounded-lg p-4 text-center"
+              className="bg-gradient-to-r from-brand-neutral to-brand-neutral-light border-2 border-brand-accent/30 rounded-lg p-4 text-center"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: delay + 0.8 }}
             >
-              <div className="flex items-center justify-center space-x-2 text-amber-700">
+              <div className="flex items-center justify-center space-x-2 text-brand-primary">
                 <Calendar size={20} />
                 <span className="font-bold">Disponible en {comingSoonDate}</span>
               </div>
@@ -374,16 +374,16 @@ const Hebergement = () => {
         </section>
 
         {/* Annonce Développement */}
-        <section className="py-16 bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 border-y border-amber-200 relative overflow-hidden">
+        <section className="py-16 bg-gradient-to-r from-brand-neutral via-brand-neutral-light to-brand-neutral border-y border-brand-accent/20 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full opacity-5">
-            <div className="absolute top-10 left-10 w-20 h-20 bg-amber-500 rounded-full"></div>
-            <div className="absolute bottom-10 right-10 w-16 h-16 bg-orange-500 rounded-full"></div>
+            <div className="absolute top-10 left-10 w-20 h-20 bg-brand-accent rounded-full"></div>
+            <div className="absolute bottom-10 right-10 w-16 h-16 bg-brand-accent-light rounded-full"></div>
           </div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <AnimatedSection animation="fadeInUp">
               <motion.div 
-                className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-amber-500 relative overflow-hidden"
+                className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-brand-accent relative overflow-hidden"
                 whileHover={{ scale: 1.02, shadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" }}
                 transition={{ duration: 0.3 }}
               >
@@ -393,7 +393,7 @@ const Hebergement = () => {
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.5 }}
                   >
-                    <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full p-4 shadow-lg">
+                    <div className="bg-gradient-to-r from-brand-accent to-brand-accent-light text-white rounded-full p-4 shadow-lg">
                       <Calendar size={32} />
                     </div>
                   </motion.div>
@@ -417,13 +417,13 @@ const Hebergement = () => {
                       ].map((item, index) => (
                         <motion.div 
                           key={index}
-                          className="flex items-center space-x-3 p-3 bg-amber-50 rounded-lg"
+                          className="flex items-center space-x-3 p-3 bg-brand-neutral rounded-lg"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.4 + index * 0.1 }}
-                          whileHover={{ scale: 1.02, backgroundColor: "#fef3c7" }}
+                          whileHover={{ scale: 1.02, backgroundColor: "rgba(245, 242, 235, 0.8)" }}
                         >
-                          <div className="w-3 h-3 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"></div>
+                          <div className="w-3 h-3 bg-gradient-to-r from-brand-accent to-brand-accent-light rounded-full"></div>
                           <span className="text-gray-700 font-medium">{item}</span>
                         </motion.div>
                       ))}
@@ -436,7 +436,7 @@ const Hebergement = () => {
                         <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                       </Button>
                       
-                      <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 border border-amber-300">
+                      <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-brand-neutral to-brand-neutral-light text-brand-primary border border-brand-accent/30">
                         <Calendar size={16} className="mr-2" />
                         Ouverture : 2026
                       </span>
@@ -507,7 +507,7 @@ const Hebergement = () => {
               {futureServices.map((service, index) => (
                 <AnimatedSection key={index} animation="fadeInUp" delay={index * 0.1}>
                   <motion.div 
-                    className="text-center p-6 bg-white rounded-xl shadow-lg border-2 border-amber-200/50"
+                    className="text-center p-6 bg-white rounded-xl shadow-lg border-2 border-brand-accent/30"
                     whileHover={{ 
                       y: -5, 
                       shadow: "0 15px 30px -10px rgba(0, 0, 0, 0.15)",
@@ -519,12 +519,12 @@ const Hebergement = () => {
                       whileHover={{ rotate: 360, scale: 1.1 }}
                       transition={{ duration: 0.5 }}
                     >
-                      <service.icon className="text-amber-600 mx-auto mb-4" size={48} />
+                      <service.icon className="text-brand-accent mx-auto mb-4" size={48} />
                     </motion.div>
                     <h3 className="font-bold text-brand-brown mb-2 font-serif">{service.title}</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
                     <motion.div 
-                      className="mt-3 inline-flex items-center text-xs text-amber-600 font-medium"
+                      className="mt-3 inline-flex items-center text-xs text-brand-accent font-medium"
                       animate={{ 
                         opacity: [0.7, 1, 0.7]
                       }}

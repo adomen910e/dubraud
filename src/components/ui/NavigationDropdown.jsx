@@ -10,7 +10,7 @@ const NavigationDropdown = ({ title, items }) => {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <button className="text-amber-800 hover:text-amber-600 font-semibold flex items-center transition-colors">
+      <button className="text-brand-primary hover:text-brand-accent font-semibold flex items-center transition-colors">
         {title}
         <ChevronDown className="ml-1 h-4 w-4" />
       </button>
@@ -21,7 +21,7 @@ const NavigationDropdown = ({ title, items }) => {
           <a 
             key={index}
             href={item.href} 
-            className="block px-4 py-2 text-sm text-amber-800 hover:bg-amber-50 first:rounded-t-md last:rounded-b-md transition-colors"
+            className="block px-4 py-2 text-sm text-brand-primary hover:bg-brand-neutral first:rounded-t-md last:rounded-b-md transition-colors"
           >
             {item.label}
           </a>

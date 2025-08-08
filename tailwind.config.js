@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const { colors } = require('./src/config/colors.js');
+
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
@@ -6,14 +8,53 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'brand-brown': '#7C2D12',
-        'brand-light-brown': '#A16207',
-        'brand-beige': '#FEF3C7',
-        'brand-dark-brown': '#5B1F0A',
-        'brand-cream': '#FFFBEB',
-        'brand-gold': '#D97706',
-        'brand-sage': '#84CC16',
-        'brand-forest': '#166534',
+        // === COULEURS PRINCIPALES DE LA MARQUE ===
+        // Palette basée sur #4b432f - Tons chauds et terreux
+        'brand-primary': colors.brand.primary,
+        'brand-primary-dark': colors.brand.primaryDark,
+        'brand-primary-light': colors.brand.primaryLight,
+        'brand-primary-lighter': colors.brand.primaryLighter,
+        
+        // Variations harmonieuses
+        'brand-secondary': colors.brand.secondary,
+        'brand-tertiary': colors.brand.tertiary,
+        
+        // Couleurs complémentaires chaudes
+        'brand-warm': colors.brand.warm,
+        'brand-warm-light': colors.brand.warmLight,
+        'brand-warm-lighter': colors.brand.warmLighter,
+        
+        // Couleurs neutres harmonieuses
+        'brand-neutral': colors.brand.neutral,
+        'brand-neutral-dark': colors.brand.neutralDark,
+        'brand-neutral-light': colors.brand.neutralLight,
+        
+        // Accents dorés harmonieux
+        'brand-accent': colors.brand.accent,
+        'brand-accent-light': colors.brand.accentLight,
+        'brand-accent-dark': colors.brand.accentDark,
+        
+        // Aliases pour compatibilité (utilisant les couleurs de la palette kaki)
+        'brand-brown': colors.brand.primary,
+        'brand-light-brown': colors.brand.primaryLight,
+        'brand-dark-brown': colors.brand.primaryDark,
+        'brand-gold': colors.brand.accent,
+        'brand-beige': colors.brand.neutral,
+        'brand-cream': colors.brand.neutralLight,
+        
+        // === COULEURS SYSTÈME ===
+        'system-white': colors.system.white,
+        'system-black': colors.system.black,
+        
+        // Grays chauds harmonisés
+        'warm-gray': colors.system.gray,
+        
+        // === COULEURS FONCTIONNELLES ===
+        // États harmonisés avec la palette principale
+        'success': colors.functional.success,
+        'error': colors.functional.error,
+        'warning': colors.functional.warning,
+        'info': colors.functional.info,
       },
       fontFamily: {
         'script': ['Brush Script MT', 'cursive'],
@@ -65,19 +106,22 @@ module.exports = {
           '50%': { transform: 'translateY(-20px)' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 5px rgba(124, 45, 18, 0.5)' },
-          '100%': { boxShadow: '0 0 20px rgba(124, 45, 18, 0.8)' },
+          '0%': { boxShadow: '0 0 5px rgba(75, 67, 47, 0.5)' },
+          '100%': { boxShadow: '0 0 20px rgba(75, 67, 47, 0.8)' },
         },
       },
       backdropBlur: {
         xs: '2px',
       },
       boxShadow: {
-        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
-        'medium': '0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-        'strong': '0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 2px 10px -2px rgba(0, 0, 0, 0.05)',
-        'glow': '0 0 20px rgba(124, 45, 18, 0.3)',
-        'glow-strong': '0 0 30px rgba(124, 45, 18, 0.5)',
+        // Ombres harmonisées avec la nouvelle palette
+        'soft': colors.shadows.soft,
+        'medium': colors.shadows.medium,
+        'strong': colors.shadows.strong,
+        'glow': colors.shadows.glow,
+        'glow-strong': colors.shadows.glowStrong,
+        'glow-warm': colors.shadows.glowWarm,
+        'glow-accent': colors.shadows.glowAccent,
       },
       spacing: {
         '18': '4.5rem',

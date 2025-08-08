@@ -325,7 +325,7 @@ const Installations = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <AnimatedSection animation="fadeInUp">
               <motion.div 
-                className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-amber-500 relative overflow-hidden"
+                className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-brand-accent relative overflow-hidden"
                 whileHover={{ scale: 1.02, shadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" }}
                 transition={{ duration: 0.3 }}
               >
@@ -335,7 +335,7 @@ const Installations = () => {
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.5 }}
                   >
-                    <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full p-4 shadow-lg">
+                    <div className="bg-gradient-to-r from-brand-accent to-brand-accent-light text-white rounded-full p-4 shadow-lg">
                       <Calendar size={32} />
                     </div>
                   </motion.div>
@@ -359,13 +359,13 @@ const Installations = () => {
                       ].map((item, index) => (
                         <motion.div 
                           key={index}
-                          className="flex items-center space-x-3 p-3 bg-amber-50 rounded-lg"
+                          className="flex items-center space-x-3 p-3 bg-brand-neutral rounded-lg"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.4 + index * 0.1 }}
-                          whileHover={{ scale: 1.02, backgroundColor: "#fef3c7" }}
+                          whileHover={{ scale: 1.02, backgroundColor: "rgba(245, 242, 235, 0.8)" }}
                         >
-                          <div className="w-3 h-3 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"></div>
+                          <div className="w-3 h-3 bg-gradient-to-r from-brand-accent to-brand-accent-light rounded-full"></div>
                           <span className="text-gray-700 font-medium">{item}</span>
                         </motion.div>
                       ))}
@@ -378,7 +378,7 @@ const Installations = () => {
                         <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                       </Button>
                       
-                      <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 border border-amber-300">
+                      <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-brand-neutral to-brand-neutral-light text-brand-primary border border-brand-accent/30">
                         <Calendar size={16} className="mr-2" />
                         Ouverture : Septembre 2026
                       </span>

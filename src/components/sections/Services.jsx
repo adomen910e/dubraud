@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Home, Building, Star, Users, MapPin, Heart, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Home, Star, Users, MapPin, Heart, Sparkles } from 'lucide-react';
 import ServiceCard from '../ui/ServiceCard';
 import AnimatedSection from '../ui/AnimatedSection';
 
@@ -44,11 +45,11 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="relative py-20 md:py-32 bg-gradient-to-br from-gray-50 via-brand-cream/30 to-gray-50 overflow-hidden">
+    <section id="services" className="relative py-20 md:py-32 bg-gradient-to-br from-gray-50 via-brand-neutral/30 to-gray-50 overflow-hidden">
       {/* Éléments décoratifs de fond */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute -top-40 -right-40 w-80 h-80 bg-brand-gold/5 rounded-full"
+          className="absolute -top-40 -right-40 w-80 h-80 bg-brand-accent/5 rounded-full"
           animate={{ 
             scale: [1, 1.2, 1],
             rotate: [0, 180, 360]
@@ -60,7 +61,7 @@ const Services = () => {
           }}
         />
         <motion.div
-          className="absolute -bottom-40 -left-40 w-96 h-96 bg-brand-brown/5 rounded-full"
+          className="absolute -bottom-40 -left-40 w-96 h-96 bg-brand-primary/5 rounded-full"
           animate={{ 
             scale: [1.2, 1, 1.2],
             rotate: [360, 180, 0]
@@ -88,13 +89,13 @@ const Services = () => {
               delay: 0.2
             }}
           >
-            <div className="p-3 bg-gradient-to-r from-brand-brown to-brand-gold rounded-2xl text-white shadow-glow">
+            <div className="p-3 bg-gradient-to-r from-brand-primary to-brand-accent rounded-2xl text-white shadow-glow">
               <Sparkles size={32} />
             </div>
           </motion.div>
 
           <motion.h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-brown mb-6 font-serif"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-primary mb-6 font-serif"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -104,7 +105,7 @@ const Services = () => {
           </motion.h2>
 
           <motion.div 
-            className="w-24 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-8"
+            className="w-24 h-1 bg-gradient-to-r from-brand-primary via-brand-accent to-brand-primary mx-auto mb-8"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
@@ -133,6 +134,7 @@ const Services = () => {
               description={service.description}
               features={service.features}
               delay={index * 0.1}
+              linkTo="/pensions"
             />
           ))}
         </div>
@@ -167,7 +169,7 @@ const Services = () => {
               }}
             >
               <motion.div
-                className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-brand-brown to-brand-gold text-white rounded-xl mb-4"
+                className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-brand-primary to-brand-accent text-white rounded-xl mb-4"
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.5 }}
               >
@@ -175,7 +177,7 @@ const Services = () => {
               </motion.div>
               
               <motion.div 
-                className="text-3xl md:text-4xl font-bold text-brand-brown mb-2"
+                className="text-3xl md:text-4xl font-bold text-brand-primary mb-2"
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
@@ -201,7 +203,7 @@ const Services = () => {
           delay={1.2}
         >
           <motion.div
-            className="bg-gradient-to-r from-brand-brown to-brand-gold p-12 rounded-4xl text-white shadow-strong relative overflow-hidden"
+            className="bg-gradient-to-r from-brand-primary to-brand-accent p-12 rounded-4xl text-white shadow-strong relative overflow-hidden"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}
           >
@@ -238,24 +240,27 @@ const Services = () => {
               Contactez-nous dès aujourd'hui pour discuter de vos besoins et découvrir comment nous pouvons prendre soin de vos chevaux.
             </p>
             
-            <motion.a
-              href="/contact"
-              className="inline-flex items-center px-8 py-4 bg-white text-brand-brown font-semibold rounded-full hover:bg-brand-cream transition-all duration-300 shadow-medium hover:shadow-strong"
+            <motion.div
               whileHover={{ 
                 scale: 1.05,
                 y: -2
               }}
               whileTap={{ scale: 0.98 }}
             >
-              Demander un devis gratuit
-              <motion.div
-                className="ml-2"
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
+              <Link
+                to="/contact"
+                className="inline-flex items-center px-8 py-4 bg-white text-brand-primary font-semibold rounded-full hover:bg-brand-neutral transition-all duration-300 shadow-medium hover:shadow-strong"
               >
-                →
-              </motion.div>
-            </motion.a>
+                Demander un devis gratuit
+                <motion.div
+                  className="ml-2"
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  →
+                </motion.div>
+              </Link>
+            </motion.div>
           </motion.div>
         </AnimatedSection>
       </div>

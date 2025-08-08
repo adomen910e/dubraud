@@ -31,7 +31,7 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Contactez-nous</h2>
-          <div className="w-20 h-1 bg-amber-600 mx-auto mb-6"></div>
+          <div className="w-20 h-1 bg-brand-accent mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             N'hésitez pas à nous contacter pour toute question ou demande de réservation
           </p>
@@ -43,28 +43,28 @@ const Contact = () => {
             <h3 className="text-2xl font-bold mb-8 text-gray-900">Informations pratiques</h3>
             <div className="space-y-6">
               <div className="flex items-start">
-                <Phone className="h-6 w-6 mr-4 text-amber-600 mt-1 flex-shrink-0" />
+                <Phone className="h-6 w-6 mr-4 text-brand-accent mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-semibold text-gray-800">Téléphone</p>
                   <p className="text-gray-600">+33 6 95 42 84 77</p>
                 </div>
               </div>
               <div className="flex items-start">
-                <Mail className="h-6 w-6 mr-4 text-amber-600 mt-1 flex-shrink-0" />
+                <Mail className="h-6 w-6 mr-4 text-brand-accent mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-semibold text-gray-800">Email</p>
                   <p className="text-gray-600">contact@domaine-dubraud.fr</p>
                 </div>
               </div>
               <div className="flex items-start">
-                <MapPin className="h-6 w-6 mr-4 text-amber-600 mt-1 flex-shrink-0" />
+                <MapPin className="h-6 w-6 mr-4 text-brand-accent mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-semibold text-gray-800">Adresse</p>
                   <p className="text-gray-600">17 Lieu-dit Dubraud<br />33920 Saint-Christoly-de-Blaye, France</p>
                 </div>
               </div>
               <div className="flex items-start">
-                <Clock className="h-6 w-6 mr-4 text-amber-600 mt-1 flex-shrink-0" />
+                <Clock className="h-6 w-6 mr-4 text-brand-accent mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-semibold text-gray-800">Horaires</p>
                   <p className="text-gray-600">
@@ -91,7 +91,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-brand-accent"
                     placeholder="Votre nom complet"
                   />
                 </div>
@@ -104,7 +104,7 @@ const Contact = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-brand-accent"
                     placeholder="Votre téléphone"
                   />
                 </div>
@@ -120,7 +120,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-brand-accent"
                   placeholder="votre@email.com"
                 />
               </div>
@@ -134,7 +134,7 @@ const Contact = () => {
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-brand-accent"
                   >
                     <option value="" className="text-gray-500">Sélectionnez un service</option>
                     <option value="pension-retraite" className="text-gray-900">Pension Retraite</option>
@@ -153,7 +153,7 @@ const Contact = () => {
                     value={formData.requestType}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-brand-accent"
                   >
                     <option value="" className="text-gray-500">Que souhaitez-vous ?</option>
                     <option value="visite" className="text-gray-900">Planifier une visite</option>
@@ -173,7 +173,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows="4"
-                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 resize-none"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-brand-accent resize-none"
                   placeholder="Votre message..."
                 />
               </div>

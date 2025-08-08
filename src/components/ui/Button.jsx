@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Button = ({ 
   children, 
@@ -181,12 +182,12 @@ const Button = ({
   );
 
   const MotionComponent = motion.button;
-  const MotionLink = motion.a;
+  const MotionLink = motion(Link);
 
   if (href) {
     return (
       <MotionLink
-        href={href}
+        to={href}
         className={classes}
         whileHover={{ 
           scale: 1.05,

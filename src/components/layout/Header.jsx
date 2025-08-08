@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -6,17 +6,7 @@ import logo from '../../assets/images/logo.png';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const navItems = [
     { label: 'ACCUEIL', path: '/' },
@@ -38,21 +28,13 @@ const Header = () => {
 
   return (
     <motion.header 
-      className={`fixed w-full top-0 z-50 transition-all duration-700 ${
-        isScrolled 
-          ? 'bg-white/98 backdrop-blur-xl shadow-strong py-2' 
-          : 'bg-gradient-to-b from-brand-cream/98 to-brand-cream/95 backdrop-blur-xl shadow-soft py-4'
-      }`}
+      className="fixed w-full top-0 z-50 transition-all duration-700 bg-white backdrop-blur-xl shadow-strong py-2"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       {/* Overlay pour améliorer la lisibilité */}
-      <div className={`absolute inset-0 transition-all duration-700 ${
-        isScrolled 
-          ? 'bg-white/20' 
-          : 'bg-gradient-to-b from-white/30 to-white/20'
-      }`} />
+      <div className="absolute inset-0 bg-white/30" />
       {/* Ligne décorative supérieure */}
       <motion.div 
         className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown"
@@ -73,9 +55,7 @@ const Header = () => {
               <motion.img 
                 src={logo} 
                 alt="Logo Domaine de Dubraud" 
-                className={`w-auto transition-all duration-700 ${
-                  isScrolled ? 'h-16 lg:h-20' : 'h-20 lg:h-24'
-                }`}
+                className="w-auto h-16 lg:h-20 transition-all duration-700"
               />
               {/* Effet de brillance au hover */}
               <motion.div

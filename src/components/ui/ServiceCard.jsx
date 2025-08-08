@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Check } from 'lucide-react';
 
-const ServiceCard = ({ icon: Icon, title, description, features = [], delay = 0, className = '' }) => {
+const ServiceCard = ({ icon: Icon, title, description, features = [], delay = 0, className = '', linkTo }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  return (
+  const CardContent = (
     <motion.div
       className={`relative bg-white rounded-2xl shadow-soft hover:shadow-strong p-8 h-full overflow-hidden group cursor-pointer ${className}`}
       initial={{ opacity: 0, y: 50 }}
@@ -25,7 +26,7 @@ const ServiceCard = ({ icon: Icon, title, description, features = [], delay = 0,
     >
       {/* Gradient de fond animé */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-brand-beige/20 via-transparent to-brand-gold/10 rounded-2xl"
+        className="absolute inset-0 bg-gradient-to-br from-brand-neutral/20 via-transparent to-brand-accent/10 rounded-2xl"
         initial={{ opacity: 0 }}
         animate={{ opacity: isHovered ? 1 : 0 }}
         transition={{ duration: 0.3 }}
@@ -33,7 +34,7 @@ const ServiceCard = ({ icon: Icon, title, description, features = [], delay = 0,
 
       {/* Effet de brillance */}
       <motion.div
-        className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent"
+        className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-accent to-transparent"
         initial={{ scaleX: 0 }}
         animate={{ scaleX: isHovered ? 1 : 0 }}
         transition={{ duration: 0.4 }}
@@ -46,7 +47,7 @@ const ServiceCard = ({ icon: Icon, title, description, features = [], delay = 0,
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
       >
         <motion.div
-          className="relative p-4 rounded-2xl bg-gradient-to-br from-brand-brown to-brand-gold text-white shadow-medium"
+          className="relative p-4 rounded-2xl bg-gradient-to-br from-brand-primary to-brand-accent text-white shadow-medium"
           animate={{ 
             rotate: isHovered ? [0, -5, 5, 0] : 0,
           }}
@@ -56,7 +57,7 @@ const ServiceCard = ({ icon: Icon, title, description, features = [], delay = 0,
           
           {/* Effet de pulsation */}
           <motion.div
-            className="absolute inset-0 rounded-2xl bg-brand-gold/30"
+            className="absolute inset-0 rounded-2xl bg-brand-accent/30"
             animate={{ 
               scale: [1, 1.2, 1],
               opacity: [0.5, 0, 0.5]
@@ -71,7 +72,7 @@ const ServiceCard = ({ icon: Icon, title, description, features = [], delay = 0,
 
         {/* Particules flottantes */}
         <motion.div
-          className="absolute -top-2 -right-2 w-2 h-2 bg-brand-gold/60 rounded-full"
+          className="absolute -top-2 -right-2 w-2 h-2 bg-brand-accent/60 rounded-full"
           animate={{ 
             y: [0, -10, 0],
             opacity: [0.6, 1, 0.6],
@@ -84,7 +85,7 @@ const ServiceCard = ({ icon: Icon, title, description, features = [], delay = 0,
           }}
         />
         <motion.div
-          className="absolute -bottom-1 -left-1 w-1 h-1 bg-brand-brown/40 rounded-full"
+          className="absolute -bottom-1 -left-1 w-1 h-1 bg-brand-primary/40 rounded-full"
           animate={{ 
             y: [0, -8, 0],
             opacity: [0.4, 0.8, 0.4],
@@ -100,14 +101,14 @@ const ServiceCard = ({ icon: Icon, title, description, features = [], delay = 0,
 
       {/* Titre avec animation */}
       <motion.h3 
-        className="text-2xl font-bold text-brand-brown mb-4 text-center relative"
+        className="text-2xl font-bold text-brand-primary mb-4 text-center relative"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: delay + 0.2 }}
       >
         {title}
         <motion.div
-          className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-brand-gold"
+          className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-brand-accent"
           initial={{ width: 0 }}
           animate={{ width: isHovered ? '60%' : '30%' }}
           transition={{ duration: 0.3 }}
@@ -146,7 +147,7 @@ const ServiceCard = ({ icon: Icon, title, description, features = [], delay = 0,
                   whileHover={{ scale: 1.2, rotate: 360 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Check size={16} className="text-brand-forest" />
+                  <Check size={16} className="text-brand-accent" />
                 </motion.div>
                 <span className="flex-1">{feature}</span>
               </motion.li>
@@ -169,7 +170,7 @@ const ServiceCard = ({ icon: Icon, title, description, features = [], delay = 0,
           damping: 15
         }}
       >
-        <div className="w-10 h-10 bg-brand-gold rounded-full flex items-center justify-center text-white shadow-medium hover:shadow-strong cursor-pointer">
+        <div className="w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center text-white shadow-medium hover:shadow-strong cursor-pointer">
           <ArrowRight size={18} />
         </div>
       </motion.div>
@@ -178,14 +179,14 @@ const ServiceCard = ({ icon: Icon, title, description, features = [], delay = 0,
       <motion.div
         className="absolute inset-0 rounded-2xl border-2 border-transparent"
         animate={{
-          borderColor: isHovered ? 'rgba(217, 119, 6, 0.3)' : 'transparent'
+          borderColor: isHovered ? 'rgba(139, 122, 86, 0.3)' : 'transparent'
         }}
         transition={{ duration: 0.3 }}
       />
 
       {/* Éléments décoratifs */}
       <motion.div
-        className="absolute top-4 right-4 w-20 h-20 bg-gradient-to-br from-brand-gold/10 to-transparent rounded-full"
+        className="absolute top-4 right-4 w-20 h-20 bg-gradient-to-br from-brand-accent/10 to-transparent rounded-full"
         animate={{ 
           scale: isHovered ? [1, 1.2, 1] : 1,
           rotate: isHovered ? 360 : 0
@@ -194,6 +195,17 @@ const ServiceCard = ({ icon: Icon, title, description, features = [], delay = 0,
       />
     </motion.div>
   );
+
+  // Si linkTo est fourni, envelopper dans un Link, sinon retourner le contenu directement
+  if (linkTo) {
+    return (
+      <Link to={linkTo} className="block h-full">
+        {CardContent}
+      </Link>
+    );
+  }
+
+  return CardContent;
 };
 
 export default ServiceCard;
