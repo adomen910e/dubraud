@@ -366,7 +366,7 @@ const Hebergement = () => {
               </h1>
               <div className="w-32 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Découvrez nos hébergements de charme au cœur d'un domaine équestre exceptionnel de 40 hectares. 
+                Découvrez nos hébergements de charme au cœur d'un domaine équestre exceptionnel de 45 hectares. 
                 Un cadre unique pour vos séjours en Gironde.
               </p>
             </AnimatedSection>

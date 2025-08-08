@@ -107,7 +107,7 @@ const Header = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
               >
-                Pension & Hébergement Équestre
+              Activités équestres, ferme et gîtes
               </motion.p>
             </motion.div>
           </Link>

@@ -322,7 +322,7 @@ const Pensions = () => {
     },
     {
       image: dubraud2,
-      title: "40 Hectares de Nature",
+      title: "45 Hectares de Nature",
       subtitle: "Des prairies vallonnées dans un environnement préservé"
     },
     {
@@ -342,8 +342,8 @@ const Pensions = () => {
   const pensions = [
     {
       icon: Home,
-      title: "Pension Pré-Troupeau",
-      description: "Pension en groupe avec rotation de prairies et soins de base pour une vie sociale équilibrée",
+      title: "Pension Pré-Repos",
+      description: "Pension en troupeau avec herbe et foin à volonté, rotation de prairies pour une vie équilibrée",
       price: "170€",
       image: dubraud1,
       delay: 0,
@@ -351,17 +351,16 @@ const Pensions = () => {
       comingSoon: false,
       features: [
         "Troupeau de 4 chevaux maximum",
-        "Rotation de prairies naturelles",
-        "Foin à volonté de qualité premium",
-        "Abris de prairies avec aires stabilisées",
-        "Repas complémentaire en option",
-        "Surveillance quotidienne"
-      ]
+        "Rotation de prairies ",
+        "Foin à volonté de qualité ",
+        "Abris de prairies spacieux avec aires stabilisées",
+        "Présence permanente sur site",
+              ]
     },
     {
       icon: Users,
       title: "Pension Pré-Sport",
-      description: "Pré individuel ou duo avec accès privilégié aux installations sportives",
+      description: "Pré individuel ou duo avec accès aux installations sportives",
       price: "240€",
       image: dubraud2,
       delay: 0.2,
@@ -370,17 +369,16 @@ const Pensions = () => {
       comingSoonDate: "09/2026",
       features: [
         "Pré individuel ou duo au choix",
-        "Foin à volonté premium",
-        "Abris modernes avec aires stabilisées",
+        "Foin à volonté de qualité",
+        "Abris spacieux avec aires stabilisées",
         "Deux repas de complément quotidiens",
-        "Accès prioritaire aux installations",
-        "Suivi personnalisé"
+        "Accès aux installations",
       ]
     },
     {
       icon: Star,
-      title: "Pension Boxes/Paddock",
-      description: "Box individuel avec paddock privé et accès complet aux équipements premium",
+      title: "Pension Boxe/Paddock",
+      description: "Boxe individuel avec libre accès sur paddock privé",
       price: "450€",
       image: dubraud3,
       delay: 0.4,
@@ -388,12 +386,11 @@ const Pensions = () => {
       comingSoon: true,
       comingSoonDate: "09/2026",
       features: [
-        "Box spacieux 3x4m avec sortie autonome",
+        "Box spacieux 3x4m avec sortie à volonté",
         "Paddock individuel sécurisé",
-        "Foin à volonté premium",
+        "Foin à volonté de qualité",
         "Deux repas de complément quotidiens",
-        "Accès illimité aux installations",
-        "Service de conciergerie équestre"
+        "Accès aux installations",
       ]
     }
   ];
@@ -411,16 +408,21 @@ const Pensions = () => {
       price: "40€/mois",
       features: [
         "Séance de pansage/soin hebdomadaire",
-        "Gestion du maréchal",
-        "Gestion vétérinaire et ostéopathe"
+        "Gestion des intervenants : maréchal, vétérinaire, ostéopathe, etc."
       ],
       description: "Produits et prestations extérieures à votre charge",
       delay: 0
     },
     {
-      title: "Supplément Ration",
-      price: "40€/mois",
-      description: "Ration de complément pour pension pré-troupeau",
+      title: "Ration complémentaire",
+      price: "50€/mois (30€/mois si l'aliment est fourni)",
+      description: "Ration de concentré pour pension pré-repos",
+      delay: 0.2
+    },
+    {
+      title: "Enrubanné ou foin dépoussiéré",
+      price: "60€/mois", 
+      description: "Ration de concentré pour pension pré-repos",
       delay: 0.2
     },
     {
@@ -435,7 +437,7 @@ const Pensions = () => {
 
   const workServices = [
     {
-      title: "Séances Individuelles",
+      title: "Séance Ponctuelle",
       services: [
         { name: "Séance de travail monté ou longé (soin compris)", price: "30€" },
         { name: "Mise au marcheur ponctuelle", price: "5€" }
@@ -472,7 +474,7 @@ const Pensions = () => {
     {
       icon: Star,
       title: "Cadre Exceptionnel",
-      description: "40 hectares de prairies vallonnées"
+      description: "45 hectares de prairies"
     }
   ];
 
@@ -630,7 +632,7 @@ const Pensions = () => {
             <div className="w-32 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Trois formules pensées pour répondre aux besoins spécifiques de votre cheval, 
-              dans un environnement exceptionnel de 40 hectares.
+              dans un environnement exceptionnel de 45 hectares.
             </p>
           </AnimatedSection>
           

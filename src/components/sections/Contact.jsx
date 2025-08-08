@@ -46,7 +46,7 @@ const Contact = () => {
                 <Phone className="h-6 w-6 mr-4 text-amber-600 mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-semibold text-gray-800">Téléphone</p>
-                  <p className="text-gray-600">+33 5 XX XX XX XX</p>
+                  <p className="text-gray-600">+33 6 95 42 84 77</p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -68,8 +68,8 @@ const Contact = () => {
                 <div>
                   <p className="font-semibold text-gray-800">Horaires</p>
                   <p className="text-gray-600">
-                    Lun-Ven: 8h-18h<br />
-                    Sam-Dim: 9h-17h
+                    Lun-Ven: 8h-21h<br />
+                    Sam-Dim: 9h-20h
                   </p>
                 </div>
               </div>

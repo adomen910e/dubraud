@@ -14,13 +14,13 @@ const Hero = () => {
     {
       image: dubraud1,
       title: "Bienvenue au Domaine de Dubraud",
-      subtitle: "Pension pour chevaux & Hébergement de charme dans un cadre exceptionnel",
+      subtitle: "Pensions et élevage équestre, activité agricoles et gîtes à la ferme.",
       cta: "Découvrir nos services"
     },
     {
       image: dubraud2,
       title: "Un cadre naturel préservé",
-      subtitle: "40 hectares de prairies vallonnées pour le bien-être de vos chevaux",
+      subtitle: "45 hectares de prairies pour le bien-être de vos chevaux",
       cta: "Voir nos installations"
     },
     {

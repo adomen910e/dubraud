@@ -7,7 +7,7 @@ const Footer = () => {
     { icon: Facebook, href: "#", label: "Facebook" },
     { icon: Instagram, href: "#", label: "Instagram" },
     { icon: Mail, href: "mailto:contact@domaine-dubraud.fr", label: "Email" },
-    { icon: Phone, href: "tel:+33500000000", label: "Téléphone" }
+    { icon: Phone, href: "tel:+33 6 95 42 84 77", label: "Téléphone" }
   ];
 
   return (
@@ -33,7 +33,7 @@ const Footer = () => {
             <div className="space-y-2">
               <div className="flex items-center justify-center space-x-2">
                 <Phone size={16} className="text-brand-gold" />
-                <span className="text-brand-beige text-sm">+33 5 XX XX XX XX</span>
+                <span className="text-brand-beige text-sm">+33 6 95 42 84 77</span>
               </div>
               <div className="flex items-center justify-center space-x-2">
                 <Mail size={16} className="text-brand-gold" />

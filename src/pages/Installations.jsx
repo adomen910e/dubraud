@@ -181,18 +181,18 @@ const Installations = () => {
     {
       image: dubraud3,
       title: "Prairies et Paddocks",
-      description: "40 hectares de prairies vallonnées pour le bien-être de vos chevaux, actuellement disponibles",
+      description: "45 hectares de prairies pour le bien-être de vos chevaux",
       icon: Trees,
       delay: 0,
       available: true,
       comingSoon: false,
       features: [
-        "40 hectares de prairies naturelles",
-        "Prairies rotatives pour préservation",
-        "Paddocks individuels sécurisés",
+        "45 hectares de prairies",
+        "Gestion des troupeaux en pâturages tournants pour des prairies préservées",
+        "Paddocks vastes et sécurisés",
         "Clôtures haute sécurité",
         "Abris naturels et artificiels",
-        "Points d'eau dans chaque parcelle"
+        
       ]
     },
     {
@@ -205,17 +205,16 @@ const Installations = () => {
       comingSoon: true,
       comingSoonDate: "09/2026",
       features: [
-        "15 boxes spacieux de 12m²",
+        "15 boxes spacieux de 3x4",
         "Ventilation optimale naturelle",
-        "Distributeurs d'eau automatiques",
-        "Sols antidérapants et drainants",
-        "Éclairage LED basse consommation",
-        "Système de surveillance 24h/24"
+        "Abreuvoirs automatique à niveau constant",
+        "Éclairage ",
+        "Présence sur site 24h/7j"
       ]
     },
     {
       image: dubraud1,
-      title: "Carrières et Manège",
+      title: "Installations",
       description: "Installations sportives de qualité professionnelle pour l'entraînement et le dressage",
       icon: Building,
       delay: 0.4,
@@ -223,12 +222,11 @@ const Installations = () => {
       comingSoon: true,
       comingSoonDate: "09/2026",
       features: [
-        "1 carrière extérieure 60x20m",
-        "1 manège couvert 40x20m",
-        "Sol en sable de Loire premium",
-        "Éclairage LED professionnel",
-        "Arrosage automatique intégré",
-        "Tribunes pour spectateurs"
+        "1 carrière naturelle 80x35m",
+        "1 manège couvert 65x22m en sable de fontainebleau fibré",
+        "Éclairage",
+        "Arrosage des installations",
+        "Marcheur"
       ]
     },
     {
@@ -241,18 +239,17 @@ const Installations = () => {
       comingSoon: true,
       comingSoonDate: "09/2026",
       features: [
-        "Sellerie commune climatisée",
-        "Douches pour chevaux chauffées",
-        "Parking visiteurs 20 places",
-        "Local matériel sécurisé",
-        "Aire de pansage couverte",
-        "Infirmerie équipée"
+        "Sellerie commune sécurisée",
+        "Aires de préparation avec eaux chaude" ,
+        "Solarium",
+        "Parking visiteurs",
+        "Local Pharmacie"
       ]
     }
   ];
 
   const stats = [
-    { icon: Trees, number: "40", label: "Hectares disponibles" },
+    { icon: Trees, number: "45", label: "Hectares disponibles" },
     { icon: Home, number: "15", label: "Boxes prévus" },
     { icon: Clock, number: "24/7", label: "Surveillance" },
     { icon: Award, number: "2026", label: "Ouverture complète" }
@@ -262,7 +259,7 @@ const Installations = () => {
     {
       icon: Trees,
       title: "Prairies Naturelles",
-      description: "40 hectares de prairies vallonnées immédiatement disponibles"
+      description: "45 hectares de prairies"
     },
     {
       icon: Shield,
@@ -311,8 +308,8 @@ const Installations = () => {
               </h1>
               <div className="w-32 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Découvrez nos installations actuelles et futures, conçues pour offrir le meilleur environnement 
-                à vos chevaux dans un cadre exceptionnel de 40 hectares.
+                Découvrez nos installations en place et à venir, conçues pour offrir le meilleur environnement 
+                à vos chevaux dans un cadre préservé de 45 hectares.
               </p>
             </AnimatedSection>
           </div>

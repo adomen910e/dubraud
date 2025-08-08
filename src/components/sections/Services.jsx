@@ -8,21 +8,20 @@ const Services = () => {
   const services = [
     {
       icon: Home,
-      title: "Pension Retraite",
-      description: "Un environnement paisible pour vos chevaux en fin de carrière, avec soins adaptés et surveillance quotidienne.",
-      features: ["Surveillance 24h/7j", "Soins vétérinaires", "Prairies spacieuses"]
+      title: "Pension Pré Repos",
+      description: "Un environnement calme et naturel pour vos chevaux au repos/retraite/élevage, avec soins adaptés et surveillance quotidienne.",
+      features: ["Vie en troupeau", "Présence sur site 24h/7j", "Foin à volonté", "Rotation de prairie"]
     },
     {
       icon: Users,
       title: "Pension Pré Sport",
-      description: "Parfait pour les chevaux au repos entre les compétitions, avec possibilité de travail léger.",
-      features: ["Paddocks individuels", "Accès aux installations", "Suivi personnalisé"]
-    },
+      description: "Une vie en exterieur associée à un abri stabilisé et une proximité des installations pour associer travail et bien-être",
+      features: ["Paddocks individuels ou duo", "Accès aux installations", "Foin à volonté", "Deux rations par jour"]    },
     {
       icon: Star,
-      title: "Pension Travail",
-      description: "Pour les chevaux en activité avec accès complet aux installations d'entraînement.",
-      features: ["Carrières disponibles", "Rond de longe", "Accompagnement professionnel"]
+      title: "Pension Boxe",
+      description: "Des boxes spacieux avec libre accès sur les paddocks.",
+      features: ["Boxes 4x3m", "Accès aux installations", "Foin à volonté", "Deux rations par jour"]
     },
     // {
     //   icon: Building,
@@ -101,7 +100,7 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            Nos Services
+            Nos Prestations
           </motion.h2>
 
           <motion.div 
@@ -145,8 +144,8 @@ const Services = () => {
           delay={0.8}
         >
           {[
-            { number: "40", label: "Hectares au total", icon: MapPin },
-            { number: "4", label: "Hectares par pré", icon: Home },
+            { number: "45", label: "Hectares au total", icon: MapPin },
+            //{ number: "4", label: "Hectares par pré", icon: Home },
             { number: "2025", label: "Nouvelle activité", icon: Star },
             { number: "100%", label: "Satisfaction", icon: Heart }
           ].map((stat, index) => (
