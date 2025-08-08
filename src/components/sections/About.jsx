@@ -108,38 +108,40 @@ const About = () => {
               Avec nos 40 hectares de prairies vallonnées, nos installations modernes et notre équipe expérimentée, nous garantissons le bien-être de vos chevaux tout en vous proposant un hébergement de qualité dans un cadre bucolique.
             </motion.p>
             
-            {/* Statistiques avec animations */}
-            <div className="grid grid-cols-2 gap-6 mb-10">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  className="text-center p-4 bg-gradient-to-br from-brand-neutral/30 to-transparent rounded-2xl border border-brand-neutral/50"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ 
-                    delay: 0.8 + index * 0.1,
-                    type: "spring",
-                    stiffness: 400,
-                    damping: 15
-                  }}
-                  whileHover={{ 
-                    scale: 1.05,
-                    y: -5
-                  }}
-                >
+            {/* Statistiques avec animations - Masquées car le tableau features est vide */}
+            {features.length > 0 && (
+              <div className="grid grid-cols-2 gap-6 mb-10">
+                {features.map((feature, index) => (
                   <motion.div
-                    className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-brand-primary to-brand-accent text-white rounded-xl mb-3"
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.5 }}
+                    key={index}
+                    className="text-center p-4 bg-gradient-to-br from-brand-neutral/30 to-transparent rounded-2xl border border-brand-neutral/50"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ 
+                      delay: 0.8 + index * 0.1,
+                      type: "spring",
+                      stiffness: 400,
+                      damping: 15
+                    }}
+                    whileHover={{ 
+                      scale: 1.05,
+                      y: -5
+                    }}
                   >
-                    <feature.icon size={24} />
+                    <motion.div
+                      className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-brand-primary to-brand-accent text-white rounded-xl mb-3"
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <feature.icon size={24} />
+                    </motion.div>
+                    <div className="text-2xl font-bold text-brand-primary mb-1">{feature.title}</div>
+                    <div className="text-gray-600 text-sm">{feature.description}</div>
                   </motion.div>
-                  <div className="text-2xl font-bold text-brand-primary mb-1">{feature.title}</div>
-                  <div className="text-gray-600 text-sm">{feature.description}</div>
-                </motion.div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
             
             <motion.div
               initial={{ opacity: 0, y: 30 }}

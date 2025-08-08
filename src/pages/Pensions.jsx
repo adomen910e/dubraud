@@ -464,7 +464,7 @@ const Pensions = () => {
     {
       icon: Home,
       title: "Boxes Modernes",
-      description: "30 boxes spacieux et confortables"
+      description: "15 boxes spacieux et confortables"
     },
     {
       icon: Users,
@@ -482,9 +482,8 @@ const Pensions = () => {
     <div className="min-h-screen">
       <Header />
       
-      <div className="pt-28">
       {/* Header Simple et Direct */}
-      <section className="pt-24 pb-12 bg-gradient-to-b from-brand-cream to-white">
+      <section className="pt-32 pb-16 bg-gradient-to-b from-brand-cream to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection animation="fadeInUp" className="text-center">          
             <h1 className="text-4xl md:text-5xl font-bold text-brand-brown mb-4 font-serif">
@@ -661,7 +660,7 @@ const Pensions = () => {
             </p>
           </AnimatedSection>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {additionalServices.map((service, index) => (
               <ServiceCard key={index} {...service} />
             ))}
@@ -823,7 +822,6 @@ const Pensions = () => {
           </AnimatedSection>
         </div>
       </section>
-      </div>
 
       <Footer />
     </div>

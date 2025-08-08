@@ -141,13 +141,12 @@ const Services = () => {
 
         {/* Section statistiques avec animations */}
         <AnimatedSection 
-          className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8"
+          className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
           animation="fadeInUp"
           delay={0.8}
         >
           {[
             { number: "45", label: "Hectares au total", icon: MapPin },
-            //{ number: "4", label: "Hectares par pré", icon: Home },
             { number: "2025", label: "Nouvelle activité", icon: Star },
             { number: "100%", label: "Satisfaction", icon: Heart }
           ].map((stat, index) => (
