@@ -99,7 +99,7 @@ const PhotoGallery = ({ className = "" }) => {
       document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'unset';
     };
-  }, [isModalOpen, currentIndex]);
+  }, [isModalOpen, currentIndex, handleKeyDown]);
 
   return (
     <>

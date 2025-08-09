@@ -17,7 +17,6 @@ import {
   Phone,
   Mail,
   Sparkles,
-  Award,
   Clock,
   CheckCircle
 } from 'lucide-react';
