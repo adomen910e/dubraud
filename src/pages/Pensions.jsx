@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import AnimatedSection from '../components/ui/AnimatedSection';
@@ -10,15 +10,10 @@ import {
   Clock, 
   Check, 
   Calendar, 
-  MapPin, 
   Heart, 
-  Shield, 
-  Award,
-  ChevronRight,
   Phone,
   Mail,
   ArrowRight,
-  Sparkles,
   TreePine,
   Sun
 } from 'lucide-react';
@@ -187,31 +182,6 @@ const PensionCard = ({ icon: Icon, title, description, price, features, image, c
   </AnimatedSection>
 );
 
-const StatCard = ({ icon: Icon, number, label, delay = 0 }) => (
-  <AnimatedSection animation="scaleIn" delay={delay}>
-    <motion.div 
-      className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20"
-      whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.15)" }}
-      transition={{ duration: 0.3 }}
-    >
-      <motion.div
-        whileHover={{ rotate: 360 }}
-        transition={{ duration: 0.5 }}
-      >
-        <Icon className="text-white mx-auto mb-3" size={32} />
-      </motion.div>
-      <motion.div 
-        className="text-3xl font-bold text-white mb-2"
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ delay: delay + 0.3, type: "spring" }}
-      >
-        {number}
-      </motion.div>
-      <div className="text-white/90 text-sm font-medium">{label}</div>
-    </motion.div>
-  </AnimatedSection>
-);
 
 const ServiceCard = ({ title, price, description, features, comingSoon, comingSoonDate, delay = 0 }) => (
   <AnimatedSection animation="fadeInUp" delay={delay}>
@@ -312,32 +282,6 @@ const ServiceCard = ({ title, price, description, features, comingSoon, comingSo
 );
 
 const Pensions = () => {
-  const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
-  
-  const heroSlides = [
-    {
-      image: dubraud1,
-      title: "Pension pour Chevaux",
-      subtitle: "Un cadre exceptionnel pour le bien-être de vos compagnons"
-    },
-    {
-      image: dubraud2,
-      title: "45 Hectares de Nature",
-      subtitle: "Des prairies vallonnées dans un environnement préservé"
-    },
-    {
-      image: dubraud3,
-      title: "Installations Modernes",
-      subtitle: "Équipements de qualité pour tous vos besoins équestres"
-    }
-  ];
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentHeroSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [heroSlides.length]);
 
   const pensions = [
     {
@@ -395,12 +339,6 @@ const Pensions = () => {
     }
   ];
 
-  const stats = [
-    // { icon: TreePine, number: "26", label: "Hectares de prairies" },
-    // { icon: Home, number: "30", label: "Boxes modernes" },
-    // { icon: Clock, number: "24/7", label: "Surveillance" },
-    // { icon: Award, number: "15+", label: "Années d'expérience" }
-  ];
 
   const additionalServices = [
     {

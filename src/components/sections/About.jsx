@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Users, Clock, Shield, Heart } from 'lucide-react';
+import { Heart } from 'lucide-react';
 import Button from '../ui/Button';
 import dubraud1 from '../../assets/images/dubraud_1.png';
 

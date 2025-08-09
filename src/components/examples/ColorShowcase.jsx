@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { colors } from '../../config/colors';
+import React, { useState } from 'react';
 
 /**
  * Éditeur de couleurs interactif pour le Domaine de Dubraud

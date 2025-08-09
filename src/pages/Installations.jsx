@@ -5,7 +5,6 @@ import Footer from '../components/layout/Footer';
 import AnimatedSection from '../components/ui/AnimatedSection';
 import Button from '../components/ui/Button';
 import { 
-  MapPin, 
   Home, 
   Building, 
   Trees, 
@@ -151,31 +150,6 @@ const InstallationCard = ({ image, title, description, features, icon: Icon, ava
   </AnimatedSection>
 );
 
-const StatCard = ({ icon: Icon, number, label, delay = 0 }) => (
-  <AnimatedSection animation="scaleIn" delay={delay}>
-    <motion.div 
-      className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20"
-      whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.15)" }}
-      transition={{ duration: 0.3 }}
-    >
-      <motion.div
-        whileHover={{ rotate: 360 }}
-        transition={{ duration: 0.5 }}
-      >
-        <Icon className="text-white mx-auto mb-3" size={32} />
-      </motion.div>
-      <motion.div 
-        className="text-3xl font-bold text-white mb-2"
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ delay: delay + 0.3, type: "spring" }}
-      >
-        {number}
-      </motion.div>
-      <div className="text-white/90 text-sm font-medium">{label}</div>
-    </motion.div>
-  </AnimatedSection>
-);
 
 const Installations = () => {
   const installations = [
@@ -249,12 +223,6 @@ const Installations = () => {
     }
   ];
 
-  const stats = [
-    { icon: Trees, number: "45", label: "Hectares disponibles" },
-    { icon: Home, number: "15", label: "Boxes prévus" },
-    { icon: Clock, number: "24/7", label: "Surveillance" },
-    { icon: Award, number: "2026", label: "Ouverture complète" }
-  ];
 
   const currentFeatures = [
     {
