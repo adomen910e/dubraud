@@ -24,7 +24,7 @@ import {
 } from 'lucide-react';
 import Button from '../components/ui/Button';
 import dubraud1 from '../assets/images/dubraud_1.png';
-import dubraud2 from '../assets/images/dubraud_2.png';
+import dubraud2 from '../assets/images/sport.png';
 import dubraud3 from '../assets/images/dubraud_3.png';
 
 const PensionCard = ({ icon: Icon, title, description, price, features, image, comingSoon, comingSoonDate, available = true, delay = 0 }) => (

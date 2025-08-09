@@ -317,7 +317,7 @@ const Installations = () => {
         </section>
 
       {/* Annonce Développement */}
-      <section className="py-16 bg-gradient-to-r from-gray-50 via-slate-50 to-gray-50 border-y border-gray-200 relative overflow-hidden">
+      {/* <section className="py-16 bg-gradient-to-r from-gray-50 via-slate-50 to-gray-50 border-y border-gray-200 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full opacity-5">
           <div className="absolute top-10 left-10 w-20 h-20 bg-brand-brown rounded-full"></div>
           <div className="absolute bottom-10 right-10 w-16 h-16 bg-brand-light-brown rounded-full"></div>
@@ -389,7 +389,7 @@ const Installations = () => {
               </motion.div>
             </AnimatedSection>
           </div>
-        </section>
+        </section> */}
 
         {/* Installations Grid */}
         <section className="py-20 bg-gradient-to-b from-white to-brand-cream/30">
@@ -448,6 +448,80 @@ const Installations = () => {
                 </AnimatedSection>
               ))}
             </div>
+          </div>
+        </section>
+
+         <section className="py-16 bg-gradient-to-r from-gray-50 via-slate-50 to-gray-50 border-y border-gray-200 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-5">
+          <div className="absolute top-10 left-10 w-20 h-20 bg-brand-brown rounded-full"></div>
+          <div className="absolute bottom-10 right-10 w-16 h-16 bg-brand-light-brown rounded-full"></div>
+        </div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <AnimatedSection animation="fadeInUp">
+              <motion.div 
+                className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-brand-accent relative overflow-hidden"
+                whileHover={{ scale: 1.02, shadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="flex items-start space-x-6 relative z-10">
+                  <motion.div
+                    className="flex-shrink-0"
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <div className="bg-gradient-to-r from-brand-accent to-brand-accent-light text-white rounded-full p-4 shadow-lg">
+                      <Calendar size={32} />
+                    </div>
+                  </motion.div>
+                  
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-brand-brown mb-3 font-serif">
+                      Projet d'Extension 2026
+                    </h3>
+                    
+                    <p className="text-gray-600 mb-6 leading-relaxed">
+                      Nous investissons massivement dans l'extension de nos installations pour vous proposer 
+                      des équipements premium dès septembre 2026. Un projet ambitieux de modernisation complète.
+                    </p>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                      {[
+                        "15 boxes modernes avec paddocks",
+                        "Manège couvert professionnel",
+                        "1 carrière extérieure équipée",
+                        "Installations annexes complètes"
+                      ].map((item, index) => (
+                        <motion.div 
+                          key={index}
+                          className="flex items-center space-x-3 p-3 bg-brand-neutral rounded-lg"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.4 + index * 0.1 }}
+                          whileHover={{ scale: 1.02, backgroundColor: "rgba(245, 242, 235, 0.8)" }}
+                        >
+                          <div className="w-3 h-3 bg-gradient-to-r from-brand-accent to-brand-accent-light rounded-full"></div>
+                          <span className="text-gray-700 font-medium">{item}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-4">
+                      <Button href="/contact" variant="gradient" size="md" className="group">
+                        <Mail size={18} className="mr-2" />
+                        <span>Être informé du projet</span>
+                        <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                      </Button>
+                      
+                      <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-brand-neutral to-brand-neutral-light text-brand-primary border border-brand-accent/30">
+                        <Calendar size={16} className="mr-2" />
+                        Ouverture : Septembre 2026
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatedSection>
           </div>
         </section>
 
