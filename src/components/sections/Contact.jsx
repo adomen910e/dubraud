@@ -15,34 +15,10 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = (e) => {
+    // Pour Netlify Forms, on laisse le formulaire se soumettre naturellement
+    // Netlify interceptera automatiquement la soumission
     setIsSubmitting(true);
-    setSubmitStatus('');
-
-    try {
-      const form = e.target;
-      const formData = new FormData(form);
-      
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString(),
-      });
-
-      if (response.ok) {
-        setSubmitStatus('success');
-        form.reset();
-        setFormData({ name: '', email: '', phone: '', message: '', service: '', requestType: '' });
-      } else {
-        setSubmitStatus('error');
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
   };
 
   const handleChange = (e) => {
@@ -121,8 +97,8 @@ const Contact = () => {
             <form 
               name="contact" 
               method="POST" 
-              data-netlify="true" 
-              data-netlify-honeypot="bot-field"
+              netlify
+              netlify-honeypot="bot-field"
               onSubmit={handleSubmit}
               className="space-y-4"
             >

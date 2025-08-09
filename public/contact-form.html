@@ -6,15 +6,19 @@
 <body>
     <!-- Formulaire caché pour la détection par Netlify -->
     <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="bot-field" />
         <input type="text" name="name" />
         <input type="email" name="email" />
         <input type="tel" name="phone" />
         <select name="service">
+            <option value="">Sélectionnez un service</option>
             <option value="pension-retraite">Pension Retraite</option>
             <option value="pension-sport">Pension Pré Sport</option>
             <option value="pension-travail">Pension Travail</option>
         </select>
         <select name="requestType">
+            <option value="">Que souhaitez-vous ?</option>
             <option value="visite">Planifier une visite</option>
             <option value="devis">Demander un devis</option>
             <option value="informations">Obtenir des informations</option>
