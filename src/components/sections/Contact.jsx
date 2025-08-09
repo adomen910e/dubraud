@@ -13,7 +13,6 @@ const Contact = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState('');
 
   const handleSubmit = (e) => {
     // Pour Netlify Forms, on laisse le formulaire se soumettre naturellement
@@ -82,19 +81,7 @@ const Contact = () => {
           <div className="bg-white shadow-lg rounded-2xl p-6 md:p-8 border border-gray-200">
             <h3 className="text-2xl font-bold mb-6 text-gray-900">Demande de renseignements</h3>
             
-            {submitStatus === 'success' && (
-              <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-                <p className="text-green-800 font-medium">✓ Merci pour votre message ! Nous vous recontacterons bientôt.</p>
-              </div>
-            )}
-            
-            {submitStatus === 'error' && (
-              <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-                <p className="text-red-800 font-medium">✗ Une erreur s'est produite. Veuillez réessayer ou nous contacter directement.</p>
-              </div>
-            )}
-
-            <form 
+            <form
               name="contact" 
               method="POST" 
               netlify
