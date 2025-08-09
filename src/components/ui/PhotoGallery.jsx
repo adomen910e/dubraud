@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
 
@@ -63,13 +63,13 @@ const PhotoGallery = ({ className = "" }) => {
     setCurrentIndex(index);
   };
 
-  const goToPrevious = () => {
+  const goToPrevious = useCallback(() => {
     setCurrentIndex(currentIndex === 0 ? images.length - 1 : currentIndex - 1);
-  };
+  }, [currentIndex, images.length]);
 
-  const goToNext = () => {
+  const goToNext = useCallback(() => {
     setCurrentIndex(currentIndex === images.length - 1 ? 0 : currentIndex + 1);
-  };
+  }, [currentIndex, images.length]);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -81,11 +81,11 @@ const PhotoGallery = ({ className = "" }) => {
     setIsAutoPlay(true);
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = useCallback((e) => {
     if (e.key === 'Escape') closeModal();
     if (e.key === 'ArrowLeft') goToPrevious();
     if (e.key === 'ArrowRight') goToNext();
-  };
+  }, [goToPrevious, goToNext]);
 
   useEffect(() => {
     if (isModalOpen) {
