@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Play, ArrowDown, Mail } from 'lucide-react';
 import Button from '../ui/Button';
 import dubraud1 from '../../assets/images/dubraud_1.png';
-import dubraud2 from '../../assets/images/dubraud_2.png';
+import dubraud2 from '../../assets/images/cadre.jpg';
 import dubraud3 from '../../assets/images/dubraud_3.png';
 
 const Hero = () => {
