@@ -20,9 +20,10 @@ import {
   Clock,
   CheckCircle
 } from 'lucide-react';
-import dubraud1 from '../assets/images/dubraud_1.png';
+import dubraud1 from '../assets/images/sportAV.JPG';
 import dubraud2 from '../assets/images/dubraud_2.png';
-import dubraud3 from '../assets/images/dubraud_3.png';
+import dubraud3 from '../assets/images/prairie.jpg';
+import confort from '../assets/images/confort.jpg';
 import PhotoGallery from '../components/ui/PhotoGallery';
 
 const InstallationCard = ({ image, title, description, features, icon: Icon, available = true, comingSoon = false, comingSoonDate, delay = 0 }) => (
@@ -204,7 +205,7 @@ const Installations = () => {
       ]
     },
     {
-      image: dubraud1,
+      image: confort,
       title: "Equipements pour votre confort",
       description: "Tous les équipements nécessaires pour un service complet et professionnel",
       icon: Wrench,
