@@ -5,6 +5,34 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# Configuration du domaine personnalisé
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Force HTTPS redirect
+[[redirects]]
+  from = "http://domaine-dubraud.com/*"
+  to = "https://domaine-dubraud.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.domaine-dubraud.com/*"
+  to = "https://domaine-dubraud.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.domaine-dubraud.com/*"
+  to = "https://domaine-dubraud.com/:splat"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
