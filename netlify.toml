@@ -5,6 +5,17 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# Configuration des formulaires Netlify
+[forms]
+  # Configuration globale pour tous les formulaires
+  [forms.contact]
+    # Email de notification pour les soumissions de formulaire
+    to = "contact@domaine-dubraud.com"
+    # Sujet de l'email
+    subject = "Nouvelle demande de contact - Domaine de Dubraud"
+    # Template de l'email (optionnel)
+    template = "Nouvelle demande de contact reçue :\n\nNom: {{ name }}\nEmail: {{ email }}\nTéléphone: {{ phone }}\nService: {{ service }}\nType de demande: {{ requestType }}\n\nMessage:\n{{ message }}"
+
 # Configuration du domaine personnalisé
 [[headers]]
   for = "/*"

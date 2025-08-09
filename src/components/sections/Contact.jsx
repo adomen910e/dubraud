@@ -12,11 +12,37 @@ const Contact = () => {
     requestType: ''
   });
 
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState('');
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Merci pour votre message ! Nous vous recontacterons bientôt.');
-    setFormData({ name: '', email: '', phone: '', message: '', service: '', requestType: '' });
+    setIsSubmitting(true);
+    setSubmitStatus('');
+
+    try {
+      const form = e.target;
+      const formData = new FormData(form);
+      
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString(),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        form.reset();
+        setFormData({ name: '', email: '', phone: '', message: '', service: '', requestType: '' });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -53,7 +79,7 @@ const Contact = () => {
                 <Mail className="h-6 w-6 mr-4 text-brand-accent mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-semibold text-gray-800">Email</p>
-                  <p className="text-gray-600">contact@domaine-dubraud.fr</p>
+                  <p className="text-gray-600">contact@domaine-dubraud.com</p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -79,7 +105,29 @@ const Contact = () => {
           {/* Formulaire de contact */}
           <div className="bg-white shadow-lg rounded-2xl p-6 md:p-8 border border-gray-200">
             <h3 className="text-2xl font-bold mb-6 text-gray-900">Demande de renseignements</h3>
-            <div className="space-y-4">
+            
+            {submitStatus === 'success' && (
+              <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                <p className="text-green-800 font-medium">✓ Merci pour votre message ! Nous vous recontacterons bientôt.</p>
+              </div>
+            )}
+            
+            {submitStatus === 'error' && (
+              <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                <p className="text-red-800 font-medium">✗ Une erreur s'est produite. Veuillez réessayer ou nous contacter directement.</p>
+              </div>
+            )}
+
+            <form 
+              name="contact" 
+              method="POST" 
+              data-netlify="true" 
+              data-netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
+              className="space-y-4"
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="bot-field" />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium mb-2 text-gray-700">
@@ -179,13 +227,14 @@ const Contact = () => {
               </div>
               
               <Button 
-                onClick={handleSubmit}
+                type="submit"
                 variant="secondary"
                 className="w-full"
+                disabled={isSubmitting}
               >
-                Envoyer le message
+                {isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}
               </Button>
-            </div>
+            </form>
           </div>
         </div>
 

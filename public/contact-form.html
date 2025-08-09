@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Form - Domaine de Dubraud</title>
+</head>
+<body>
+    <!-- Formulaire caché pour la détection par Netlify -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="tel" name="phone" />
+        <select name="service">
+            <option value="pension-retraite">Pension Retraite</option>
+            <option value="pension-sport">Pension Pré Sport</option>
+            <option value="pension-travail">Pension Travail</option>
+        </select>
+        <select name="requestType">
+            <option value="visite">Planifier une visite</option>
+            <option value="devis">Demander un devis</option>
+            <option value="informations">Obtenir des informations</option>
+        </select>
+        <textarea name="message"></textarea>
+    </form>
+</body>
+</html>
