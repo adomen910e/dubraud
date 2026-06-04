@@ -7,9 +7,9 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      <div className="pt-28">
+      <main className="pt-28">
         <Contact />
-      </div>
+      </main>
       <Footer />
     </div>
   );

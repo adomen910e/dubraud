@@ -97,6 +97,7 @@ const Hero = () => {
       {/* Contrôles du carrousel */}
       <motion.button
         onClick={prevSlide}
+        aria-label="Diapositive précédente"
         className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 group"
         whileHover={{ scale: 1.1, x: -5 }}
         whileTap={{ scale: 0.95 }}
@@ -104,11 +105,12 @@ const Hero = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1 }}
       >
-        <ChevronLeft size={28} className="group-hover:animate-pulse" />
+        <ChevronLeft size={28} className="group-hover:animate-pulse" aria-hidden="true" />
       </motion.button>
       
       <motion.button
         onClick={nextSlide}
+        aria-label="Diapositive suivante"
         className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 group"
         whileHover={{ scale: 1.1, x: 5 }}
         whileTap={{ scale: 0.95 }}
@@ -116,7 +118,7 @@ const Hero = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1 }}
       >
-        <ChevronRight size={28} className="group-hover:animate-pulse" />
+        <ChevronRight size={28} className="group-hover:animate-pulse" aria-hidden="true" />
       </motion.button>
       
       {/* Indicateurs avec progression */}
@@ -125,6 +127,8 @@ const Hero = () => {
           <motion.button
             key={index}
             onClick={() => goToSlide(index)}
+            aria-label={`Aller à la diapositive ${index + 1}`}
+            aria-current={index === currentSlide ? 'true' : undefined}
             className={`relative w-12 h-1 rounded-full transition-all duration-300 ${
               index === currentSlide ? 'bg-white' : 'bg-white/40 hover:bg-white/60'
             }`}

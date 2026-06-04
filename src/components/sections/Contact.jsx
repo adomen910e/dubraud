@@ -13,11 +13,32 @@ const Contact = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  // null | 'success' | 'error'
+  const [submitStatus, setSubmitStatus] = useState(null);
 
-  const handleSubmit = (e) => {
-    // Pour Netlify Forms, on laisse le formulaire se soumettre naturellement
-    // Netlify interceptera automatiquement la soumission
+  // Encodage des données au format attendu par Netlify Forms
+  const encode = (data) =>
+    Object.keys(data)
+      .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus(null);
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': 'contact', ...formData })
+      });
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', phone: '', message: '', service: '', requestType: '' });
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -31,7 +52,7 @@ const Contact = () => {
     <section id="contact" className="py-16 md:py-24 bg-gray-50 text-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Contactez-nous</h2>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Contactez-nous</h1>
           <div className="w-20 h-1 bg-brand-accent mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             N'hésitez pas à nous contacter pour toute question ou demande de réservation
@@ -93,10 +114,11 @@ const Contact = () => {
               <input type="hidden" name="bot-field" />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2 text-gray-700">
+                  <label htmlFor="contact-name" className="block text-sm font-medium mb-2 text-gray-700">
                     Nom complet *
                   </label>
                   <input
+                    id="contact-name"
                     type="text"
                     name="name"
                     value={formData.name}
@@ -107,10 +129,11 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2 text-gray-700">
+                  <label htmlFor="contact-phone" className="block text-sm font-medium mb-2 text-gray-700">
                     Téléphone
                   </label>
                   <input
+                    id="contact-phone"
                     type="tel"
                     name="phone"
                     value={formData.phone}
@@ -120,12 +143,13 @@ const Contact = () => {
                   />
                 </div>
               </div>
-              
+
               <div>
-                <label className="block text-sm font-medium mb-2 text-gray-700">
+                <label htmlFor="contact-email" className="block text-sm font-medium mb-2 text-gray-700">
                   Email *
                 </label>
                 <input
+                  id="contact-email"
                   type="email"
                   name="email"
                   value={formData.email}
@@ -138,28 +162,28 @@ const Contact = () => {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2 text-gray-700">
+                  <label htmlFor="contact-service" className="block text-sm font-medium mb-2 text-gray-700">
                     Service souhaité
                   </label>
                   <select
+                    id="contact-service"
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-brand-accent"
                   >
                     <option value="" className="text-gray-500">Sélectionnez un service</option>
-                    <option value="pension-retraite" className="text-gray-900">Pension Retraite</option>
-                    <option value="pension-sport" className="text-gray-900">Pension Pré Sport</option>
-                    <option value="pension-travail" className="text-gray-900">Pension Travail</option>
-                    {/* <option value="gite" className="text-gray-900">Gîte</option> */}
-                    {/* <option value="chambres" className="text-gray-900">Chambres d'Hôtes</option> */}
+                    <option value="pension-pre-repos" className="text-gray-900">Pension Pré-Repos</option>
+                    <option value="pension-pre-sport" className="text-gray-900">Pension Pré-Sport</option>
+                    <option value="pension-boxe-paddock" className="text-gray-900">Pension Boxe/Paddock</option>
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2 text-gray-700">
+                  <label htmlFor="contact-requestType" className="block text-sm font-medium mb-2 text-gray-700">
                     Type de demande *
                   </label>
                   <select
+                    id="contact-requestType"
                     name="requestType"
                     value={formData.requestType}
                     onChange={handleChange}
@@ -175,10 +199,11 @@ const Contact = () => {
               </div>
               
               <div>
-                <label className="block text-sm font-medium mb-2 text-gray-700">
+                <label htmlFor="contact-message" className="block text-sm font-medium mb-2 text-gray-700">
                   Message *
                 </label>
                 <textarea
+                  id="contact-message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
@@ -188,8 +213,19 @@ const Contact = () => {
                   placeholder="Votre message..."
                 />
               </div>
-              
-              <Button 
+
+              {submitStatus === 'success' && (
+                <p role="status" className="rounded-lg bg-green-50 border border-green-200 text-green-800 px-4 py-3 text-sm">
+                  Merci, votre message a bien été envoyé. Nous vous répondrons rapidement.
+                </p>
+              )}
+              {submitStatus === 'error' && (
+                <p role="alert" className="rounded-lg bg-red-50 border border-red-200 text-red-800 px-4 py-3 text-sm">
+                  Une erreur est survenue. Merci de réessayer ou de nous contacter par téléphone.
+                </p>
+              )}
+
+              <Button
                 type="submit"
                 variant="secondary"
                 className="w-full"

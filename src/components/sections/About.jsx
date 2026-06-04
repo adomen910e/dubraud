@@ -105,7 +105,7 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.7, duration: 0.8 }}
             >
-              Avec nos 40 hectares de prairies vallonnées, nos installations modernes et notre équipe expérimentée, nous garantissons le bien-être de vos chevaux tout en vous proposant un hébergement de qualité dans un cadre bucolique.
+              Avec nos 45 hectares de prairies vallonnées, nos installations modernes et notre équipe expérimentée, nous garantissons le bien-être de vos chevaux tout en vous proposant un hébergement de qualité dans un cadre bucolique.
             </motion.p>
             
             {/* Statistiques avec animations - Masquées car le tableau features est vide */}

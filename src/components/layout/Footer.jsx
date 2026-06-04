@@ -4,10 +4,10 @@ import { Facebook, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Mail, href: "mailto:contact@domaine-dubraud.fr", label: "Email" },
-    { icon: Phone, href: "tel:+33 6 95 42 84 77", label: "Téléphone" }
+    { icon: Facebook, href: "#", label: "Facebook", external: true },
+    { icon: Instagram, href: "#", label: "Instagram", external: true },
+    { icon: Mail, href: "mailto:contact@domaine-dubraud.com", label: "Email" },
+    { icon: Phone, href: "tel:+33695428477", label: "Téléphone" }
   ];
 
   return (
@@ -36,15 +36,15 @@ const Footer = () => {
             <h4 className="text-lg font-semibold text-brand-gold mb-4">Contact</h4>
             <div className="space-y-3">
               <div className="flex items-center justify-center md:justify-start space-x-3">
-                <Phone size={16} className="text-brand-gold flex-shrink-0" />
-                <span className="text-brand-beige text-sm">+33 6 95 42 84 77</span>
+                <Phone size={16} className="text-brand-gold flex-shrink-0" aria-hidden="true" />
+                <a href="tel:+33695428477" className="text-brand-beige text-sm hover:text-white transition-colors">+33 6 95 42 84 77</a>
               </div>
               <div className="flex items-center justify-center md:justify-start space-x-3">
-                <Mail size={16} className="text-brand-gold flex-shrink-0" />
-                <span className="text-brand-beige text-sm">contact@domaine-dubraud.fr</span>
+                <Mail size={16} className="text-brand-gold flex-shrink-0" aria-hidden="true" />
+                <a href="mailto:contact@domaine-dubraud.com" className="text-brand-beige text-sm hover:text-white transition-colors">contact@domaine-dubraud.com</a>
               </div>
               <div className="flex items-center justify-center md:justify-start space-x-3">
-                <MapPin size={16} className="text-brand-gold flex-shrink-0" />
+                <MapPin size={16} className="text-brand-gold flex-shrink-0" aria-hidden="true" />
                 <span className="text-brand-beige text-sm">Saint-Christoly-de-Blaye</span>
               </div>
             </div>
@@ -83,8 +83,10 @@ const Footer = () => {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   title={social.label}
+                  aria-label={social.label}
+                  {...(social.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 >
-                  <social.icon size={18} className="text-brand-beige group-hover:text-white transition-colors duration-300" />
+                  <social.icon size={18} className="text-brand-beige group-hover:text-white transition-colors duration-300" aria-hidden="true" />
                 </motion.a>
               ))}
             </div>

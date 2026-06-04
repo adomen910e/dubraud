@@ -32,7 +32,7 @@ const PensionCard = ({ icon: Icon, title, description, price, features, image, c
       className={`bg-white rounded-2xl shadow-lg p-8 h-full relative overflow-hidden group cursor-pointer ${!available ? 'opacity-90' : ''}`}
       whileHover={{ 
         y: -8, 
-        shadow: "0 20px 40px -10px rgba(0, 0, 0, 0.15)",
+        boxShadow: "0 20px 40px -10px rgba(0, 0, 0, 0.15)",
         transition: { duration: 0.3 }
       }}
       initial={{ opacity: 0, y: 50 }}
@@ -189,7 +189,7 @@ const ServiceCard = ({ title, price, description, features, comingSoon, comingSo
       className={`bg-white rounded-xl shadow-lg p-6 h-full relative overflow-hidden ${comingSoon ? 'opacity-95' : ''}`}
       whileHover={{ 
         y: -5, 
-        shadow: "0 15px 30px -10px rgba(0, 0, 0, 0.15)",
+        boxShadow: "0 15px 30px -10px rgba(0, 0, 0, 0.15)",
         transition: { duration: 0.3 }
       }}
     >
@@ -419,7 +419,7 @@ const Pensions = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      
+      <main>
       {/* Header Simple et Direct */}
       <section className="pt-32 pb-16 bg-gradient-to-b from-brand-cream to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -429,7 +429,7 @@ const Pensions = () => {
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Choisissez la formule adaptée aux besoins de votre cheval dans notre domaine de 40 hectares
+              Choisissez la formule adaptée aux besoins de votre cheval dans notre domaine de 45 hectares
             </p>
           </AnimatedSection>
         </div>
@@ -448,7 +448,7 @@ const Pensions = () => {
           <AnimatedSection animation="fadeInUp">
             <motion.div 
               className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-brand-accent relative overflow-hidden"
-              whileHover={{ scale: 1.02, shadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" }}
+              whileHover={{ scale: 1.02, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" }}
               transition={{ duration: 0.3 }}
             >
               {/* Effet de brillance */}
@@ -665,7 +665,7 @@ const Pensions = () => {
                   className="text-center p-6 bg-white rounded-xl shadow-lg"
                   whileHover={{ 
                     y: -5, 
-                    shadow: "0 15px 30px -10px rgba(0, 0, 0, 0.15)",
+                    boxShadow: "0 15px 30px -10px rgba(0, 0, 0, 0.15)",
                     transition: { duration: 0.3 }
                   }}
                 >
@@ -760,7 +760,7 @@ const Pensions = () => {
           </AnimatedSection>
         </div>
       </section>
-
+      </main>
       <Footer />
     </div>
   );
