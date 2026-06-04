@@ -13,7 +13,7 @@ const importAll = (r) => {
 
 // Import automatique de toutes les images du dossier galerie
 const galleryImages = importAll(
-  require.context('../../assets/galerie', false, /\.(png|jpe?g|svg)$/)
+  require.context('../../assets/galerie', false, /\.webp$/)
 );
 
 const PhotoGallery = ({ className = "" }) => {
@@ -133,6 +133,8 @@ const PhotoGallery = ({ className = "" }) => {
                 <img
                   src={images[currentIndex].src}
                   alt={images[currentIndex].alt}
+                  loading="lazy"
+                  decoding="async"
                   className="max-w-full max-h-[600px] object-contain cursor-zoom-in"
                   onClick={openModal}
                   style={{ 
@@ -207,6 +209,8 @@ const PhotoGallery = ({ className = "" }) => {
                 <img
                   src={image.src}
                   alt={image.alt}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
                 {index === currentIndex && (

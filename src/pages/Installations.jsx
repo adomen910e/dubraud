@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Seo from '../components/seo/Seo';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import AnimatedSection from '../components/ui/AnimatedSection';
@@ -20,10 +21,10 @@ import {
   Clock,
   CheckCircle
 } from 'lucide-react';
-import dubraud1 from '../assets/images/sportAV.JPG';
-import dubraud2 from '../assets/images/dubraud_2.png';
-import dubraud3 from '../assets/images/prairie.jpg';
-import confort from '../assets/images/confort.jpg';
+import dubraud1 from '../assets/images/sportAV.webp';
+import dubraud2 from '../assets/images/dubraud_2.webp';
+import dubraud3 from '../assets/images/prairie.webp';
+import confort from '../assets/images/confort.webp';
 import PhotoGallery from '../components/ui/PhotoGallery';
 
 const InstallationCard = ({ image, title, description, features, icon: Icon, available = true, comingSoon = false, comingSoonDate, delay = 0 }) => (
@@ -73,9 +74,11 @@ const InstallationCard = ({ image, title, description, features, icon: Icon, ava
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
         >
-          <img 
-            src={image} 
-            alt={title}
+          <img
+            src={image}
+            alt={`${title} — installations équestres du Domaine de Dubraud, Saint-Christoly-de-Blaye`}
+            loading="lazy"
+            decoding="async"
             className={`w-full h-64 object-cover transition-all duration-500 group-hover:scale-110 ${comingSoon ? 'filter brightness-95' : ''}`}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -249,6 +252,19 @@ const Installations = () => {
 
   return (
     <div className="min-h-screen">
+      <Seo
+        title="Installations & prairies équestres près de Blaye | Dubraud"
+        description="Nos installations : 45 ha de prairies, box et paddocks pour la pension de votre cheval à Saint-Christoly-de-Blaye, à 45 min de Bordeaux."
+        path="/installations"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://domaine-dubraud.com' },
+            { '@type': 'ListItem', position: 2, name: 'Installations', item: 'https://domaine-dubraud.com/installations' }
+          ]
+        }}
+      />
       <Header />
 
       <main>
@@ -273,7 +289,7 @@ const Installations = () => {
               </motion.div>
               
               <h1 className="text-4xl md:text-5xl font-bold text-brand-brown mb-4 font-serif">
-                Équipements Modernes & Naturels
+                Nos installations : 45 hectares de prairies, box et paddocks
               </h1>
               <div className="w-32 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">

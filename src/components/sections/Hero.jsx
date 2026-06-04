@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Play, ArrowDown, Mail } from 'lucide-react';
 import Button from '../ui/Button';
-import dubraud1 from '../../assets/images/dubraud_1.png';
-import dubraud2 from '../../assets/images/cadre.jpg';
-import dubraud3 from '../../assets/images/dubraud_3.png';
+import dubraud1 from '../../assets/images/dubraud_1.webp';
+import dubraud2 from '../../assets/images/cadre.webp';
+import dubraud3 from '../../assets/images/dubraud_3.webp';
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -79,9 +79,11 @@ const Hero = () => {
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
           >
-            <img 
-              src={slides[currentSlide].image} 
-              alt={slides[currentSlide].title}
+            <img
+              src={slides[currentSlide].image}
+              alt={`${slides[currentSlide].title} — Domaine de Dubraud, pension équestre en Gironde`}
+              decoding="async"
+              fetchPriority="high"
               className="w-full h-full object-cover"
             />
             <motion.div 
@@ -159,14 +161,14 @@ const Hero = () => {
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <motion.h1 
+            <motion.p
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 font-serif leading-tight"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
               {slides[currentSlide].title}
-            </motion.h1>
+            </motion.p>
             
             <motion.p 
               className="text-lg md:text-xl lg:text-2xl mb-10 max-w-4xl mx-auto leading-relaxed font-light"

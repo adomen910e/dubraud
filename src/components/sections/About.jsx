@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart } from 'lucide-react';
 import Button from '../ui/Button';
-import dubraud1 from '../../assets/images/dubraud_1.png';
+import dubraud1 from '../../assets/images/dubraud_1.webp';
 
 const About = () => {
   const features = [
@@ -169,9 +169,11 @@ const About = () => {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <img 
-                  src={dubraud1} 
-                  alt="Domaine de Dubraud - Vue extérieure" 
+                <img
+                  src={dubraud1}
+                  alt="Domaine de Dubraud — pension de chevaux et prairies à Saint-Christoly-de-Blaye, Gironde"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-96 lg:h-128 object-cover"
                 />
                 <motion.div 

@@ -5,48 +5,37 @@
     <link rel="icon" href="%PUBLIC_URL%/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#4b432f" />
-    <meta
-      name="description"
-      content="Domaine de Dubraud à Saint-Christoly-de-Blaye (Gironde) : pension et élevage de chevaux, installations équestres, activités agricoles et gîtes à la ferme."
-    />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-    <!-- Open Graph / réseaux sociaux -->
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="fr_FR" />
-    <meta property="og:site_name" content="Domaine de Dubraud" />
-    <meta property="og:title" content="Domaine de Dubraud — Pension équestre & gîtes en Gironde" />
-    <meta
-      property="og:description"
-      content="Pension et élevage de chevaux, installations équestres et gîtes à la ferme à Saint-Christoly-de-Blaye (Gironde)."
-    />
-    <meta property="og:image" content="%PUBLIC_URL%/logo512.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Domaine de Dubraud — Pension équestre & gîtes en Gironde" />
-    <meta
-      name="twitter:description"
-      content="Pension et élevage de chevaux, installations équestres et gîtes à la ferme à Saint-Christoly-de-Blaye (Gironde)."
-    />
-    <meta name="twitter:image" content="%PUBLIC_URL%/logo512.png" />
+    <!--
+      Les balises description, Open Graph et Twitter sont gérées PAR PAGE via
+      react-helmet-async (composant src/components/seo/Seo.jsx) pour éviter les
+      doublons et fournir des métadonnées uniques à chaque route.
+    -->
 
-    <!-- Données structurées : établissement local -->
+    <!-- Données structurées : établissement local (global) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
+        "additionalType": "https://www.wikidata.org/wiki/Q1644410",
         "name": "Domaine de Dubraud",
-        "description": "Pension et élevage de chevaux, installations équestres et gîtes à la ferme.",
+        "description": "Pension et élevage de chevaux, installations équestres et gîtes à la ferme sur 45 hectares de prairies à Saint-Christoly-de-Blaye, en Haute-Gironde.",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "17 Lieu-dit Dubraud",
           "postalCode": "33920",
           "addressLocality": "Saint-Christoly-de-Blaye",
+          "addressRegion": "Nouvelle-Aquitaine",
           "addressCountry": "FR"
         },
+        "areaServed": ["Saint-Christoly-de-Blaye", "Blaye", "Haute-Gironde", "Gironde", "Bordeaux"],
         "telephone": "+33695428477",
         "email": "contact@domaine-dubraud.com",
         "url": "https://domaine-dubraud.com",
+        "image": "https://domaine-dubraud.com/logo512.png",
+        "logo": "https://domaine-dubraud.com/logo512.png",
         "openingHours": ["Mo-Fr 08:00-21:00", "Sa-Su 09:00-20:00"]
       }
     </script>

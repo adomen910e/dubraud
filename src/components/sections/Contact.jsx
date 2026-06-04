@@ -52,7 +52,7 @@ const Contact = () => {
     <section id="contact" className="py-16 md:py-24 bg-gray-50 text-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Contactez-nous</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Contacter le Domaine de Dubraud à Saint-Christoly-de-Blaye</h1>
           <div className="w-20 h-1 bg-brand-accent mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             N'hésitez pas à nous contacter pour toute question ou demande de réservation
