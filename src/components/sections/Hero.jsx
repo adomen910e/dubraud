@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Play, ArrowDown, Mail } from 'lucide-react';
 import Button from '../ui/Button';
-import dubraud1 from '../../assets/images/dubraud_1.png';
-import dubraud2 from '../../assets/images/cadre.jpg';
-import dubraud3 from '../../assets/images/dubraud_3.png';
+import dubraud1 from '../../assets/images/dubraud_1.webp';
+import dubraud2 from '../../assets/images/cadre.webp';
+import dubraud3 from '../../assets/images/dubraud_3.webp';
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -79,9 +79,11 @@ const Hero = () => {
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
           >
-            <img 
-              src={slides[currentSlide].image} 
-              alt={slides[currentSlide].title}
+            <img
+              src={slides[currentSlide].image}
+              alt={`${slides[currentSlide].title} — Domaine de Dubraud, pension équestre en Gironde`}
+              decoding="async"
+              fetchPriority="high"
               className="w-full h-full object-cover"
             />
             <motion.div 
@@ -97,6 +99,7 @@ const Hero = () => {
       {/* Contrôles du carrousel */}
       <motion.button
         onClick={prevSlide}
+        aria-label="Diapositive précédente"
         className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 group"
         whileHover={{ scale: 1.1, x: -5 }}
         whileTap={{ scale: 0.95 }}
@@ -104,11 +107,12 @@ const Hero = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1 }}
       >
-        <ChevronLeft size={28} className="group-hover:animate-pulse" />
+        <ChevronLeft size={28} className="group-hover:animate-pulse" aria-hidden="true" />
       </motion.button>
       
       <motion.button
         onClick={nextSlide}
+        aria-label="Diapositive suivante"
         className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 group"
         whileHover={{ scale: 1.1, x: 5 }}
         whileTap={{ scale: 0.95 }}
@@ -116,7 +120,7 @@ const Hero = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1 }}
       >
-        <ChevronRight size={28} className="group-hover:animate-pulse" />
+        <ChevronRight size={28} className="group-hover:animate-pulse" aria-hidden="true" />
       </motion.button>
       
       {/* Indicateurs avec progression */}
@@ -125,6 +129,8 @@ const Hero = () => {
           <motion.button
             key={index}
             onClick={() => goToSlide(index)}
+            aria-label={`Aller à la diapositive ${index + 1}`}
+            aria-current={index === currentSlide ? 'true' : undefined}
             className={`relative w-12 h-1 rounded-full transition-all duration-300 ${
               index === currentSlide ? 'bg-white' : 'bg-white/40 hover:bg-white/60'
             }`}
@@ -155,14 +161,14 @@ const Hero = () => {
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <motion.h1 
+            <motion.p
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 font-serif leading-tight"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
               {slides[currentSlide].title}
-            </motion.h1>
+            </motion.p>
             
             <motion.p 
               className="text-lg md:text-xl lg:text-2xl mb-10 max-w-4xl mx-auto leading-relaxed font-light"

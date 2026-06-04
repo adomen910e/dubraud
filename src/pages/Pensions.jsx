@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Seo from '../components/seo/Seo';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import AnimatedSection from '../components/ui/AnimatedSection';
@@ -18,9 +19,9 @@ import {
   Sun
 } from 'lucide-react';
 import Button from '../components/ui/Button';
-import dubraud1 from '../assets/images/repos.jpg';
-import dubraud2 from '../assets/images/sport.png';
-import dubraud3 from '../assets/images/dubraud_3.png';
+import dubraud1 from '../assets/images/repos.webp';
+import dubraud2 from '../assets/images/sport.webp';
+import dubraud3 from '../assets/images/dubraud_3.webp';
 
 const PensionCard = ({ icon: Icon, title, description, price, features, image, comingSoon, comingSoonDate, available = true, delay = 0 }) => (
   <AnimatedSection 
@@ -32,7 +33,7 @@ const PensionCard = ({ icon: Icon, title, description, price, features, image, c
       className={`bg-white rounded-2xl shadow-lg p-8 h-full relative overflow-hidden group cursor-pointer ${!available ? 'opacity-90' : ''}`}
       whileHover={{ 
         y: -8, 
-        shadow: "0 20px 40px -10px rgba(0, 0, 0, 0.15)",
+        boxShadow: "0 20px 40px -10px rgba(0, 0, 0, 0.15)",
         transition: { duration: 0.3 }
       }}
       initial={{ opacity: 0, y: 50 }}
@@ -74,9 +75,11 @@ const PensionCard = ({ icon: Icon, title, description, price, features, image, c
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
         >
-          <img 
-            src={image} 
-            alt={title}
+          <img
+            src={image}
+            alt={`${title} — pension pour chevaux au Domaine de Dubraud, Gironde`}
+            loading="lazy"
+            decoding="async"
             className={`w-full h-48 object-cover transition-all duration-500 group-hover:scale-110 ${comingSoon ? 'filter brightness-95' : ''}`}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -189,7 +192,7 @@ const ServiceCard = ({ title, price, description, features, comingSoon, comingSo
       className={`bg-white rounded-xl shadow-lg p-6 h-full relative overflow-hidden ${comingSoon ? 'opacity-95' : ''}`}
       whileHover={{ 
         y: -5, 
-        shadow: "0 15px 30px -10px rgba(0, 0, 0, 0.15)",
+        boxShadow: "0 15px 30px -10px rgba(0, 0, 0, 0.15)",
         transition: { duration: 0.3 }
       }}
     >
@@ -418,18 +421,31 @@ const Pensions = () => {
 
   return (
     <div className="min-h-screen">
+      <Seo
+        title="Pension chevaux : pré-retraite, sport, box | Dubraud (33)"
+        description="Pension pré-repos, pré-sport ou box-paddock pour votre cheval en Haute-Gironde. Prairies, suivi attentif près de Blaye. Demandez disponibilités et tarifs."
+        path="/pensions"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://domaine-dubraud.com' },
+            { '@type': 'ListItem', position: 2, name: 'Pensions', item: 'https://domaine-dubraud.com/pensions' }
+          ]
+        }}
+      />
       <Header />
-      
+      <main>
       {/* Header Simple et Direct */}
       <section className="pt-32 pb-16 bg-gradient-to-b from-brand-cream to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection animation="fadeInUp" className="text-center">          
+          <AnimatedSection animation="fadeInUp" className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-brand-brown mb-4 font-serif">
-              Nos Formules de Pension
+              Nos pensions pour chevaux : pré-retraite, pré-sport et box-paddock
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Choisissez la formule adaptée aux besoins de votre cheval dans notre domaine de 40 hectares
+              Choisissez la formule adaptée aux besoins de votre cheval dans notre domaine de 45 hectares
             </p>
           </AnimatedSection>
         </div>
@@ -448,7 +464,7 @@ const Pensions = () => {
           <AnimatedSection animation="fadeInUp">
             <motion.div 
               className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-brand-accent relative overflow-hidden"
-              whileHover={{ scale: 1.02, shadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" }}
+              whileHover={{ scale: 1.02, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" }}
               transition={{ duration: 0.3 }}
             >
               {/* Effet de brillance */}
@@ -665,7 +681,7 @@ const Pensions = () => {
                   className="text-center p-6 bg-white rounded-xl shadow-lg"
                   whileHover={{ 
                     y: -5, 
-                    shadow: "0 15px 30px -10px rgba(0, 0, 0, 0.15)",
+                    boxShadow: "0 15px 30px -10px rgba(0, 0, 0, 0.15)",
                     transition: { duration: 0.3 }
                   }}
                 >
@@ -760,7 +776,7 @@ const Pensions = () => {
           </AnimatedSection>
         </div>
       </section>
-
+      </main>
       <Footer />
     </div>
   );

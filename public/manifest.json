@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Dubraud",
+  "name": "Domaine de Dubraud",
+  "description": "Pensions et élevage équestre, activités agricoles et gîtes à la ferme à Saint-Christoly-de-Blaye (Gironde).",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +21,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#4b432f",
+  "background_color": "#f5f2eb"
 }

@@ -133,6 +133,9 @@ const Header = () => {
           <motion.button
             className="lg:hidden relative z-50 p-3 rounded-xl bg-gradient-to-r from-brand-beige/60 to-brand-cream/60 backdrop-blur-sm border border-brand-beige/70 shadow-soft"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? 'Fermer le menu de navigation' : 'Ouvrir le menu de navigation'}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
             whileTap={{ scale: 0.95 }}
             whileHover={{ scale: 1.05 }}
             initial={{ opacity: 0 }}
@@ -148,7 +151,7 @@ const Header = () => {
                   exit={{ rotate: 90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <X size={24} className="text-brand-brown" />
+                  <X size={24} className="text-brand-brown" aria-hidden="true" />
                 </motion.div>
               ) : (
                 <motion.div
@@ -158,7 +161,7 @@ const Header = () => {
                   exit={{ rotate: -90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Menu size={24} className="text-brand-brown" />
+                  <Menu size={24} className="text-brand-brown" aria-hidden="true" />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -178,8 +181,8 @@ const Header = () => {
           >
             {/* Overlay supplémentaire pour garantir l'opacité sur mobile */}
             <div className="absolute inset-0 bg-white/95" />
-            
-            <div className="px-6 py-8 space-y-3 relative z-10">
+
+            <nav id="mobile-menu" aria-label="Navigation mobile" className="px-6 py-8 space-y-3 relative z-10">
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.path}
@@ -207,14 +210,14 @@ const Header = () => {
                           animate={{ scale: 1 }}
                           transition={{ delay: 0.2 }}
                         >
-                          <Sparkles size={16} className="ml-2" />
+                          <Sparkles size={16} className="ml-2" aria-hidden="true" />
                         </motion.div>
                       )}
                     </span>
                   </Link>
                 </motion.div>
               ))}
-            </div>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>

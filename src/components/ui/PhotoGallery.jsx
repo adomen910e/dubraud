@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
 
@@ -13,17 +13,24 @@ const importAll = (r) => {
 
 // Import automatique de toutes les images du dossier galerie
 const galleryImages = importAll(
-  require.context('../../assets/galerie', false, /\.(png|jpe?g|svg)$/)
+  require.context('../../assets/galerie', false, /\.webp$/)
 );
 
 const PhotoGallery = ({ className = "" }) => {
-  // Conversion des images importées en format utilisable
-  const images = Object.entries(galleryImages).map(([path, src], index) => ({
-    src: src.default || src,
-    alt: `Photo ${index + 1} du domaine`,
-    title: `Photo ${index + 1}`,
-    description: ""
-  }));
+  // Conversion des images importées en format utilisable.
+  // useMemo : galleryImages est constant au niveau module ; sans mémoïsation,
+  // un nouveau tableau serait recréé à chaque render et re-déclencherait les
+  // effets (auto-play, détection d'orientation) qui en dépendent.
+  const images = useMemo(
+    () =>
+      Object.entries(galleryImages).map(([path, src], index) => ({
+        src: src.default || src,
+        alt: `Photo ${index + 1} du domaine`,
+        title: `Photo ${index + 1}`,
+        description: ""
+      })),
+    []
+  );
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
@@ -126,6 +133,8 @@ const PhotoGallery = ({ className = "" }) => {
                 <img
                   src={images[currentIndex].src}
                   alt={images[currentIndex].alt}
+                  loading="lazy"
+                  decoding="async"
                   className="max-w-full max-h-[600px] object-contain cursor-zoom-in"
                   onClick={openModal}
                   style={{ 
@@ -142,33 +151,36 @@ const PhotoGallery = ({ className = "" }) => {
             {/* Navigation Arrows */}
             <button
               onClick={goToPrevious}
+              aria-label="Photo précédente"
               className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-brand-brown rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110 group"
               onMouseEnter={() => setIsAutoPlay(false)}
               onMouseLeave={() => setIsAutoPlay(true)}
             >
-              <ChevronLeft size={24} className="group-hover:-translate-x-1 transition-transform duration-300" />
+              <ChevronLeft size={24} className="group-hover:-translate-x-1 transition-transform duration-300" aria-hidden="true" />
             </button>
 
             <button
               onClick={goToNext}
+              aria-label="Photo suivante"
               className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-brand-brown rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110 group"
               onMouseEnter={() => setIsAutoPlay(false)}
               onMouseLeave={() => setIsAutoPlay(true)}
             >
-              <ChevronRight size={24} className="group-hover:translate-x-1 transition-transform duration-300" />
+              <ChevronRight size={24} className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
             </button>
 
             {/* Zoom Icon */}
             <button
               onClick={openModal}
+              aria-label="Agrandir la photo"
               className="absolute top-4 right-4 bg-white/90 hover:bg-white text-brand-brown rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110"
             >
-              <ZoomIn size={20} />
+              <ZoomIn size={20} aria-hidden="true" />
             </button>
 
             {/* Auto-play indicator */}
             <div className="absolute top-4 left-4 flex items-center space-x-2">
-              <div className={`w-2 h-2 rounded-full ${isAutoPlay ? 'bg-green-500' : 'bg-gray-400'} transition-colors duration-300`} />
+              <div className={`w-2 h-2 rounded-full ${isAutoPlay ? 'bg-brand-gold' : 'bg-gray-400'} transition-colors duration-300`} />
               <span className="text-white text-sm font-medium bg-black/50 px-2 py-1 rounded">
                 {isAutoPlay ? 'Auto' : 'Manuel'}
               </span>
@@ -184,6 +196,8 @@ const PhotoGallery = ({ className = "" }) => {
               <motion.button
                 key={index}
                 onClick={() => goToSlide(index)}
+                aria-label={`Voir la photo ${index + 1}`}
+                aria-current={index === currentIndex ? 'true' : undefined}
                 className={`relative flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
                   index === currentIndex 
                     ? 'border-brand-gold shadow-lg scale-110' 
@@ -195,6 +209,8 @@ const PhotoGallery = ({ className = "" }) => {
                 <img
                   src={image.src}
                   alt={image.alt}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
                 {index === currentIndex && (
@@ -218,6 +234,7 @@ const PhotoGallery = ({ className = "" }) => {
             <button
               key={index}
               onClick={() => goToSlide(index)}
+              aria-label={`Aller à la photo ${index + 1}`}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 index === currentIndex 
                   ? 'bg-brand-gold scale-125' 
@@ -249,24 +266,27 @@ const PhotoGallery = ({ className = "" }) => {
               {/* Close Button */}
               <button
                 onClick={closeModal}
+                aria-label="Fermer la visionneuse"
                 className="absolute top-4 right-4 z-10 bg-white/20 hover:bg-white/30 text-white rounded-full p-2 transition-all duration-300"
               >
-                <X size={24} />
+                <X size={24} aria-hidden="true" />
               </button>
 
               {/* Navigation in Modal */}
               <button
                 onClick={goToPrevious}
+                aria-label="Photo précédente"
                 className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 text-white rounded-full p-3 transition-all duration-300"
               >
-                <ChevronLeft size={28} />
+                <ChevronLeft size={28} aria-hidden="true" />
               </button>
 
               <button
                 onClick={goToNext}
+                aria-label="Photo suivante"
                 className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 text-white rounded-full p-3 transition-all duration-300"
               >
-                <ChevronRight size={28} />
+                <ChevronRight size={28} aria-hidden="true" />
               </button>
 
               {/* Full-size Image */}

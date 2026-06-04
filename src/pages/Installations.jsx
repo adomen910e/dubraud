@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Seo from '../components/seo/Seo';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import AnimatedSection from '../components/ui/AnimatedSection';
@@ -20,10 +21,10 @@ import {
   Clock,
   CheckCircle
 } from 'lucide-react';
-import dubraud1 from '../assets/images/sportAV.JPG';
-import dubraud2 from '../assets/images/dubraud_2.png';
-import dubraud3 from '../assets/images/prairie.jpg';
-import confort from '../assets/images/confort.jpg';
+import dubraud1 from '../assets/images/sportAV.webp';
+import dubraud2 from '../assets/images/dubraud_2.webp';
+import dubraud3 from '../assets/images/prairie.webp';
+import confort from '../assets/images/confort.webp';
 import PhotoGallery from '../components/ui/PhotoGallery';
 
 const InstallationCard = ({ image, title, description, features, icon: Icon, available = true, comingSoon = false, comingSoonDate, delay = 0 }) => (
@@ -32,7 +33,7 @@ const InstallationCard = ({ image, title, description, features, icon: Icon, ava
       className={`bg-white rounded-2xl shadow-lg overflow-hidden h-full relative group cursor-pointer ${!available ? 'opacity-95' : ''}`}
       whileHover={{ 
         y: -8, 
-        shadow: "0 20px 40px -10px rgba(0, 0, 0, 0.15)",
+        boxShadow: "0 20px 40px -10px rgba(0, 0, 0, 0.15)",
         transition: { duration: 0.3 }
       }}
       initial={{ opacity: 0, y: 50 }}
@@ -73,9 +74,11 @@ const InstallationCard = ({ image, title, description, features, icon: Icon, ava
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
         >
-          <img 
-            src={image} 
-            alt={title}
+          <img
+            src={image}
+            alt={`${title} — installations équestres du Domaine de Dubraud, Saint-Christoly-de-Blaye`}
+            loading="lazy"
+            decoding="async"
             className={`w-full h-64 object-cover transition-all duration-500 group-hover:scale-110 ${comingSoon ? 'filter brightness-95' : ''}`}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -249,11 +252,24 @@ const Installations = () => {
 
   return (
     <div className="min-h-screen">
+      <Seo
+        title="Installations & prairies équestres près de Blaye | Dubraud"
+        description="Nos installations : 45 ha de prairies, box et paddocks pour la pension de votre cheval à Saint-Christoly-de-Blaye, à 45 min de Bordeaux."
+        path="/installations"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://domaine-dubraud.com' },
+            { '@type': 'ListItem', position: 2, name: 'Installations', item: 'https://domaine-dubraud.com/installations' }
+          ]
+        }}
+      />
       <Header />
-      
-      <div className="pt-28">
+
+      <main>
         {/* Hero Section */}
-        <section className="pt-24 pb-12 bg-gradient-to-b from-brand-cream to-white relative overflow-hidden">
+        <section className="pt-32 pb-12 bg-gradient-to-b from-brand-cream to-white relative overflow-hidden">
           {/* Éléments décoratifs */}
           <div className="absolute top-0 left-0 w-full h-full opacity-5">
             <div className="absolute top-10 right-10 w-20 h-20 bg-brand-gold rounded-full"></div>
@@ -273,7 +289,7 @@ const Installations = () => {
               </motion.div>
               
               <h1 className="text-4xl md:text-5xl font-bold text-brand-brown mb-4 font-serif">
-                Équipements Modernes & Naturels
+                Nos installations : 45 hectares de prairies, box et paddocks
               </h1>
               <div className="w-32 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -283,81 +299,6 @@ const Installations = () => {
             </AnimatedSection>
           </div>
         </section>
-
-      {/* Annonce Développement */}
-      {/* <section className="py-16 bg-gradient-to-r from-gray-50 via-slate-50 to-gray-50 border-y border-gray-200 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full opacity-5">
-          <div className="absolute top-10 left-10 w-20 h-20 bg-brand-brown rounded-full"></div>
-          <div className="absolute bottom-10 right-10 w-16 h-16 bg-brand-light-brown rounded-full"></div>
-        </div>
-
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <AnimatedSection animation="fadeInUp">
-              <motion.div 
-                className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-brand-accent relative overflow-hidden"
-                whileHover={{ scale: 1.02, shadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="flex items-start space-x-6 relative z-10">
-                  <motion.div
-                    className="flex-shrink-0"
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <div className="bg-gradient-to-r from-brand-accent to-brand-accent-light text-white rounded-full p-4 shadow-lg">
-                      <Calendar size={32} />
-                    </div>
-                  </motion.div>
-                  
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-brand-brown mb-3 font-serif">
-                      Projet d'Extension 2026
-                    </h3>
-                    
-                    <p className="text-gray-600 mb-6 leading-relaxed">
-                      Nous investissons massivement dans l'extension de nos installations pour vous proposer 
-                      des équipements premium dès septembre 2026. Un projet ambitieux de modernisation complète.
-                    </p>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                      {[
-                        "15 boxes modernes avec paddocks",
-                        "Manège couvert professionnel",
-                        "1 carrière extérieure équipée",
-                        "Installations annexes complètes"
-                      ].map((item, index) => (
-                        <motion.div 
-                          key={index}
-                          className="flex items-center space-x-3 p-3 bg-brand-neutral rounded-lg"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.4 + index * 0.1 }}
-                          whileHover={{ scale: 1.02, backgroundColor: "rgba(245, 242, 235, 0.8)" }}
-                        >
-                          <div className="w-3 h-3 bg-gradient-to-r from-brand-accent to-brand-accent-light rounded-full"></div>
-                          <span className="text-gray-700 font-medium">{item}</span>
-                        </motion.div>
-                      ))}
-                    </div>
-                    
-                    <div className="flex flex-wrap gap-4">
-                      <Button href="/contact" variant="gradient" size="md" className="group">
-                        <Mail size={18} className="mr-2" />
-                        <span>Être informé du projet</span>
-                        <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                      </Button>
-                      
-                      <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-brand-neutral to-brand-neutral-light text-brand-primary border border-brand-accent/30">
-                        <Calendar size={16} className="mr-2" />
-                        Ouverture : Septembre 2026
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatedSection>
-          </div>
-        </section> */}
 
         {/* Installations Grid */}
         <section className="py-20 bg-gradient-to-b from-white to-brand-cream/30">
@@ -400,7 +341,7 @@ const Installations = () => {
                     className="text-center p-6 bg-white rounded-xl shadow-lg"
                     whileHover={{ 
                       y: -5, 
-                      shadow: "0 15px 30px -10px rgba(0, 0, 0, 0.15)",
+                      boxShadow: "0 15px 30px -10px rgba(0, 0, 0, 0.15)",
                       transition: { duration: 0.3 }
                     }}
                   >
@@ -429,7 +370,7 @@ const Installations = () => {
             <AnimatedSection animation="fadeInUp">
               <motion.div 
                 className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-brand-accent relative overflow-hidden"
-                whileHover={{ scale: 1.02, shadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" }}
+                whileHover={{ scale: 1.02, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" }}
                 transition={{ duration: 0.3 }}
               >
                 <div className="flex items-start space-x-6 relative z-10">
@@ -640,7 +581,7 @@ const Installations = () => {
             </AnimatedSection>
           </div>
         </section>
-      </div>
+      </main>
 
       <Footer />
     </div>

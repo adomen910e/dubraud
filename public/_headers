@@ -1,0 +1,18 @@
+# Cache long pour les assets fingerprintés (hash dans le nom de fichier)
+/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Médias servis depuis la racine
+/*.png
+  Cache-Control: public, max-age=2592000
+/*.jpg
+  Cache-Control: public, max-age=2592000
+/*.webp
+  Cache-Control: public, max-age=2592000
+
+# Fichiers SEO : revalidation quotidienne
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+  Content-Type: application/xml; charset=utf-8
+/robots.txt
+  Cache-Control: public, max-age=86400
