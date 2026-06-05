@@ -264,7 +264,7 @@ const Installations = () => {
 
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-12 bg-gradient-to-b from-brand-cream to-white relative overflow-hidden">
+        <section className="pt-28 pb-6 bg-gradient-to-b from-brand-cream to-white relative overflow-hidden">
           {/* Éléments décoratifs */}
           <div className="absolute top-0 left-0 w-full h-full opacity-5">
             <div className="absolute top-10 right-10 w-20 h-20 bg-brand-gold rounded-full"></div>
@@ -296,18 +296,8 @@ const Installations = () => {
         </section>
 
         {/* Installations Grid */}
-        <section className="py-20 bg-gradient-to-b from-white to-brand-cream/30">
+        <section className="pt-8 pb-20 bg-gradient-to-b from-white to-brand-cream/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <AnimatedSection animation="fadeInUp" className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-brand-brown mb-4 font-serif">
-                Nos Installations Actuelles & Futures
-              </h2>
-              <div className="w-32 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Des équipements pensés pour le bien-être et la performance de vos chevaux
-              </p>
-            </AnimatedSection>
-            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {installations.map((installation, index) => (
                 <InstallationCard key={index} {...installation} />
