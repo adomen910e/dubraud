@@ -467,7 +467,7 @@ const Pensions = () => {
       <Header />
       <main>
       {/* Header Simple et Direct */}
-      <section className="pt-32 pb-16 bg-gradient-to-b from-brand-cream to-white">
+      <section className="pt-28 pb-6 bg-gradient-to-b from-brand-cream to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection animation="fadeInUp" className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-brand-brown mb-4 font-serif">
@@ -475,33 +475,24 @@ const Pensions = () => {
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Choisissez la formule adaptée aux besoins de votre cheval dans notre domaine de 45 hectares
+              Cinq formules pensées pour répondre aux besoins spécifiques de votre cheval, dans un environnement exceptionnel de 45 hectares.
             </p>
           </AnimatedSection>
         </div>
       </section>
 
       {/* Pensions Grid - Améliorée */}
-      <section id="pensions" className="py-20 bg-gradient-to-b from-white to-brand-cream/30">
+      <section id="pensions" className="pt-10 pb-20 bg-gradient-to-b from-white to-brand-cream/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection animation="fadeInUp" className="text-center mb-16">
+          <AnimatedSection animation="fadeInUp" className="text-center mb-10">
             <motion.div
-              className="flex items-center justify-center mb-6"
+              className="flex items-center justify-center"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: "spring" }}
             >
               <span className="text-brand-brown font-semibold text-lg tracking-wide">NOS FORMULES</span>
             </motion.div>
-            
-            <h2 className="text-4xl md:text-5xl font-bold text-brand-brown mb-6 font-serif">
-              Choisissez la Pension Idéale
-            </h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Cinq formules pensées pour répondre aux besoins spécifiques de votre cheval,
-              dans un environnement exceptionnel de 45 hectares.
-            </p>
           </AnimatedSection>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
