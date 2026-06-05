@@ -381,19 +381,18 @@ const Installations = () => {
                   
                   <div className="flex-1">
                     <h3 className="text-2xl font-bold text-brand-brown mb-3 font-serif">
-                      Projet d'Extension 2026
+                      Projet d'Extension premier trimestre 2027
                     </h3>
-                    
+
                     <p className="text-gray-600 mb-6 leading-relaxed">
-                      Nous investissons massivement dans l'extension de nos installations pour vous proposer 
-                      des équipements premium dès septembre 2026. Un projet ambitieux de modernisation complète.
+                      Nous investissons massivement dans l'extension de nos installations pour vous proposer
+                      des équipements premium dès le premier trimestre 2027. Un projet ambitieux de modernisation complète.
                     </p>
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                       {[
-                        "4 boxes 4x4 pour convalescence/poulinière",
+                        "Stabulations",
                         "Manège couvert professionnel",
-                        "1 carrière extérieure équipée",
                         "Installations annexes complètes"
                       ].map((item, index) => (
                         <motion.div 
@@ -419,7 +418,7 @@ const Installations = () => {
                       
                       <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-brand-neutral to-brand-neutral-light text-brand-primary border border-brand-accent/30">
                         <Calendar size={16} className="mr-2" />
-                        Ouverture : Septembre 2026
+                        Ouverture : premier trimestre 2027
                       </span>
                     </div>
                   </div>
