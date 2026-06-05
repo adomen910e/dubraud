@@ -196,15 +196,13 @@ const Installations = () => {
       description: "Installations sportives de qualité professionnelle pour l'entraînement et le dressage",
       icon: Building,
       delay: 0.4,
-      available: false,
-      comingSoon: true,
-      comingSoonDate: "09/2026",
+      available: true,
+      comingSoon: false,
       features: [
-        "1 carrière naturelle 80x35m",
-        "1 manège couvert 65x22m en sable de fontainebleau fibré",
-        "Éclairage",
-        "Arrosage des installations",
-        "Marcheur"
+        "1 carrière naturelle 70x30m broyée avec son parc d'obstacles",
+        "1 manège couvert 65x22m en sable de Fontainebleau fibré (À VENIR - premier trimestre 2027)",
+        "Éclairage (À VENIR - premier trimestre 2027)",
+        "Arrosage des installations (À VENIR - premier trimestre 2027)"
       ]
     },
     {
