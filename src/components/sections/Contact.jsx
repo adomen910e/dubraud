@@ -173,9 +173,11 @@ const Contact = () => {
                     className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-brand-accent"
                   >
                     <option value="" className="text-gray-500">Sélectionnez un service</option>
-                    <option value="pension-pre-repos" className="text-gray-900">Pension Pré-Repos</option>
-                    <option value="pension-pre-sport" className="text-gray-900">Pension Pré-Sport</option>
-                    <option value="pension-boxe-paddock" className="text-gray-900">Pension Boxe/Paddock</option>
+                    <option value="pension-pre-repos" className="text-gray-900">Pension Troupeau</option>
+                    <option value="pension-confort" className="text-gray-900">Pension Confort</option>
+                    <option value="pension-pre-sport" className="text-gray-900">Pension Sport</option>
+                    <option value="pension-installations" className="text-gray-900">Pension Installations</option>
+                    <option value="pension-vacances" className="text-gray-900">Pension Vacances</option>
                   </select>
                 </div>
                 <div>

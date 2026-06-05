@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Play, ArrowDown, Mail } from 'lucide-react';
 import Button from '../ui/Button';
-import dubraud1 from '../../assets/images/dubraud_1.webp';
+import dubraud1 from '../../assets/images/accueil.webp';
 import dubraud2 from '../../assets/images/cadre.webp';
-import dubraud3 from '../../assets/images/dubraud_3.webp';
+import dubraud3 from '../../assets/images/installationsmoderne.webp';
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -20,7 +20,7 @@ const Hero = () => {
     {
       image: dubraud2,
       title: "Un cadre naturel préservé",
-      subtitle: "45 hectares de prairies pour le bien-être de vos chevaux",
+      subtitle: "50 hectares de prairies pour le bien-être de vos chevaux",
       cta: "Voir nos installations"
     },
     {

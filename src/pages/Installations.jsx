@@ -22,7 +22,7 @@ import {
   CheckCircle
 } from 'lucide-react';
 import dubraud1 from '../assets/images/sportAV.webp';
-import dubraud2 from '../assets/images/dubraud_2.webp';
+import dubraud2 from '../assets/images/boxes.jpg';
 import dubraud3 from '../assets/images/prairie.webp';
 import confort from '../assets/images/confort.webp';
 import PhotoGallery from '../components/ui/PhotoGallery';
@@ -159,13 +159,13 @@ const Installations = () => {
     {
       image: dubraud3,
       title: "Prairies et Paddocks",
-      description: "45 hectares de prairies pour le bien-être de vos chevaux",
+      description: "50 hectares de prairies pour le bien-être de vos chevaux",
       icon: Trees,
       delay: 0,
       available: true,
       comingSoon: false,
       features: [
-        "45 hectares de prairies",
+        "50 hectares de prairies",
         "Gestion des troupeaux en pâturages tournants pour des prairies préservées",
         "Paddocks vastes et sécurisés",
         "Clôtures haute sécurité",
@@ -179,11 +179,10 @@ const Installations = () => {
       description: "Boxes modernes et spacieux pour le confort optimal de vos chevaux",
       icon: Home,
       delay: 0.2,
-      available: false,
-      comingSoon: true,
-      comingSoonDate: "09/2026",
+      available: true,
+      comingSoon: false,
       features: [
-        "15 boxes spacieux de 3x4",
+        "4 boxes 4x4 disponibles pour convalescence/poulinière",
         "Ventilation optimale naturelle",
         "Abreuvoirs automatique à niveau constant",
         "Éclairage ",
@@ -196,15 +195,13 @@ const Installations = () => {
       description: "Installations sportives de qualité professionnelle pour l'entraînement et le dressage",
       icon: Building,
       delay: 0.4,
-      available: false,
-      comingSoon: true,
-      comingSoonDate: "09/2026",
+      available: true,
+      comingSoon: false,
       features: [
-        "1 carrière naturelle 80x35m",
-        "1 manège couvert 65x22m en sable de fontainebleau fibré",
-        "Éclairage",
-        "Arrosage des installations",
-        "Marcheur"
+        "1 carrière naturelle 70x30m broyée avec son parc d'obstacles",
+        "1 manège couvert 65x22m en sable de Fontainebleau fibré (À VENIR - premier trimestre 2027)",
+        "Éclairage (À VENIR - premier trimestre 2027)",
+        "Arrosage des installations (À VENIR - premier trimestre 2027)"
       ]
     },
     {
@@ -213,15 +210,13 @@ const Installations = () => {
       description: "Tous les équipements nécessaires pour un service complet et professionnel",
       icon: Wrench,
       delay: 0.6,
-      available: false,
-      comingSoon: true,
-      comingSoonDate: "09/2026",
+      available: true,
+      comingSoon: false,
       features: [
         "Sellerie commune sécurisée",
         "Aires de préparation avec eaux chaude" ,
         "Solarium",
-        "Parking visiteurs",
-        "Local Pharmacie"
+        "Parking visiteurs"
       ]
     }
   ];
@@ -231,7 +226,7 @@ const Installations = () => {
     {
       icon: Trees,
       title: "Prairies Naturelles",
-      description: "45 hectares de prairies"
+      description: "50 hectares de prairies"
     },
     {
       icon: Shield,
@@ -254,7 +249,7 @@ const Installations = () => {
     <div className="min-h-screen">
       <Seo
         title="Installations & prairies équestres près de Blaye | Dubraud"
-        description="Nos installations : 45 ha de prairies, box et paddocks pour la pension de votre cheval à Saint-Christoly-de-Blaye, à 45 min de Bordeaux."
+        description="Nos installations : 50 ha de prairies, box et paddocks pour la pension de votre cheval à Saint-Christoly-de-Blaye, à 45 min de Bordeaux."
         path="/installations"
         schema={{
           '@context': 'https://schema.org',
@@ -269,7 +264,7 @@ const Installations = () => {
 
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-12 bg-gradient-to-b from-brand-cream to-white relative overflow-hidden">
+        <section className="pt-28 pb-6 bg-gradient-to-b from-brand-cream to-white relative overflow-hidden">
           {/* Éléments décoratifs */}
           <div className="absolute top-0 left-0 w-full h-full opacity-5">
             <div className="absolute top-10 right-10 w-20 h-20 bg-brand-gold rounded-full"></div>
@@ -289,30 +284,20 @@ const Installations = () => {
               </motion.div>
               
               <h1 className="text-4xl md:text-5xl font-bold text-brand-brown mb-4 font-serif">
-                Nos installations : 45 hectares de prairies, box et paddocks
+                Nos installations : 50 hectares de prairies, box et paddocks
               </h1>
               <div className="w-32 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Découvrez nos installations en place et à venir, conçues pour offrir le meilleur environnement 
-                à vos chevaux dans un cadre préservé de 45 hectares.
+                à vos chevaux dans un cadre préservé de 50 hectares.
               </p>
             </AnimatedSection>
           </div>
         </section>
 
         {/* Installations Grid */}
-        <section className="py-20 bg-gradient-to-b from-white to-brand-cream/30">
+        <section className="pt-8 pb-20 bg-gradient-to-b from-white to-brand-cream/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <AnimatedSection animation="fadeInUp" className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-brand-brown mb-4 font-serif">
-                Nos Installations Actuelles & Futures
-              </h2>
-              <div className="w-32 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Des équipements pensés pour le bien-être et la performance de vos chevaux
-              </p>
-            </AnimatedSection>
-            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {installations.map((installation, index) => (
                 <InstallationCard key={index} {...installation} />
@@ -386,19 +371,18 @@ const Installations = () => {
                   
                   <div className="flex-1">
                     <h3 className="text-2xl font-bold text-brand-brown mb-3 font-serif">
-                      Projet d'Extension 2026
+                      Projet d'Extension premier trimestre 2027
                     </h3>
-                    
+
                     <p className="text-gray-600 mb-6 leading-relaxed">
-                      Nous investissons massivement dans l'extension de nos installations pour vous proposer 
-                      des équipements premium dès septembre 2026. Un projet ambitieux de modernisation complète.
+                      Nous investissons massivement dans l'extension de nos installations pour vous proposer
+                      des équipements premium dès le premier trimestre 2027. Un projet ambitieux de modernisation complète.
                     </p>
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                       {[
-                        "15 boxes modernes avec paddocks",
+                        "Stabulations",
                         "Manège couvert professionnel",
-                        "1 carrière extérieure équipée",
                         "Installations annexes complètes"
                       ].map((item, index) => (
                         <motion.div 
@@ -424,7 +408,7 @@ const Installations = () => {
                       
                       <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-brand-neutral to-brand-neutral-light text-brand-primary border border-brand-accent/30">
                         <Calendar size={16} className="mr-2" />
-                        Ouverture : Septembre 2026
+                        Ouverture : premier trimestre 2027
                       </span>
                     </div>
                   </div>
@@ -454,7 +438,7 @@ const Installations = () => {
               </h2>
               <div className="w-32 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Explorez notre domaine de 45 hectares à travers cette galerie interactive. 
+                Explorez notre domaine de 50 hectares à travers cette galerie interactive. 
                 Cliquez sur les miniatures pour naviguer ou utilisez les flèches pour un défilement automatique.
               </p>
             </AnimatedSection>

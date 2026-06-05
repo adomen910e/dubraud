@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Home, Star, Users, MapPin, Heart, Sparkles } from 'lucide-react';
+import { Home, Star, Users, MapPin, Heart, Sparkles, Sun } from 'lucide-react';
 import ServiceCard from '../ui/ServiceCard';
 import AnimatedSection from '../ui/AnimatedSection';
 
@@ -9,20 +9,33 @@ const Services = () => {
   const services = [
     {
       icon: Home,
-      title: "Pension Pré Repos",
+      title: "Pension Troupeau",
       description: "Un environnement calme et naturel pour vos chevaux au repos/retraite/élevage, avec soins adaptés et surveillance quotidienne.",
       features: ["Vie en troupeau", "Présence sur site 24h/7j", "Foin à volonté", "Rotation de prairie"]
     },
     {
+      icon: Heart,
+      title: "Pension Confort",
+      description: "Un cadre de vie naturel alliant confort et tranquilité",
+      features: ["Pension troupeau + stabulation sur aire paillée et stabilisée les 3 mois d'hiver", "Foin à volonté", "1 repas de complément l'hiver", "Gestion des intervenants"]
+    },
+    {
       icon: Users,
-      title: "Pension Pré Sport",
+      title: "Pension Sport",
       description: "Une vie en exterieur associée à un abri stabilisé et une proximité des installations pour associer travail et bien-être",
-      features: ["Paddocks individuels ou duo", "Accès aux installations", "Foin à volonté", "Deux rations par jour"]    },
+      features: ["Paddocks individuels ou duo", "Accès aux installations", "Foin à volonté", "Chevaux rentrés au box ou en stabulation les 3 mois d'hiver", "Deux rations par jour", "Gestion des intervenants"]
+    },
     {
       icon: Star,
-      title: "Pension Boxe",
-      description: "Des boxes spacieux avec libre accès sur les paddocks.",
-      features: ["Boxes 4x3m", "Accès aux installations", "Foin à volonté", "Deux rations par jour"]
+      title: "Pension Installations",
+      description: "Une pension alliant qualité d'hébergement et pratique équestre quotidienne",
+      features: ["Pension confort avec pré proche des installations", "2 repas de complément par jour", "Accès aux installations", "Gestion des intervenants"]
+    },
+    {
+      icon: Sun,
+      title: "Pension Vacances",
+      description: "Un séjour pensé pour garantir sérénité, sécurité et bien-être",
+      features: ["Pré individuel ou en troupeau", "Foin à volonté", "Abri naturel ou artificiel", "Distribution de complément fourni par le propriétaire", "Gestion des intervenants"]
     },
     // {
     //   icon: Building,
@@ -146,7 +159,7 @@ const Services = () => {
           delay={0.8}
         >
           {[
-            { number: "45", label: "Hectares au total", icon: MapPin },
+            { number: "50", label: "Hectares au total", icon: MapPin },
             { number: "2025", label: "Nouvelle activité", icon: Star },
             { number: "100%", label: "Satisfaction", icon: Heart }
           ].map((stat, index) => (

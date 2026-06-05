@@ -13,7 +13,7 @@ const importAll = (r) => {
 
 // Import automatique de toutes les images du dossier galerie
 const galleryImages = importAll(
-  require.context('../../assets/galerie', false, /\.webp$/)
+  require.context('../../assets/galerie', false, /\.(webp|jpe?g|png)$/i)
 );
 
 const PhotoGallery = ({ className = "" }) => {
@@ -107,6 +107,12 @@ const PhotoGallery = ({ className = "" }) => {
       document.body.style.overflow = 'unset';
     };
   }, [isModalOpen, currentIndex, handleKeyDown]);
+
+  // Garde-fou : si aucune image n'est trouvée dans le dossier galerie,
+  // on n'affiche rien plutôt que de planter sur images[currentIndex].
+  if (images.length === 0) {
+    return null;
+  }
 
   return (
     <>
