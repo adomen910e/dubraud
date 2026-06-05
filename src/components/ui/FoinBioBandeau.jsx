@@ -12,8 +12,7 @@ const FoinBioBandeau = () => (
       <motion.div
         className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 rounded-2xl bg-white border-l-4 border-brand-bio shadow-soft px-6 py-5"
         initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
         <span className="flex-shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-bio/12 text-brand-bio">
