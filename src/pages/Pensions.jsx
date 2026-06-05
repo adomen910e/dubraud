@@ -288,7 +288,7 @@ const Pensions = () => {
   const pensions = [
     {
       icon: Home,
-      title: "Pension Pré Troupeau",
+      title: "Pension Troupeau",
       description: "Pension en troupeau avec herbe et foin à volonté, rotation de prairies pour une vie équilibrée",
       price: "170€",
       image: dubraud1,
@@ -320,7 +320,7 @@ const Pensions = () => {
     },
     {
       icon: Users,
-      title: "Pension Pré-Sport",
+      title: "Pension Sport",
       description: "Pré individuel ou duo avec accès aux installations sportives",
       price: "300€",
       image: dubraud2,
@@ -389,6 +389,12 @@ const Pensions = () => {
       title: "Ration complémentaire",
       price: "50€/mois (30€/mois si l'aliment est fourni)",
       description: "Ration de concentré pour pension pré troupeau",
+      delay: 0.2
+    },
+    {
+      title: "Aliment spécial chevaux ulcéreux",
+      price: "+30€/mois",
+      description: "Aliment spécial chevaux ulcéreux (taux d'amidon de 10%)",
       delay: 0.2
     },
     {
