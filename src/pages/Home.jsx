@@ -3,6 +3,7 @@ import Seo from '../components/seo/Seo';
 import Header from '../components/layout/Header';
 import Hero from '../components/sections/Hero';
 import Services from '../components/sections/Services';
+import FoinBioHighlight from '../components/sections/FoinBioHighlight';
 import About from '../components/sections/About';
 import Footer from '../components/layout/Footer';
 
@@ -20,6 +21,7 @@ const Home = () => {
         <h1 className="sr-only">Pension et élevage de chevaux en Gironde — Domaine de Dubraud, Saint-Christoly-de-Blaye</h1>
         <Hero />
         <Services />
+        <FoinBioHighlight />
         <About />
       </main>
       <Footer />

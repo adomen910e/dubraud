@@ -14,7 +14,7 @@ const Hero = () => {
     {
       image: dubraud1,
       title: "Bienvenue au Domaine de Dubraud",
-      subtitle: "Pensions et élevage équestre, activité agricoles et gîtes à la ferme.",
+      subtitle: "Pensions et élevage équestre, activités agricoles et gîtes à la ferme.",
       cta: "Découvrir nos services"
     },
     {

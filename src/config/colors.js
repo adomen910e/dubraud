@@ -29,6 +29,12 @@ export const colors = {
     accent: '#8b7a56',          // Or mat harmonieux
     accentLight: '#a69368',     // Or clair
     accentDark: '#6d5f42',      // Or foncé
+
+    // Accent "agriculture biologique" — vert olive désaturé, harmonisé avec le kaki.
+    // Réservé au discours fourrager (foin & enrubanné maison, bio). Contraste AA sur blanc (~4,7:1).
+    bio: '#6b7c4e',             // Vert olive bio
+    bioLight: '#869a63',        // Vert bio clair (badges, fonds)
+    bioDark: '#52623a',         // Vert bio foncé (textes sur fond clair)
   },
 
   // === COULEURS SYSTÈME ===

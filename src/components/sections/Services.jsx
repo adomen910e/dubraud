@@ -11,19 +11,19 @@ const Services = () => {
       icon: Home,
       title: "Pension Troupeau",
       description: "Un environnement calme et naturel pour vos chevaux au repos/retraite/élevage, avec soins adaptés et surveillance quotidienne.",
-      features: ["Vie en troupeau", "Présence sur site 24h/7j", "Foin à volonté", "Rotation de prairie"]
+      features: ["Vie en troupeau", "Présence sur site 24h/7j", "Foin bio à volonté", "Rotation de prairie"]
     },
     {
       icon: Heart,
       title: "Pension Confort",
       description: "Un cadre de vie naturel alliant confort et tranquilité",
-      features: ["Pension troupeau + stabulation sur aire paillée et stabilisée les 3 mois d'hiver", "Foin à volonté", "1 repas de complément l'hiver", "Gestion des intervenants"]
+      features: ["Pension troupeau + stabulation sur aire paillée et stabilisée les 3 mois d'hiver", "Foin bio à volonté", "1 repas de complément l'hiver", "Gestion des intervenants"]
     },
     {
       icon: Users,
       title: "Pension Sport",
       description: "Une vie en exterieur associée à un abri stabilisé et une proximité des installations pour associer travail et bien-être",
-      features: ["Paddocks individuels ou duo", "Accès aux installations", "Foin à volonté", "Chevaux rentrés au box ou en stabulation les 3 mois d'hiver", "Deux rations par jour", "Gestion des intervenants"]
+      features: ["Paddocks individuels ou duo", "Accès aux installations", "Foin bio à volonté", "Chevaux rentrés au box ou en stabulation les 3 mois d'hiver", "Deux rations par jour", "Gestion des intervenants"]
     },
     {
       icon: Star,
@@ -35,7 +35,7 @@ const Services = () => {
       icon: Sun,
       title: "Pension Vacances",
       description: "Un séjour pensé pour garantir sérénité, sécurité et bien-être",
-      features: ["Pré individuel ou en troupeau", "Foin à volonté", "Abri naturel ou artificiel", "Distribution de complément fourni par le propriétaire", "Gestion des intervenants"]
+      features: ["Pré individuel ou en troupeau", "Foin bio à volonté", "Abri naturel ou artificiel", "Distribution de complément fourni par le propriétaire", "Gestion des intervenants"]
     },
     // {
     //   icon: Building,
