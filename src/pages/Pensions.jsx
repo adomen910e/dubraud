@@ -185,7 +185,7 @@ const PensionCard = ({ icon: Icon, title, description, price, features, image, c
 );
 
 
-const ServiceCard = ({ title, price, description, features, comingSoon, comingSoonDate, delay = 0 }) => (
+const ServiceCard = ({ title, price, lines, description, features, comingSoon, comingSoonDate, delay = 0 }) => (
   <AnimatedSection animation="fadeInUp" delay={delay}>
     <motion.div 
       className={`bg-white rounded-xl shadow-lg p-6 h-full relative overflow-hidden ${comingSoon ? 'opacity-95' : ''}`}
@@ -228,15 +228,28 @@ const ServiceCard = ({ title, price, description, features, comingSoon, comingSo
           {title}
         </motion.h3>
         
-        <motion.div 
-          className="text-2xl font-bold text-brand-gold mb-4"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: delay + 0.2, type: "spring" }}
-        >
-          {price}
-        </motion.div>
-        
+        {price && (
+          <motion.div
+            className="text-2xl font-bold text-brand-gold mb-4"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: delay + 0.2, type: "spring" }}
+          >
+            {price}
+          </motion.div>
+        )}
+
+        {lines && (
+          <div className="space-y-3 mb-4">
+            {lines.map((line, index) => (
+              <div key={index} className="flex justify-between items-baseline gap-3">
+                <span className="text-gray-600">{line.label}</span>
+                <span className="text-brand-gold whitespace-nowrap">{line.price}</span>
+              </div>
+            ))}
+          </div>
+        )}
+
         {description && (
           <motion.p 
             className="text-gray-600 mb-4"
@@ -387,14 +400,10 @@ const Pensions = () => {
     },
     {
       title: "Ration complémentaire",
-      price: "50€/mois (30€/mois si l'aliment est fourni)",
-      description: "Ration de concentré pour pension pré troupeau",
-      delay: 0.2
-    },
-    {
-      title: "Aliment spécial chevaux ulcéreux",
-      price: "+30€/mois",
-      description: "Aliment spécial chevaux ulcéreux (taux d'amidon de 10%)",
+      lines: [
+        { label: "Ration de concentré pour pension troupeau", price: "50€/mois (30€/mois si l'aliment est fourni)" },
+        { label: "Aliment spécial chevaux ulcéreux (taux d'amidon 10%)", price: "+30€/mois" }
+      ],
       delay: 0.2
     },
     {
