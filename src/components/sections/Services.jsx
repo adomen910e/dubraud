@@ -9,7 +9,7 @@ const Services = () => {
   const services = [
     {
       icon: Home,
-      title: "Pension Pré Troupeau",
+      title: "Pension Troupeau",
       description: "Un environnement calme et naturel pour vos chevaux au repos/retraite/élevage, avec soins adaptés et surveillance quotidienne.",
       features: ["Vie en troupeau", "Présence sur site 24h/7j", "Foin à volonté", "Rotation de prairie"]
     },
@@ -21,7 +21,7 @@ const Services = () => {
     },
     {
       icon: Users,
-      title: "Pension Pré Sport",
+      title: "Pension Sport",
       description: "Une vie en exterieur associée à un abri stabilisé et une proximité des installations pour associer travail et bien-être",
       features: ["Paddocks individuels ou duo", "Accès aux installations", "Foin à volonté", "Chevaux rentrés au box ou en stabulation les 3 mois d'hiver", "Deux rations par jour", "Gestion des intervenants"]
     },

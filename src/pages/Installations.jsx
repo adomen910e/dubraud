@@ -22,7 +22,7 @@ import {
   CheckCircle
 } from 'lucide-react';
 import dubraud1 from '../assets/images/sportAV.webp';
-import dubraud2 from '../assets/images/dubraud_2.webp';
+import dubraud2 from '../assets/images/boxes.jpg';
 import dubraud3 from '../assets/images/prairie.webp';
 import confort from '../assets/images/confort.webp';
 import PhotoGallery from '../components/ui/PhotoGallery';
