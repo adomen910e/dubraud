@@ -18,9 +18,11 @@ import {
   Sun
 } from 'lucide-react';
 import Button from '../components/ui/Button';
-import dubraud1 from '../assets/images/repos.webp';
-import dubraud2 from '../assets/images/sport.webp';
-import dubraud3 from '../assets/images/dubraud_3.webp';
+import imgTroupeau from '../assets/images/troupeau.webp';
+import imgConfort from '../assets/images/troupeauconfort.webp';
+import imgSport from '../assets/images/presport.webp';
+import imgInstallations from '../assets/images/installations.jpg';
+import imgVacances from '../assets/images/vacances.webp';
 
 const PensionCard = ({ icon: Icon, title, description, price, features, image, comingSoon, comingSoonDate, available = true, delay = 0 }) => (
   <AnimatedSection 
@@ -304,7 +306,7 @@ const Pensions = () => {
       title: "Pension Troupeau",
       description: "Pension en troupeau avec herbe et foin à volonté, rotation de prairies pour une vie équilibrée",
       price: "170€",
-      image: dubraud1,
+      image: imgTroupeau,
       delay: 0,
       available: true,
       comingSoon: false,
@@ -320,7 +322,7 @@ const Pensions = () => {
       title: "Pension Confort",
       description: "Un cadre de vie naturel alliant confort et tranquilité",
       price: "210€",
-      image: dubraud3,
+      image: imgConfort,
       delay: 0.2,
       available: true,
       comingSoon: false,
@@ -336,7 +338,7 @@ const Pensions = () => {
       title: "Pension Sport",
       description: "Pré individuel ou duo avec accès aux installations sportives",
       price: "300€",
-      image: dubraud2,
+      image: imgSport,
       delay: 0.4,
       available: true,
       comingSoon: false,
@@ -355,7 +357,7 @@ const Pensions = () => {
       title: "Pension Installations",
       description: "Une pension alliant qualité d'hébergement et pratique équestre quotidienne",
       price: "280€",
-      image: dubraud2,
+      image: imgInstallations,
       delay: 0.6,
       available: false,
       comingSoon: true,
@@ -372,7 +374,7 @@ const Pensions = () => {
       title: "Pension Vacances",
       description: "Un séjour pensé pour garantir sérénité, sécurité et bien-être",
       price: "220€",
-      image: dubraud1,
+      image: imgVacances,
       delay: 0.8,
       available: true,
       comingSoon: false,
