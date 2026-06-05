@@ -15,9 +15,12 @@ import {
   Phone,
   ArrowRight,
   TreePine,
-  Sun
+  Sun,
+  Leaf
 } from 'lucide-react';
 import Button from '../components/ui/Button';
+import FoinBioBadge from '../components/ui/FoinBioBadge';
+import FoinBioBandeau from '../components/ui/FoinBioBandeau';
 import imgTroupeau from '../assets/images/troupeau.webp';
 import imgConfort from '../assets/images/troupeauconfort.webp';
 import imgSport from '../assets/images/presport.webp';
@@ -83,6 +86,12 @@ const PensionCard = ({ icon: Icon, title, description, price, features, image, c
               </div>
             </motion.div>
           )}
+          {/* Pastille foin bio maison — argument différenciant */}
+          {features?.some((f) => /foin/i.test(f)) && (
+            <div className="absolute top-3 left-3 z-20">
+              <FoinBioBadge variant="overlay" />
+            </div>
+          )}
         </motion.div>
         
         <motion.div 
@@ -104,38 +113,34 @@ const PensionCard = ({ icon: Icon, title, description, price, features, image, c
           {title}
         </motion.h3>
         
-        <motion.p 
+        {/* Prix mis en avant en premier pour une qualification rapide */}
+        <motion.div
+          className="mb-5 flex items-baseline gap-1"
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ delay: delay + 0.3, type: "spring" }}
+        >
+          <span className="text-3xl font-bold text-brand-gold">{price}</span>
+          <span className="text-sm text-gray-500">/mois</span>
+        </motion.div>
+
+        <motion.p
           className="text-gray-600 mb-6 leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: delay + 0.3 }}
+          transition={{ delay: delay + 0.4 }}
         >
           {description}
         </motion.p>
-        
-        <motion.div 
-          className="text-3xl font-bold text-brand-gold mb-6 flex items-center"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: delay + 0.4, type: "spring" }}
-        >
-          {price}
-          <motion.span 
-            className="text-sm text-gray-500 ml-2"
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            /mois
-          </motion.span>
-        </motion.div>
-        
+
         <ul className="space-y-3 mb-8">
           {features.map((feature, index) => {
             const isComingSoonFeature = feature.includes('À VENIR');
+            const isFoin = /foin/i.test(feature);
             return (
-              <motion.li 
-                key={index} 
-                className={`flex items-center ${isComingSoonFeature ? 'text-brand-brown font-medium' : 'text-gray-600'}`}
+              <motion.li
+                key={index}
+                className={`flex items-center ${isFoin ? 'text-brand-bio-dark font-semibold' : isComingSoonFeature ? 'text-brand-brown font-medium' : 'text-gray-600'}`}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: delay + 0.5 + index * 0.1 }}
@@ -144,7 +149,9 @@ const PensionCard = ({ icon: Icon, title, description, price, features, image, c
                   whileHover={{ scale: 1.2 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Check className={`mr-3 ${isComingSoonFeature ? 'text-brand-light-brown' : 'text-brand-gold'}`} size={16} />
+                  {isFoin
+                    ? <Leaf className="mr-3 text-brand-bio" size={16} />
+                    : <Check className={`mr-3 ${isComingSoonFeature ? 'text-brand-light-brown' : 'text-brand-gold'}`} size={16} />}
                 </motion.div>
                 {feature}
               </motion.li>
@@ -158,7 +165,7 @@ const PensionCard = ({ icon: Icon, title, description, price, features, image, c
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <Button href="/contact" variant="gradient" className="w-full group">
+            <Button href="/contact" variant="gradient" className="w-full group" aria-label={`Réserver la ${title}`}>
               <span>Réserver</span>
               <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
@@ -304,7 +311,7 @@ const Pensions = () => {
     {
       icon: Home,
       title: "Pension Troupeau",
-      description: "Pension en troupeau avec herbe et foin à volonté, rotation de prairies pour une vie équilibrée",
+      description: "Pension en troupeau avec herbe et foin bio à volonté, rotation de prairies pour une vie équilibrée",
       price: "170€",
       image: imgTroupeau,
       delay: 0,
@@ -313,7 +320,7 @@ const Pensions = () => {
       features: [
         "Troupeau de 3 à 6 chevaux (selon affinités et besoins physiologiques)",
         "Rotation de prairies",
-        "Foin à volonté",
+        "Foin bio à volonté",
         "Surveillance quotidienne",
       ]
     },
@@ -328,7 +335,7 @@ const Pensions = () => {
       comingSoon: false,
       features: [
         "Pension troupeau + stabulation sur aire paillée et stabilisée les 3 mois d'hiver",
-        "Foin à volonté",
+        "Foin bio à volonté",
         "1 repas de complément l'hiver",
         "Gestion des intervenants",
       ]
@@ -344,7 +351,7 @@ const Pensions = () => {
       comingSoon: false,
       features: [
         "Pré individuel ou duo au choix",
-        "Foin à volonté de qualité",
+        "Foin bio à volonté",
         "Abris spacieux avec aires stabilisées",
         "Chevaux rentrés au box ou en stabulation les 3 mois d'hiver",
         "Deux repas de complément quotidiens",
@@ -380,7 +387,7 @@ const Pensions = () => {
       comingSoon: false,
       features: [
         "Pré individuel ou en troupeau",
-        "Foin à volonté",
+        "Foin bio à volonté",
         "Abri naturel ou artificiel",
         "Distribution de complément fourni par le propriétaire",
         "Gestion des intervenants",
@@ -513,6 +520,9 @@ const Pensions = () => {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Bandeau foin bio maison */}
+      <FoinBioBandeau />
 
       {/* Pensions Grid - Améliorée */}
       <section id="pensions" className="pt-8 pb-20 bg-gradient-to-b from-white to-brand-cream/30">

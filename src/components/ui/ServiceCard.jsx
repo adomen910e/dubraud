@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight, Check, Leaf } from 'lucide-react';
 
 const ServiceCard = ({ icon: Icon, title, description, features = [], delay = 0, className = '', linkTo }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -134,24 +134,30 @@ const ServiceCard = ({ icon: Icon, title, description, features = [], delay = 0,
           className="relative z-10"
         >
           <ul className="space-y-3">
-            {features.map((feature, index) => (
-              <motion.li 
-                key={index}
-                className="flex items-center text-gray-600 text-sm"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: delay + 0.5 + index * 0.1 }}
-              >
-                <motion.div
-                  className="mr-3 flex-shrink-0"
-                  whileHover={{ scale: 1.2, rotate: 360 }}
-                  transition={{ duration: 0.3 }}
+            {features.map((feature, index) => {
+              // Le foin maison (bio) est mis en valeur : feuille verte + texte appuyé.
+              const isFoin = /foin/i.test(feature);
+              return (
+                <motion.li
+                  key={index}
+                  className={`flex items-center text-sm ${isFoin ? 'text-brand-bio-dark font-semibold' : 'text-gray-600'}`}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: delay + 0.5 + index * 0.1 }}
                 >
-                  <Check size={16} className="text-brand-accent" />
-                </motion.div>
-                <span className="flex-1">{feature}</span>
-              </motion.li>
-            ))}
+                  <motion.div
+                    className="mr-3 flex-shrink-0"
+                    whileHover={{ scale: 1.2, rotate: 360 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {isFoin
+                      ? <Leaf size={16} className="text-brand-bio" />
+                      : <Check size={16} className="text-brand-accent" />}
+                  </motion.div>
+                  <span className="flex-1">{feature}</span>
+                </motion.li>
+              );
+            })}
           </ul>
         </motion.div>
       )}

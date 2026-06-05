@@ -33,6 +33,11 @@ module.exports = {
         'brand-accent': colors.brand.accent,
         'brand-accent-light': colors.brand.accentLight,
         'brand-accent-dark': colors.brand.accentDark,
+
+        // Accent agriculture biologique (foin maison)
+        'brand-bio': colors.brand.bio,
+        'brand-bio-light': colors.brand.bioLight,
+        'brand-bio-dark': colors.brand.bioDark,
         
         // Aliases pour compatibilité (utilisant les couleurs de la palette kaki)
         'brand-brown': colors.brand.primary,
