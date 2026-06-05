@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart } from 'lucide-react';
 import Button from '../ui/Button';
-import dubraud1 from '../../assets/images/dubraud_1.webp';
+import dubraud1 from '../../assets/images/domainededubraud.webp';
 
 const About = () => {
   const features = [
