@@ -240,11 +240,11 @@ const ServiceCard = ({ title, price, lines, description, features, comingSoon, c
         )}
 
         {lines && (
-          <div className="space-y-3 mb-4">
+          <div className="space-y-4 mb-4">
             {lines.map((line, index) => (
-              <div key={index} className="flex justify-between items-baseline gap-3">
-                <span className="text-gray-600">{line.label}</span>
-                <span className="text-brand-gold whitespace-nowrap">{line.price}</span>
+              <div key={index}>
+                <p className="text-gray-600">{line.label}</p>
+                <p className="text-brand-gold mt-1">{line.price}</p>
               </div>
             ))}
           </div>
