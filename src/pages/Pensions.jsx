@@ -346,7 +346,7 @@ const Pensions = () => {
       delay: 0.6,
       available: false,
       comingSoon: true,
-      comingSoonDate: "09/2026",
+      comingSoonDate: "premier trimestre 2027",
       features: [
         "Pension confort avec pré proche des installations",
         "2 repas de complément par jour",
