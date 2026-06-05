@@ -183,7 +183,7 @@ const Installations = () => {
       comingSoon: true,
       comingSoonDate: "09/2026",
       features: [
-        "15 boxes spacieux de 3x4",
+        "4 boxes 4x4 disponibles pour convalescence/poulinière",
         "Ventilation optimale naturelle",
         "Abreuvoirs automatique à niveau constant",
         "Éclairage ",
@@ -396,7 +396,7 @@ const Installations = () => {
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                       {[
-                        "15 boxes modernes avec paddocks",
+                        "4 boxes 4x4 pour convalescence/poulinière",
                         "Manège couvert professionnel",
                         "1 carrière extérieure équipée",
                         "Installations annexes complètes"
