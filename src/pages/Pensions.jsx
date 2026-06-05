@@ -54,21 +54,6 @@ const PensionCard = ({ icon: Icon, title, description, price, features, image, c
       )}
       
       <div className="relative mb-6 z-10">
-        {/* Date "À VENIR" au-dessus de l'image */}
-        {comingSoon && (
-          <motion.div 
-            className="mb-4 text-center"
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: delay + 0.1, type: "spring" }}
-          >
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-brand-brown to-brand-light-brown text-white px-4 py-2 rounded-full shadow-lg">
-              <Calendar size={16} />
-              <span className="font-bold text-sm">À VENIR - {comingSoonDate}</span>
-            </div>
-          </motion.div>
-        )}
-        
         <motion.div
           className="relative overflow-hidden rounded-xl mb-4"
           whileHover={{ scale: 1.05 }}
@@ -82,6 +67,20 @@ const PensionCard = ({ icon: Icon, title, description, price, features, image, c
             className={`w-full h-48 object-cover transition-all duration-500 group-hover:scale-110 ${comingSoon ? 'filter brightness-95' : ''}`}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          {/* Badge "À VENIR" en superposition sur l'image : ne décale pas la mise en page */}
+          {comingSoon && (
+            <motion.div
+              className="absolute top-3 right-3 z-20"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: delay + 0.1, type: "spring" }}
+            >
+              <div className="inline-flex items-center space-x-1.5 bg-gradient-to-r from-brand-brown to-brand-light-brown text-white px-3 py-1.5 rounded-full shadow-lg">
+                <Calendar size={14} />
+                <span className="font-bold text-xs">À VENIR · {comingSoonDate}</span>
+              </div>
+            </motion.div>
+          )}
         </motion.div>
         
         <motion.div 
