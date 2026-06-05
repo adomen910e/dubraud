@@ -13,7 +13,6 @@ import {
   Calendar, 
   Heart, 
   Phone,
-  Mail,
   ArrowRight,
   TreePine,
   Sun
@@ -30,7 +29,7 @@ const PensionCard = ({ icon: Icon, title, description, price, features, image, c
     className="h-full"
   >
     <motion.div 
-      className={`bg-white rounded-2xl shadow-lg p-8 h-full relative overflow-hidden group cursor-pointer ${!available ? 'opacity-90' : ''}`}
+      className={`bg-white rounded-2xl shadow-lg p-8 h-full relative overflow-hidden group cursor-pointer flex flex-col ${!available ? 'opacity-90' : ''}`}
       whileHover={{ 
         y: -8, 
         boxShadow: "0 20px 40px -10px rgba(0, 0, 0, 0.15)",
@@ -94,8 +93,8 @@ const PensionCard = ({ icon: Icon, title, description, price, features, image, c
         </motion.div>
       </div>
       
-      <div className="relative z-10">
-        <motion.h3 
+      <div className="relative z-10 flex flex-col flex-grow">
+        <motion.h3
           className="text-2xl font-bold text-brand-brown mb-4 font-serif group-hover:text-brand-gold transition-colors duration-300"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -154,6 +153,7 @@ const PensionCard = ({ icon: Icon, title, description, price, features, image, c
         
         {available ? (
           <motion.div
+            className="mt-auto"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -163,8 +163,8 @@ const PensionCard = ({ icon: Icon, title, description, price, features, image, c
             </Button>
           </motion.div>
         ) : (
-          <div className="w-full space-y-3">
-            <motion.div 
+          <div className="w-full space-y-3 mt-auto">
+            <motion.div
               className="bg-gradient-to-r from-gray-100 to-slate-100 border-2 border-gray-300 rounded-lg p-4 text-center"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -289,7 +289,7 @@ const Pensions = () => {
   const pensions = [
     {
       icon: Home,
-      title: "Pension Pré-Repos",
+      title: "Pension Pré Troupeau",
       description: "Pension en troupeau avec herbe et foin à volonté, rotation de prairies pour une vie équilibrée",
       price: "170€",
       image: dubraud1,
@@ -297,47 +297,79 @@ const Pensions = () => {
       available: true,
       comingSoon: false,
       features: [
-        "Troupeau de 4 chevaux maximum",
-        "Rotation de prairies ",
-        "Foin à volonté de qualité ",
-        "Abris de prairies spacieux avec aires stabilisées",
-        "Présence permanente sur site",
-              ]
+        "Troupeau de 3 à 6 chevaux (selon affinités et besoins physiologiques)",
+        "Rotation de prairies",
+        "Foin à volonté",
+        "Surveillance quotidienne",
+      ]
+    },
+    {
+      icon: Heart,
+      title: "Pension Confort",
+      description: "Un cadre de vie naturel alliant confort et tranquilité",
+      price: "210€",
+      image: dubraud3,
+      delay: 0.2,
+      available: true,
+      comingSoon: false,
+      features: [
+        "Pension troupeau + stabulation sur aire paillée et stabilisée les 3 mois d'hiver",
+        "Foin à volonté",
+        "1 repas de complément l'hiver",
+        "Gestion des intervenants extérieurs",
+      ]
     },
     {
       icon: Users,
       title: "Pension Pré-Sport",
       description: "Pré individuel ou duo avec accès aux installations sportives",
-      price: "240€",
+      price: "300€",
       image: dubraud2,
-      delay: 0.2,
-      available: false,
-      comingSoon: true,
-      comingSoonDate: "09/2026",
+      delay: 0.4,
+      available: true,
+      comingSoon: false,
       features: [
         "Pré individuel ou duo au choix",
         "Foin à volonté de qualité",
         "Abris spacieux avec aires stabilisées",
+        "Chevaux rentrés au box ou en stabulation les 3 mois d'hiver",
         "Deux repas de complément quotidiens",
         "Accès aux installations",
+        "Gestion des intervenants",
       ]
     },
     {
       icon: Star,
-      title: "Pension Boxe/Paddock",
-      description: "Boxe individuel avec libre accès sur paddock privé",
-      price: "450€",
-      image: dubraud3,
-      delay: 0.4,
+      title: "Pension Installations",
+      description: "Une pension alliant qualité d'hébergement et pratique équestre quotidienne",
+      price: "280€",
+      image: dubraud2,
+      delay: 0.6,
       available: false,
       comingSoon: true,
       comingSoonDate: "09/2026",
       features: [
-        "Box spacieux 3x4m avec sortie à volonté",
-        "Paddock individuel sécurisé",
-        "Foin à volonté de qualité",
-        "Deux repas de complément quotidiens",
+        "Pension confort avec pré proche des installations",
+        "2 repas de complément par jour",
         "Accès aux installations",
+        "Gestion des intervenants",
+      ]
+    },
+    {
+      icon: Sun,
+      title: "Pension Vacances",
+      description: "Un séjour pensé pour garantir sérénité, sécurité et bien-être",
+      price: "220€",
+      image: dubraud1,
+      delay: 0.8,
+      available: true,
+      comingSoon: false,
+      features: [
+        "Pré individuel ou en troupeau",
+        "Foin à volonté",
+        "Abri naturel ou artificiel",
+        "Distribution de complément fourni par le propriétaire",
+        "Gestion des intervenants",
       ]
     }
   ];
@@ -357,13 +389,13 @@ const Pensions = () => {
     {
       title: "Ration complémentaire",
       price: "50€/mois (30€/mois si l'aliment est fourni)",
-      description: "Ration de concentré pour pension pré-repos",
+      description: "Ration de concentré pour pension pré troupeau",
       delay: 0.2
     },
     {
       title: "Enrubanné ou foin dépoussiéré",
       price: "60€/mois", 
-      description: "Ration de concentré pour pension pré-repos",
+      description: "Ration de concentré pour pension pré troupeau",
       delay: 0.2
     },
     {
@@ -422,8 +454,8 @@ const Pensions = () => {
   return (
     <div className="min-h-screen">
       <Seo
-        title="Pension chevaux : pré-retraite, sport, box | Dubraud (33)"
-        description="Pension pré-repos, pré-sport ou box-paddock pour votre cheval en Haute-Gironde. Prairies, suivi attentif près de Blaye. Demandez disponibilités et tarifs."
+        title="Pension chevaux : troupeau, confort, sport | Dubraud (33)"
+        description="Pension pré troupeau, confort ou pré-sport pour votre cheval en Haute-Gironde. Prairies, suivi attentif près de Blaye. Demandez disponibilités et tarifs."
         path="/pensions"
         schema={{
           '@context': 'https://schema.org',
@@ -447,121 +479,6 @@ const Pensions = () => {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Choisissez la formule adaptée aux besoins de votre cheval dans notre domaine de 45 hectares
             </p>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Annonce Services à Venir - Améliorée */}
-      <section id="announcement" className="py-16 bg-gradient-to-r from-gray-50 via-slate-50 to-gray-50 border-y border-gray-200 relative overflow-hidden">
-        {/* Éléments décoratifs */}
-        <div className="absolute top-0 left-0 w-full h-full opacity-5">
-          <div className="absolute top-10 left-10 w-20 h-20 bg-brand-brown rounded-full"></div>
-          <div className="absolute bottom-10 right-10 w-16 h-16 bg-brand-light-brown rounded-full"></div>
-          <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-brand-gold rounded-full"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <AnimatedSection animation="fadeInUp">
-            <motion.div 
-              className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-brand-accent relative overflow-hidden"
-              whileHover={{ scale: 1.02, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" }}
-              transition={{ duration: 0.3 }}
-            >
-              {/* Effet de brillance */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-neutral/50 to-transparent -skew-x-12"
-                initial={{ x: '-100%' }}
-                whileHover={{ x: '200%' }}
-                transition={{ duration: 1 }}
-              />
-
-              <div className="flex items-start space-x-6 relative z-10">
-                <motion.div
-                  className="flex-shrink-0"
-                  whileHover={{ rotate: 360, scale: 1.1 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <div className="bg-gradient-to-r from-brand-accent to-brand-accent-light text-white rounded-full p-4 shadow-lg">
-                    <Calendar size={32} />
-                  </div>
-                </motion.div>
-                
-                <div className="flex-1">
-                  <motion.h3 
-                    className="text-2xl font-bold text-brand-brown mb-3 font-serif"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.2 }}
-                  >
-                    Nouveaux Services en Développement
-                  </motion.h3>
-                  
-                  <motion.p 
-                    className="text-gray-600 mb-6 leading-relaxed"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3 }}
-                  >
-                    Nous investissons dans l'extension de nos installations pour vous proposer des services premium dès septembre 2026. 
-                    Un projet ambitieux pour offrir le meilleur à vos chevaux.
-                  </motion.p>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                    {[
-                      "Pension Pré-Sport avec accès aux installations",
-                      "Pension Boxes/Paddock premium",
-                      "Accès manège et carrière professionnels",
-                      "Installations équestres modernes"
-                    ].map((item, index) => (
-                      <motion.div 
-                        key={index}
-                        className="flex items-center space-x-3 p-3 bg-brand-neutral rounded-lg"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 + index * 0.1 }}
-                        whileHover={{ scale: 1.02, backgroundColor: "#fef3c7" }}
-                      >
-                        <motion.div
-                          whileHover={{ rotate: 360 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <div className="w-3 h-3 bg-gradient-to-r from-brand-accent to-brand-accent-light rounded-full"></div>
-                        </motion.div>
-                        <span className="text-gray-700 font-medium">{item}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-                  
-                  <motion.div 
-                    className="flex flex-wrap gap-4"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.8 }}
-                  >
-                    <Button href="/contact" variant="gradient" size="md" className="group">
-                      <Mail size={18} className="mr-2" />
-                      <span>Être informé des nouveautés</span>
-                      <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                    </Button>
-                    
-                    <motion.span 
-                      className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-brand-neutral to-brand-neutral-light text-brand-primary border border-brand-accent/30"
-                      whileHover={{ scale: 1.05 }}
-                      animate={{ 
-                        boxShadow: [
-                          "0 0 0 0 rgba(245, 158, 11, 0.4)",
-                          "0 0 0 10px rgba(245, 158, 11, 0)",
-                        ]
-                      }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
-                      <Calendar size={16} className="mr-2" />
-                      Lancement prévu : Septembre 2026
-                    </motion.span>
-                  </motion.div>
-                </div>
-              </div>
-            </motion.div>
           </AnimatedSection>
         </div>
       </section>
