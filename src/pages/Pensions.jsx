@@ -315,7 +315,7 @@ const Pensions = () => {
         "Pension troupeau + stabulation sur aire paillée et stabilisée les 3 mois d'hiver",
         "Foin à volonté",
         "1 repas de complément l'hiver",
-        "Gestion des intervenants extérieurs",
+        "Gestion des intervenants",
       ]
     },
     {
@@ -402,7 +402,7 @@ const Pensions = () => {
       price: "12€/cheval",
       description: "Accès manège ou carrière",
       comingSoon: true,
-      comingSoonDate: "09/2026",
+      comingSoonDate: "premier trimestre 2027",
       delay: 0.4
     }
   ];
@@ -411,13 +411,12 @@ const Pensions = () => {
     {
       title: "Séance Ponctuelle",
       services: [
-        { name: "Séance de travail monté ou longé (soin compris)", price: "30€" },
-        { name: "Mise au marcheur ponctuelle", price: "5€" }
+        { name: "Séance de travail monté ou longé (soin compris)", price: "30€" }
       ]
     },
     {
       title: "Forfaits Travail",
-      subtitle: "Séances de travail + mise au marcheur à volonté",
+      subtitle: "Séances de travail à volonté",
       services: [
         { name: "2x par semaine", price: "200€" },
         { name: "3x par semaine", price: "264€" },
@@ -436,7 +435,7 @@ const Pensions = () => {
     {
       icon: Home,
       title: "Boxes Modernes",
-      description: "15 boxes spacieux et confortables"
+      description: "4 boxes 4x4 disponibles pour convalescence/poulinière"
     },
     {
       icon: Users,
@@ -472,7 +471,7 @@ const Pensions = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection animation="fadeInUp" className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-brand-brown mb-4 font-serif">
-              Nos pensions pour chevaux : pré-retraite, pré-sport et box-paddock
+              Nos pensions pour chevaux : pré troupeau, confort, sport et installations
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -500,7 +499,7 @@ const Pensions = () => {
             </h2>
             <div className="w-32 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Trois formules pensées pour répondre aux besoins spécifiques de votre cheval, 
+              Cinq formules pensées pour répondre aux besoins spécifiques de votre cheval,
               dans un environnement exceptionnel de 45 hectares.
             </p>
           </AnimatedSection>

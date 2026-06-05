@@ -17,7 +17,7 @@ const Services = () => {
       icon: Heart,
       title: "Pension Confort",
       description: "Un cadre de vie naturel alliant confort et tranquilité",
-      features: ["Pension troupeau + stabulation sur aire paillée et stabilisée les 3 mois d'hiver", "Foin à volonté", "1 repas de complément l'hiver", "Gestion des intervenants extérieurs"]
+      features: ["Pension troupeau + stabulation sur aire paillée et stabilisée les 3 mois d'hiver", "Foin à volonté", "1 repas de complément l'hiver", "Gestion des intervenants"]
     },
     {
       icon: Users,
