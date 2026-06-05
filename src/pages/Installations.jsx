@@ -179,9 +179,8 @@ const Installations = () => {
       description: "Boxes modernes et spacieux pour le confort optimal de vos chevaux",
       icon: Home,
       delay: 0.2,
-      available: false,
-      comingSoon: true,
-      comingSoonDate: "09/2026",
+      available: true,
+      comingSoon: false,
       features: [
         "4 boxes 4x4 disponibles pour convalescence/poulinière",
         "Ventilation optimale naturelle",
@@ -211,15 +210,13 @@ const Installations = () => {
       description: "Tous les équipements nécessaires pour un service complet et professionnel",
       icon: Wrench,
       delay: 0.6,
-      available: false,
-      comingSoon: true,
-      comingSoonDate: "09/2026",
+      available: true,
+      comingSoon: false,
       features: [
         "Sellerie commune sécurisée",
         "Aires de préparation avec eaux chaude" ,
         "Solarium",
-        "Parking visiteurs",
-        "Local Pharmacie"
+        "Parking visiteurs"
       ]
     }
   ];
