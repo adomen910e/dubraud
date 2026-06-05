@@ -275,6 +275,13 @@ Statut : **livré**, build CRA OK, vérifié en preview (inspect/eval).
 ### Divers
 - Typo Hero corrigée : « activité agricoles » → « activités agricoles ».
 
+### Allègement de l'accueil (2e itération, retour client)
+La page d'accueil était trop chargée. Retirés de la section `Services` :
+- la **rangée de métriques** (50 / 2025 / 100% satisfaction) — redondante avec les chiffres factuels de `FoinBioHighlight`, et résout le « 100% satisfaction » non sourcé.
+- le **bloc CTA « Prêt à nous rejoindre ? / Demander un devis gratuit »** — doublon des CTA déjà présents (Hero, About).
+
+Fil de page final : Hero → Nos Prestations (grille) → Foin bio → Le Domaine (CTA « Découvrir nos prestations »). Imports `Link` et `MapPin` nettoyés dans `Services.jsx`.
+
 ### Écarts assumés vs spec
 - §4c : la feature foin utilise une **icône feuille verte** plutôt qu'un chip texte redondant (plus sobre, le badge overlay porte déjà le message).
 - §2d (page Installations) : **non fait** dans cette passe (laissé en backlog pour éviter d'inventer du contenu sur la card Prairies).

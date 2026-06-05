@@ -20,7 +20,7 @@ const FoinBioBandeau = () => (
           <Wheat size={26} aria-hidden="true" />
         </span>
         <p className="text-center sm:text-left text-gray-700 leading-relaxed">
-          <span className="font-bold text-brand-primary">Foin &amp; enrubanné à volonté, produits sur place.</span>{' '}
+          <span className="font-bold text-brand-primary">Foin &amp; enrubanné produits sur place.</span>{' '}
           Toutes nos formules incluent un fourrage récolté sur nos prairies, menées en{' '}
           <span className="inline-flex items-center gap-1 font-semibold text-brand-bio-dark">
             <Leaf size={15} className="text-brand-bio" aria-hidden="true" /> agriculture biologique
