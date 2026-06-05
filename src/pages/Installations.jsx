@@ -159,13 +159,13 @@ const Installations = () => {
     {
       image: dubraud3,
       title: "Prairies et Paddocks",
-      description: "45 hectares de prairies pour le bien-être de vos chevaux",
+      description: "50 hectares de prairies pour le bien-être de vos chevaux",
       icon: Trees,
       delay: 0,
       available: true,
       comingSoon: false,
       features: [
-        "45 hectares de prairies",
+        "50 hectares de prairies",
         "Gestion des troupeaux en pâturages tournants pour des prairies préservées",
         "Paddocks vastes et sécurisés",
         "Clôtures haute sécurité",
@@ -226,7 +226,7 @@ const Installations = () => {
     {
       icon: Trees,
       title: "Prairies Naturelles",
-      description: "45 hectares de prairies"
+      description: "50 hectares de prairies"
     },
     {
       icon: Shield,
@@ -249,7 +249,7 @@ const Installations = () => {
     <div className="min-h-screen">
       <Seo
         title="Installations & prairies équestres près de Blaye | Dubraud"
-        description="Nos installations : 45 ha de prairies, box et paddocks pour la pension de votre cheval à Saint-Christoly-de-Blaye, à 45 min de Bordeaux."
+        description="Nos installations : 50 ha de prairies, box et paddocks pour la pension de votre cheval à Saint-Christoly-de-Blaye, à 45 min de Bordeaux."
         path="/installations"
         schema={{
           '@context': 'https://schema.org',
@@ -284,12 +284,12 @@ const Installations = () => {
               </motion.div>
               
               <h1 className="text-4xl md:text-5xl font-bold text-brand-brown mb-4 font-serif">
-                Nos installations : 45 hectares de prairies, box et paddocks
+                Nos installations : 50 hectares de prairies, box et paddocks
               </h1>
               <div className="w-32 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Découvrez nos installations en place et à venir, conçues pour offrir le meilleur environnement 
-                à vos chevaux dans un cadre préservé de 45 hectares.
+                à vos chevaux dans un cadre préservé de 50 hectares.
               </p>
             </AnimatedSection>
           </div>
@@ -438,7 +438,7 @@ const Installations = () => {
               </h2>
               <div className="w-32 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Explorez notre domaine de 45 hectares à travers cette galerie interactive. 
+                Explorez notre domaine de 50 hectares à travers cette galerie interactive. 
                 Cliquez sur les miniatures pour naviguer ou utilisez les flèches pour un défilement automatique.
               </p>
             </AnimatedSection>

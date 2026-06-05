@@ -20,7 +20,7 @@ const Hero = () => {
     {
       image: dubraud2,
       title: "Un cadre naturel préservé",
-      subtitle: "45 hectares de prairies pour le bien-être de vos chevaux",
+      subtitle: "50 hectares de prairies pour le bien-être de vos chevaux",
       cta: "Voir nos installations"
     },
     {

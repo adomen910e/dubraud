@@ -159,7 +159,7 @@ const Services = () => {
           delay={0.8}
         >
           {[
-            { number: "45", label: "Hectares au total", icon: MapPin },
+            { number: "50", label: "Hectares au total", icon: MapPin },
             { number: "2025", label: "Nouvelle activité", icon: Star },
             { number: "100%", label: "Satisfaction", icon: Heart }
           ].map((stat, index) => (

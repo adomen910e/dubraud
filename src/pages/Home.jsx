@@ -11,7 +11,7 @@ const Home = () => {
     <div className="min-h-screen">
       <Seo
         title="Pension pour chevaux en Gironde | Domaine de Dubraud"
-        description="Pension et élevage de chevaux sur 45 ha de prairies à Saint-Christoly-de-Blaye, près de Bordeaux. Pré-retraite, pré-sport, box et gîtes à la ferme. Appelez-nous."
+        description="Pension et élevage de chevaux sur 50 ha de prairies à Saint-Christoly-de-Blaye, près de Bordeaux. Pré-retraite, pré-sport, box et gîtes à la ferme. Appelez-nous."
         path="/"
       />
       <Header />

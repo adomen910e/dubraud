@@ -462,7 +462,7 @@ const Pensions = () => {
     {
       icon: Star,
       title: "Cadre Exceptionnel",
-      description: "45 hectares de prairies"
+      description: "50 hectares de prairies"
     }
   ];
 
@@ -483,35 +483,40 @@ const Pensions = () => {
       />
       <Header />
       <main>
-      {/* Header Simple et Direct */}
-      <section className="pt-28 pb-6 bg-gradient-to-b from-brand-cream to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Hero Section */}
+      <section className="pt-28 pb-6 bg-gradient-to-b from-brand-cream to-white relative overflow-hidden">
+        {/* Éléments décoratifs */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-5">
+          <div className="absolute top-10 right-10 w-20 h-20 bg-brand-gold rounded-full"></div>
+          <div className="absolute bottom-10 left-10 w-16 h-16 bg-brand-brown rounded-full"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimatedSection animation="fadeInUp" className="text-center">
+            <motion.div
+              className="flex items-center justify-center mb-6"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.2, type: "spring" }}
+            >
+              <Star className="text-brand-brown mr-3" size={32} />
+              <span className="text-brand-brown font-semibold text-lg tracking-wide">NOS FORMULES</span>
+            </motion.div>
+
             <h1 className="text-4xl md:text-5xl font-bold text-brand-brown mb-4 font-serif">
               Nos pensions pour chevaux : pré troupeau, confort, sport et installations
             </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
+            <div className="w-32 h-1 bg-gradient-to-r from-brand-brown via-brand-gold to-brand-brown mx-auto mb-6"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Cinq formules pensées pour répondre aux besoins spécifiques de votre cheval, dans un environnement exceptionnel de 45 hectares.
+              Cinq formules pensées pour répondre aux besoins spécifiques de votre cheval, dans un environnement exceptionnel de 50 hectares.
             </p>
           </AnimatedSection>
         </div>
       </section>
 
       {/* Pensions Grid - Améliorée */}
-      <section id="pensions" className="pt-10 pb-20 bg-gradient-to-b from-white to-brand-cream/30">
+      <section id="pensions" className="pt-8 pb-20 bg-gradient-to-b from-white to-brand-cream/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection animation="fadeInUp" className="text-center mb-10">
-            <motion.div
-              className="flex items-center justify-center"
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2, type: "spring" }}
-            >
-              <span className="text-brand-brown font-semibold text-lg tracking-wide">NOS FORMULES</span>
-            </motion.div>
-          </AnimatedSection>
-          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {pensions.map((pension, index) => (
               <PensionCard key={index} {...pension} />
